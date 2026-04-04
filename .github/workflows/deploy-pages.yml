@@ -1,20 +1,29 @@
 name: Deploy Portfolio to GitHub Pages
 
+# Trigger on pushes to production and temporary feature branch.
+# Keep the feature branch here only while validating setup.
 on:
   push:
     branches: [main, feature/development-environment]
+  # Allow manual runs from the Actions tab.
   workflow_dispatch:
 
+# Principle of least privilege for GITHUB_TOKEN.
 permissions:
+  # Needed to read repository files during checkout/build.
   contents: read
+  # Required by deploy-pages action to publish the site.
   pages: write
+  # Required for OIDC token exchange used by Pages deployment.
   id-token: write
 
+# Prevent overlapping deploys. A newer run cancels an older one.
 concurrency:
   group: pages
   cancel-in-progress: true
 
 jobs:
+  # Build job: prepare static site files and upload artifact.
   build:
     runs-on: ubuntu-latest
     steps:
@@ -23,18 +32,23 @@ jobs:
 
       - name: Prepare static bundle
         run: |
+          # dist is the exact folder that will be published.
           mkdir -p dist
           cp -r index.html styles.css script.js content assets dist/
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
+          # Must point to the folder created in the previous step.
           path: dist
 
+  # Deploy job: publish uploaded artifact to GitHub Pages.
   deploy:
+    # Run deploy only if build succeeds.
     needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
+        # Step id allows referencing outputs later if needed.
         id: deployment
         uses: actions/deploy-pages@v4
