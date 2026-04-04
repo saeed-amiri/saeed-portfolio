@@ -65,17 +65,17 @@ body {
 
 /* What: Brand text emphasis. Why: strengthen personal identity at first glance. */
 .brand {
-  font-family: "Carlito", Calibri, Candara, "Segoe UI", "Trebuchet MS", sans-serif;
-  font-size: 1.15rem;
-  font-weight: 600;
-  letter-spacing: 0;
+  font-family: "Pinyon Script", "Brush Script MT", cursive;
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
 }
 
 #brandName {
-  font-family: "Carlito", Calibri, Candara, "Segoe UI", "Trebuchet MS", sans-serif !important;
-  font-size: 1.18rem;
-  font-weight: 600;
-  letter-spacing: 0 !important;
+  font-family: "Pinyon Script", "Brush Script MT", cursive !important;
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 0.01em !important;
 }
 
 /* What: Action controls row. Why: keep language and PDF buttons organized and wrap safely on small widths. */
