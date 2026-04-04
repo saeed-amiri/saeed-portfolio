@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles/main.css" />
   </head>
   <body>
     <div class="bg-shape bg-shape-1" aria-hidden="true"></div>
@@ -23,6 +23,7 @@
     <header class="topbar">
       <div class="brand" id="brandName">Saeed Amiri</div>
       <nav class="controls" aria-label="Language and actions">
+        <a class="chip" href="pages/projects.html">Projects</a>
         <button class="chip" id="langEn" type="button">English</button>
         <button class="chip" id="langDe" type="button">Deutsch</button>
         <button class="chip accent" id="downloadPdf" type="button">Download PDF</button>
@@ -45,41 +46,55 @@
         <a id="github" class="contact-link" href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
       </aside>
 
-      <section class="content reveal">
-        <section class="panel" id="bioSection">
+      <section class="content reveal" id="contentRoot">
+        <section class="panel" id="bioSection" data-section-key="bio" data-detail-key="bio">
           <h2 id="bioTitle"></h2>
           <p id="bioText"></p>
         </section>
 
-        <section class="panel" id="featuredSection">
-          <h2 id="featuredTitle"></h2>
-          <div class="quick-links">
-            <a id="thesisLink" class="action-link" target="_blank" rel="noopener noreferrer"></a>
-            <a id="mlopsLink" class="action-link" target="_blank" rel="noopener noreferrer"></a>
-          </div>
-        </section>
-
-        <section class="panel" id="experienceSection">
+        <section class="panel" id="experienceSection" data-section-key="experience" data-detail-key="experience">
           <h2 id="experienceTitle"></h2>
           <div id="experienceList" class="timeline"></div>
         </section>
 
-        <section class="panel" id="educationSection">
+        <section class="panel" id="trainingsSection" data-section-key="trainings" data-detail-key="trainings">
+          <h2 id="trainingsTitle"></h2>
+          <div id="trainingsList" class="timeline"></div>
+        </section>
+
+        <section class="panel" id="educationSection" data-section-key="education" data-detail-key="education">
           <h2 id="educationTitle"></h2>
           <div id="educationList" class="timeline"></div>
         </section>
 
-        <section class="panel" id="certSection">
+        <section class="panel" id="skillsSection" data-section-key="skills" data-detail-key="skills">
+          <h2 id="skillsTitle"></h2>
+          <div id="skillsList" class="skills-list"></div>
+        </section>
+
+        <section class="panel" id="certSection" data-section-key="certifications" data-detail-key="certifications">
           <h2 id="certTitle"></h2>
           <div id="certGrid" class="cert-grid"></div>
         </section>
       </section>
+
+      <aside class="section-rail" id="sectionRail" aria-label="Section navigation">
+        <ul id="sectionRailList"></ul>
+      </aside>
     </main>
 
     <footer class="footer">
       <small id="footerText"></small>
     </footer>
 
-    <script src="script.js" defer></script>
+    <div class="modal-backdrop hidden" id="detailModalBackdrop" aria-hidden="true">
+      <div class="detail-modal" id="detailModal" role="dialog" aria-modal="true" aria-labelledby="detailModalTitle">
+        <button class="modal-close" id="detailModalClose" type="button" aria-label="Close detail view">x</button>
+        <h3 id="detailModalTitle"></h3>
+        <div id="detailModalContent"></div>
+      </div>
+    </div>
+
+    <script type="module" src="scripts/main.js"></script>
   </body>
 </html>

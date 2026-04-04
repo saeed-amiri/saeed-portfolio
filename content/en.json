@@ -11,16 +11,20 @@
   },
   "labels": {
     "bio": "Short Bio",
-    "featured": "Featured Links",
     "experience": "Experience",
+    "trainings": "Further Trainings",
     "education": "Education",
+    "skills": "Skills",
     "certifications": "Certifications",
+    "moreDetails": "More",
+    "noSkillsYet": "Add your key skills to unlock evidence popups.",
+    "evidenceTitle": "Evidence",
     "downloadPdf": "Download PDF",
     "linkedin": "LinkedIn",
     "github": "GitHub",
     "profilePhotoAlt": "Profile photo"
   },
-  "bio": "I build practical machine learning systems and production-ready software. My focus is MLOps, reliable deployment pipelines, and clear communication between data and engineering teams.",
+  "bio": "Physicist (PhD) and Machine Learning Engineer with extensive experience in large‑scale data analysis, scientific simulation, and automated workflow design. I build robust ML and MLOps systems, design reproducible pipelines, and work comfortably with high‑dimensional, fast‑moving datasets. My focus is on translating complex analytical workflows into scalable, reliable services that operate in real‑time environments. I bridge the gap between research prototypes and production systems, ensuring clarity, maintainability, and operational stability. Driven by analytical rigor and system thinking, I enjoy developing solutions that support data‑driven decision‑making in technically demanding domains.",
   "links": {
     "thesis": {
       "label": "Read my thesis",
@@ -33,37 +37,341 @@
   },
   "experience": [
     {
-      "role": "Machine Learning Engineer",
-      "org": "Your Company",
-      "period": "2024 - Present",
-      "summary": "Designed and shipped ML services with CI/CD, observability, and model lifecycle tracking."
+      "id": "exp-mlops-engineer",
+      "role": "MLOps / Machine Learning Engineer",
+      "org": "Liora / DataScientest",
+      "period": "Present - Mar 2026",
+      "summary": "Weather prediction pipeline from model development and reproducibility to deployment and monitoring."
     },
     {
-      "role": "Software Developer",
-      "org": "Your Team",
-      "period": "2022 - 2024",
-      "summary": "Built backend services and automation that improved release quality and reduced manual ops work."
+      "id": "exp-data-scientist",
+      "role": "Data Scientist",
+      "org": "Liora / DataScientest",
+      "period": "Sep 2025 - Dec 2025",
+      "summary": "Anomaly detection in automotive CAN bus data with 100M+ records and extreme class imbalance."
+    },
+    {
+      "id": "exp-postdoc-bremen",
+      "role": "Postdoctoral Researcher",
+      "org": "University of Bremen, Hybrid Materials Interfaces Group",
+      "period": "Feb 2022 - Jan 2025",
+      "summary": "Built scalable simulation and data-processing workflows for large HPC datasets and faster experimentation cycles."
+    },
+    {
+      "id": "exp-doctoral-goettingen",
+      "role": "Doctoral Researcher",
+      "org": "Georg-August-Universitat Gottingen, Institut fur Materialphysik",
+      "period": "May 2018 - Oct 2021",
+      "summary": "Modeled atomic-scale friction systems on HLRN HPC clusters with strong gains in runtime, memory use, and reliability."
+    },
+    {
+      "id": "exp-accounting-ops",
+      "role": "Accounting and Operations Manager",
+      "org": "Stone-Cutting Workshop, Iran",
+      "period": "Jan 2007 - May 2018",
+      "summary": "Managed payroll, financial operations, and tax compliance while improving cost tracking and forecasting."
+    }
+  ],
+  "trainings": [
+    {
+      "id": "training-mlops-engineer",
+      "role": "MLOps / Machine Learning Engineer",
+      "org": "Liora / DataScientest",
+      "period": "Present - Mar 2026",
+      "summary": "Docker, Kubernetes, API security, Airflow, Prefect, MLflow, DVC, Dagshub; completed 5-day AWS modules (Cloud Practitioner and Solutions Architect) and AWS MLOps; experiment tracking, orchestration, CI/CD, model serving with BentoML, and monitoring with Prometheus and Grafana."
+    },
+    {
+      "id": "training-data-scientist",
+      "role": "Data Scientist",
+      "org": "Liora / DataScientest",
+      "period": "Sep 2025 - Dec 2025",
+      "summary": "Classification, regression, clustering, dimensionality reduction, and advanced ML; feature engineering, pipelines, deep learning (Dense NN, CNN, computer vision), time series, transformers, and LLMs."
     }
   ],
   "education": [
     {
-      "role": "MSc in Computer Science",
-      "org": "Your University",
-      "period": "2020 - 2022",
-      "summary": "Specialized in machine learning systems, model evaluation, and scalable data processing."
+      "id": "edu-phd-theoretical-physics",
+      "role": "Dr. rer. nat. in Theoretical Physics (Material Science)",
+      "org": "Georg-August-Universitat Gottingen",
+      "period": "May 2018 - Oct 2021",
+      "summary": "Dissertation on friction under active control in systems with tailored degrees of freedom; grade: magna cum laude."
+    },
+    {
+      "id": "edu-master-physics-nano",
+      "role": "Master in Physics (NanoScience and NanoTechnology)",
+      "org": "University of Damghan, Damghan, Iran",
+      "period": "Sep 2013 - Sep 2016",
+      "summary": "Dissertation on band structure and quantum transmission through phosphorene with impurities and defects (DFT study of 2D materials)."
     }
   ],
   "certifications": [
     {
+      "id": "cert-1",
       "title": "Certificate Example 1",
       "image": "assets/cert-placeholder-1.svg",
       "link": "assets/cert-placeholder-1.svg"
     },
     {
+      "id": "cert-2",
       "title": "Certificate Example 2",
       "image": "assets/cert-placeholder-2.svg",
       "link": "assets/cert-placeholder-2.svg"
     }
   ],
+  "skills": [],
+  "skillRows": [
+    {
+      "category": "Programming and Tools",
+      "items": "Python (9+ years), SQL, C, Fortran, Git, GitHub, Dagshub, CI/CD, Linux (14+ years), FastAPI"
+    },
+    {
+      "category": "MLOps and Deployment",
+      "items": "Docker, MLflow, DVC, real-time model serving, automated retraining, drift monitoring"
+    },
+    {
+      "category": "Data and Visualization",
+      "items": "Pandas, asyncio, multiprocessing, Matplotlib, Seaborn, Plotly, Streamlit"
+    },
+    {
+      "category": "Cloud and Infrastructure",
+      "items": "AWS Cloud Practitioner modules, cloud fundamentals, API Security"
+    },
+    {
+      "category": "Data Engineering and Orchestration",
+      "items": "Batch and stream processing, ELT/ETL pipelines, Airflow, Prefect"
+    },
+    {
+      "category": "Machine Learning",
+      "items": "scikit-learn, TensorFlow, PyTorch, SciPy, NumPy, XGBoost"
+    }
+  ],
+  "sectionDetails": {
+    "bio": {
+      "title": "About My Work Style",
+      "summary": "I focus on production-grade ML systems that stay reliable after launch.",
+      "bullets": [
+        "Strong on maintainability and clear ownership boundaries.",
+        "Prefer measurable impact over tool-name checklists.",
+        "Translate business goals into practical technical milestones."
+      ],
+      "images": [
+        { "src": "assets/profile-placeholder.svg?v=20260404-1", "alt": "Professional profile image" }
+      ],
+      "links": []
+    },
+    "experience": {
+      "title": "Experience Deep Dive",
+      "summary": "The main timeline is concise; this view gives richer context.",
+      "bullets": [
+        "Designed CI/CD pipelines for ML services.",
+        "Set observability baselines for model and API behavior.",
+        "Reduced manual release steps through automation."
+      ],
+      "images": [
+        { "src": "assets/cert-placeholder-1.svg", "alt": "Architecture or delivery snapshot" }
+      ],
+      "links": []
+    },
+    "trainings": {
+      "title": "Further Trainings Details",
+      "summary": "Professional training track focused on MLOps and applied data science.",
+      "bullets": [
+        "MLOps stack: orchestration, experiment tracking, CI/CD, model serving, monitoring.",
+        "AWS learning modules: Cloud Practitioner, Solutions Architect, and MLOps-oriented practice.",
+        "Advanced data science and deep learning curriculum including transformers and LLMs."
+      ],
+      "images": [],
+      "links": []
+    },
+    "education": {
+      "title": "Education Details",
+      "summary": "Research and academic focus that informs practical engineering work.",
+      "bullets": [
+        "ML systems evaluation and model quality analysis.",
+        "Data-processing approaches for scalability.",
+        "Applied research translated into deployment-oriented decisions."
+      ],
+      "images": [],
+      "links": []
+    },
+    "skills": {
+      "title": "Skill Strategy",
+      "summary": "Each skill chip opens evidence from repositories, projects, or certifications.",
+      "bullets": [
+        "Use evidence links instead of generic skill bars.",
+        "Keep proof concrete: repo, file, or certificate reference."
+      ],
+      "images": [],
+      "links": []
+    },
+    "certifications": {
+      "title": "Certification Context",
+      "summary": "Certificates are strongest when linked to practical project outcomes.",
+      "bullets": [
+        "Pair each certificate with one real implementation example.",
+        "Keep images clear and metadata-clean for public sharing."
+      ],
+      "images": [
+        { "src": "assets/cert-placeholder-1.svg", "alt": "Certification image sample" },
+        { "src": "assets/cert-placeholder-2.svg", "alt": "Certification image sample" }
+      ],
+      "links": []
+    }
+  },
+  "trainingDetails": {
+    "training-mlops-engineer": {
+      "title": "MLOps / Machine Learning Engineer Training",
+      "summary": "Professional track at Liora / DataScientest focused on end-to-end MLOps delivery.",
+      "bullets": [
+        "Core stack: Docker, Kubernetes, API Security, Airflow, Prefect, MLflow, DVC, Dagshub.",
+        "Completed AWS modules: Cloud Practitioner, Solutions Architect, and AWS MLOps content.",
+        "Hands-on implementation: experiment tracking, orchestration, CI/CD, BentoML serving, Prometheus and Grafana monitoring."
+      ],
+      "images": [
+        { "src": "assets/cert-placeholder-1.svg", "alt": "MLOps training certificate" }
+      ],
+      "links": [
+        { "label": "MLOps project repository", "url": "https://github.com/saeed-amiri/your-mlops-project" }
+      ]
+    },
+    "training-data-scientist": {
+      "title": "Data Scientist Training",
+      "summary": "Data science specialization at Liora / DataScientest with advanced ML and DL coverage.",
+      "bullets": [
+        "Machine learning domains: classification, regression, clustering, dimensionality reduction.",
+        "Advanced pipeline work: feature engineering and workflow design.",
+        "Deep learning and modern AI topics: Dense NN, CNN, CV, time series, transformers, and LLMs."
+      ],
+      "images": [
+        { "src": "assets/cert-placeholder-2.svg", "alt": "Data science training certificate" }
+      ],
+      "links": []
+    }
+  },
+  "educationDetails": {
+    "edu-phd-theoretical-physics": {
+      "title": "Dr. rer. nat. in Theoretical Physics (Material Science)",
+      "summary": "Georg-August-Universitat Gottingen (May 2018 - Oct 2021)",
+      "bullets": [
+        "Dissertation: Friction under active control in systems with tailored degrees of freedom.",
+        "Grade: magna cum laude"
+      ],
+      "images": [],
+      "links": []
+    },
+    "edu-master-physics-nano": {
+      "title": "Master in Physics (NanoScience and NanoTechnology)",
+      "summary": "University of Damghan, Damghan, Iran (Sep 2013 - Sep 2016)",
+      "bullets": [
+        "Dissertation: Investigation of the band structure and quantum transmission through phosphorene in presence of impurities and defects (DFT study of 2D materials)."
+      ],
+      "images": [],
+      "links": []
+    }
+  },
+  "experienceDetails": {
+    "exp-mlops-engineer": {
+      "title": "MLOps / Machine Learning Engineer",
+      "summary": "Liora / DataScientest (Present - Mar 2026)",
+      "bullets": [
+        "Weather prediction: end-to-end pipeline, training reproducibility, deployment, and monitoring.",
+        "Model development, inference, DVC repro, Dagshub, CI/CD, testing, MLflow and Airflow integration.",
+        "Model serving, orchestration, production workflows, and monitoring with Prometheus and Grafana.",
+        "Data ingestion via APIs, preprocessing, feature creation, and feature selection."
+      ],
+      "images": [],
+      "links": []
+    },
+    "exp-data-scientist": {
+      "title": "Data Scientist",
+      "summary": "Liora / DataScientest (Sep 2025 - Dec 2025)",
+      "bullets": [
+        "Anomaly detection in automotive CAN bus data project.",
+        "Handled 100M+ records, extreme class imbalance, time series, and rational/non-rational data.",
+        "Built supervised and unsupervised models (XGBoost, SVM, Isolation Forest) with 99% prediction accuracy."
+      ],
+      "images": [],
+      "links": []
+    },
+    "exp-postdoc-bremen": {
+      "title": "Postdoctoral Researcher",
+      "summary": "University of Bremen, Hybrid Materials Interfaces Group (Feb 2022 - Jan 2025)",
+      "bullets": [
+        "Built scalable simulation workflows translating physical experiments into automated Python/Bash pipelines.",
+        "Designed high-dimensional data-processing logic for 50GB+ datasets with zero validation loss.",
+        "Reduced HPC trial-and-error cycles by 50% through workflow automation.",
+        "Optimized HPC workflows with 10x speedup (100+ hours to under 12 hours)."
+      ],
+      "images": [],
+      "links": []
+    },
+    "exp-doctoral-goettingen": {
+      "title": "Doctoral Researcher",
+      "summary": "Georg-August-Universitat Gottingen, Institut fur Materialphysik (May 2018 - Oct 2021)",
+      "bullets": [
+        "Modeled atomic-scale friction systems using Python and C on HLRN HPC clusters.",
+        "Improved computational efficiency by 10% via constraint monitoring and automated cleanup.",
+        "Reduced memory usage by 60% through optimized data structures and on-the-fly processing."
+      ],
+      "images": [],
+      "links": []
+    },
+    "exp-accounting-ops": {
+      "title": "Accounting and Operations Manager",
+      "summary": "Stone-Cutting Workshop, Iran (Jan 2007 - May 2018)",
+      "bullets": [
+        "Managed payroll, financial operations, and tax compliance for 25+ employees.",
+        "Built cost-tracking and forecasting systems supporting production scaling."
+      ],
+      "images": [],
+      "links": []
+    }
+  },
+  "skillEvidence": {
+    "skill-mlops": {
+      "title": "MLOps Evidence",
+      "summary": "Where I applied MLOps practices in real work.",
+      "bullets": [
+        "CI/CD integration for ML service release flow.",
+        "Model lifecycle monitoring and rollout discipline."
+      ],
+      "images": [],
+      "links": [
+        { "label": "MLOps project repository", "url": "https://github.com/saeed-amiri/your-mlops-project" }
+      ]
+    },
+    "skill-python": {
+      "title": "Python Evidence",
+      "summary": "Python usage across automation and ML workflows.",
+      "bullets": [
+        "Service scripting and deployment automation.",
+        "Model experimentation and data preparation."
+      ],
+      "images": [],
+      "links": [
+        { "label": "Portfolio repository", "url": "https://github.com/saeed-amiri/saeed-portfolio" }
+      ]
+    },
+    "skill-docker": {
+      "title": "Docker Evidence",
+      "summary": "Containerized workflow and reproducible runtime setup.",
+      "bullets": [
+        "Standardized local and CI runtime environments.",
+        "Reduced environment drift during deployment."
+      ],
+      "images": [],
+      "links": []
+    },
+    "skill-ml": {
+      "title": "Machine Learning Evidence",
+      "summary": "Applied ML methods in production-oriented contexts.",
+      "bullets": [
+        "Model training and evaluation with deployment considerations.",
+        "Integration of model outputs into product workflows."
+      ],
+      "images": [],
+      "links": []
+    }
+  },
   "footer": "Open portfolio repository for recruiters and collaborators."
 }

@@ -19,9 +19,10 @@ GitHub cannot automatically open the website when someone opens the repository p
 
 ## Project structure
 
-- [index.html](index.html): Page layout and sections
-- [styles.css](styles.css): Visual design and print styles for PDF
-- [script.js](script.js): Language switch and dynamic rendering
+- [index.html](index.html): Main CV page (root entry for GitHub Pages)
+- [pages/projects.html](pages/projects.html): Secondary page for project-focused content
+- [styles/main.css](styles/main.css): Shared visual design and print styles
+- [scripts/main.js](scripts/main.js): Language switch and dynamic CV rendering
 - [content/en.json](content/en.json): English CV content
 - [content/de.json](content/de.json): German CV content
 - [assets/](assets): Profile and certification images
