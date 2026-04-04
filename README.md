@@ -2,6 +2,12 @@
 
 Professional, open-source portfolio CV optimized for GitHub Pages.
 
+## Open Portfolio
+
+Live URL: [https://saeed-amiri.github.io/saeed-portfolio/](https://saeed-amiri.github.io/saeed-portfolio/)
+
+GitHub cannot automatically open the website when someone opens the repository page itself, but this top link is the standard way to make it one-click.
+
 ## What is included
 
 - Interactive one-page CV in [index.html](index.html)
@@ -53,6 +59,7 @@ Then open `http://localhost:8000`.
 2. In repository settings, open `Pages`.
 3. Set source to `GitHub Actions`.
 4. Push to `main` to deploy.
+5. Add the same URL in repository `About -> Website` so visitors see it on the right panel.
 
 ## Security and privacy checklist for an open CV repo
 
