@@ -34,7 +34,7 @@ jobs:
         run: |
           # dist is the exact folder that will be published.
           mkdir -p dist
-          cp -r index.html styles.css script.js content assets dist/
+          cp -r index.html pages styles scripts content assets dist/
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
