@@ -1,0 +1,69 @@
+{
+  "pageTitle": "Saeed Amiri | Portfolio CV",
+  "profile": {
+    "name": "Saeed Amiri",
+    "headline": "ML Engineer and MLOps-focused Software Developer",
+    "location": "Germany",
+    "email": "your-professional-email@example.com",
+    "linkedin": "https://www.linkedin.com/in/your-profile",
+    "github": "https://github.com/saeed-amiri",
+    "photo": "assets/profile-placeholder.svg"
+  },
+  "labels": {
+    "bio": "Short Bio",
+    "featured": "Featured Links",
+    "experience": "Experience",
+    "education": "Education",
+    "certifications": "Certifications",
+    "downloadPdf": "Download PDF",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "profilePhotoAlt": "Profile photo"
+  },
+  "bio": "I build practical machine learning systems and production-ready software. My focus is MLOps, reliable deployment pipelines, and clear communication between data and engineering teams.",
+  "links": {
+    "thesis": {
+      "label": "Read my thesis",
+      "url": "https://example.com/your-thesis"
+    },
+    "mlops": {
+      "label": "See my MLOps project",
+      "url": "https://github.com/saeed-amiri/your-mlops-project"
+    }
+  },
+  "experience": [
+    {
+      "role": "Machine Learning Engineer",
+      "org": "Your Company",
+      "period": "2024 - Present",
+      "summary": "Designed and shipped ML services with CI/CD, observability, and model lifecycle tracking."
+    },
+    {
+      "role": "Software Developer",
+      "org": "Your Team",
+      "period": "2022 - 2024",
+      "summary": "Built backend services and automation that improved release quality and reduced manual ops work."
+    }
+  ],
+  "education": [
+    {
+      "role": "MSc in Computer Science",
+      "org": "Your University",
+      "period": "2020 - 2022",
+      "summary": "Specialized in machine learning systems, model evaluation, and scalable data processing."
+    }
+  ],
+  "certifications": [
+    {
+      "title": "Certificate Example 1",
+      "image": "assets/cert-placeholder-1.svg",
+      "link": "assets/cert-placeholder-1.svg"
+    },
+    {
+      "title": "Certificate Example 2",
+      "image": "assets/cert-placeholder-2.svg",
+      "link": "assets/cert-placeholder-2.svg"
+    }
+  ],
+  "footer": "Open portfolio repository for recruiters and collaborators."
+}

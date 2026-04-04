@@ -1,0 +1,284 @@
+:root {
+  --bg: #f6f3ee;
+  --paper: #fffdf8;
+  --text: #1f1b16;
+  --muted: #6f655b;
+  --accent: #c44c28;
+  --accent-soft: #f2d3c8;
+  --line: #dfd4c5;
+  --shadow: 0 16px 32px rgba(45, 32, 20, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  font-family: "Space Grotesk", sans-serif;
+  background:
+    radial-gradient(circle at 12% 10%, #f6d9b9 0%, transparent 40%),
+    radial-gradient(circle at 90% 90%, #e9d7ef 0%, transparent 42%),
+    var(--bg);
+}
+
+.bg-shape {
+  position: fixed;
+  border-radius: 999px;
+  z-index: -1;
+  filter: blur(2px);
+}
+
+.bg-shape-1 {
+  width: 22rem;
+  height: 22rem;
+  top: -7rem;
+  right: -4rem;
+  background: rgba(196, 76, 40, 0.13);
+}
+
+.bg-shape-2 {
+  width: 20rem;
+  height: 20rem;
+  bottom: -8rem;
+  left: -5rem;
+  background: rgba(24, 119, 95, 0.13);
+}
+
+.topbar {
+  max-width: 1100px;
+  margin: 1.4rem auto;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.controls {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.chip {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+  font: inherit;
+}
+
+.chip.active {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.chip.accent {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+.layout {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem 2rem;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 1rem;
+}
+
+.profile-card,
+.panel {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+}
+
+.profile-card {
+  padding: 1.1rem;
+  position: sticky;
+  top: 1rem;
+  height: fit-content;
+}
+
+.profile-photo {
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+}
+
+h1 {
+  margin: 0.8rem 0 0.2rem;
+  font-size: 1.5rem;
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.headline,
+.meta {
+  margin: 0.35rem 0;
+  color: var(--muted);
+}
+
+.contact-link {
+  display: block;
+  margin: 0.45rem 0;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.contact-link:hover {
+  text-decoration: underline;
+}
+
+.content {
+  display: grid;
+  gap: 1rem;
+}
+
+.panel {
+  padding: 1.1rem;
+}
+
+.panel p,
+.timeline p {
+  font-family: "Source Serif 4", serif;
+  font-size: 1.02rem;
+  line-height: 1.6;
+}
+
+.quick-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 0.8rem;
+}
+
+.action-link {
+  text-decoration: none;
+  color: var(--accent);
+  border: 1px solid var(--accent-soft);
+  background: #fff;
+  border-radius: 12px;
+  padding: 0.55rem 0.8rem;
+}
+
+.timeline {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 0.8rem;
+}
+
+.timeline-item {
+  border-left: 3px solid var(--accent-soft);
+  padding-left: 0.8rem;
+}
+
+.timeline-item h3 {
+  margin: 0;
+}
+
+.timeline-item .period {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.8rem;
+  margin-top: 0.8rem;
+}
+
+.cert-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.cert-card img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  display: block;
+}
+
+.cert-card a {
+  display: block;
+  padding: 0.65rem;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.footer {
+  max-width: 1100px;
+  margin: 0 auto 2rem;
+  padding: 0 1rem;
+  color: var(--muted);
+}
+
+.reveal {
+  animation: revealUp 540ms ease both;
+}
+
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-card {
+    position: static;
+  }
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  .bg-shape,
+  .controls,
+  .footer {
+    display: none;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+    max-width: none;
+    padding: 0;
+  }
+
+  .profile-card,
+  .panel {
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    break-inside: avoid;
+  }
+}

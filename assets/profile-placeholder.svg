@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="1200" viewBox="0 0 960 1200" role="img" aria-label="Profile photo placeholder">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f0dac4" />
+      <stop offset="100%" stop-color="#d5e4df" />
+    </linearGradient>
+  </defs>
+  <rect width="960" height="1200" fill="url(#g)" />
+  <circle cx="480" cy="410" r="170" fill="#ffffff" opacity="0.8" />
+  <path d="M250 930c40-180 170-260 230-260s190 80 230 260" fill="#ffffff" opacity="0.85" />
+  <text x="480" y="1080" text-anchor="middle" font-size="42" font-family="Arial, sans-serif" fill="#3d3a35">Add your professional photo</text>
+</svg>
