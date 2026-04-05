@@ -1,10 +1,59 @@
 {
   "title": "Dr. rer. nat. in Theoretical Physics (Material Science)",
-  "summary": "Georg-August-Universitat Gottingen (May 2018 - Oct 2021)",
-  "bullets": [
-    "Dissertation: Friction under active control in systems with tailored degrees of freedom.",
-    "Grade: magna cum laude"
-  ],
-  "images": [],
-  "links": []
+  "content": [
+    {
+      "type": "summary",
+      "text": "Georg-August-Universitat Gottingen (May 2018 - Oct 2021)\nGrade: magna cum laude"
+    },
+    {
+      "type": "body",
+      "html": "<h2>Atomic-Scale Friction and Energy Dissipation</h2><p>My PhD research developed a molecular-dynamics framework to investigate how dry sliding interfaces dissipate energy through phonon modes. By studying a kicked atomic slider on an incommensurate substrate, I analyzed how translational kinetic energy evolves into vibrational motion and how this process governs friction at the microscopic level. Using classical MD and eigenmode analysis, the work provides a mode-resolved understanding of energy flow, thermalization, and nonlinear dynamics in low-dimensional systems.</p>"
+    },
+    {
+      "type": "body",
+      "html": "<h2>Key Scientific Contributions</h2>"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "<b>Anharmonicity as the driver of friction:</b> demonstrated how intrinsic and extrinsic anharmonicity (bond interactions, defects, boundary effects) controls mode coupling, resonance behavior, and the rate of thermalization.",
+        "<b>Boundary-condition effects:</b> showed that free-end sliders introduce additional dissipation channels (rotation, torsion, breathing modes), while rigid or periodic boundaries suppress these pathways and alter friction.",
+        "<b>Defects and substrate geometry:</b> identified how defects enhance pinning and friction, and how substrate periodicity determines resonance velocities and activation of specific vibrational modes."
+      ]
+    },
+    {
+      "type": "body",
+      "html": "<p>Building on these results, the thesis provides a coherent physical picture of how microscopic structural features shape macroscopic friction. By comparing defect-free, defect-rich, and edge-modified systems, the work connects tribology with nonlinear dynamics and phonon transport. The findings form a foundation for extending such models to more realistic three-dimensional interfaces and for understanding friction in complex, disordered materials.</p>"
+    },
+    {
+      "type": "images",
+      "items": [
+        {
+          "src": "modes.png",
+          "alt": "Modes"
+        },
+        {
+          "src": "trapped_ions.png",
+          "alt": "Trapped Ions"
+        }
+      ]
+    },
+    {
+      "type": "links",
+      "items": [
+        {
+          "label": "Thesis (eDiSS)",
+          "url": "https://ediss.uni-goettingen.de/handle/21.11130/00-1735-0000-0008-59BC-1"
+        },
+        {
+          "label": "Thesis (pdf)",
+          "url": "https://share.google/B2CrXDvI6q5e21XlD"
+        },
+        {
+          "label": "Friction on incommensurate substrates: Role of anharmonicity and defects (PRE)",
+          "url": "https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.014802"
+        }           
+      ]
+    }
+  ]
 }
