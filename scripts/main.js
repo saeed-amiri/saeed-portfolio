@@ -88,7 +88,10 @@ function applyContent(raw) {
 
   annotateSectionDetailAvailability(data.sectionDetails);
   ensureSectionDetailTriggers(data);
-  buildSectionRail(getSectionLabelMap(data));
+  buildSectionRail(getSectionLabelMap(data), {
+    top: data.labels.railTop,
+    bottom: data.labels.railBottom,
+  });
   updateRailActiveState();
 
   elements.footerText.textContent = data.footer;

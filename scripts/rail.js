@@ -37,7 +37,7 @@ function appendRailButton(key, label) {
   elements.sectionRailList.appendChild(item);
 }
 
-export function buildSectionRail(labelMap) {
+export function buildSectionRail(labelMap, edgeLabels = {}) {
   if (!featureFlags.sectionRail) {
     elements.sectionRail.classList.add("hidden");
     return;
@@ -46,7 +46,10 @@ export function buildSectionRail(labelMap) {
   elements.sectionRail.classList.remove("hidden");
   elements.sectionRailList.innerHTML = "";
 
-  appendRailButton("__top__", "Top");
+  const topLabel = edgeLabels.top || (state.lang === "de" ? "Oben" : "Top");
+  const bottomLabel = edgeLabels.bottom || (state.lang === "de" ? "Unten" : "Bottom");
+
+  appendRailButton("__top__", topLabel);
 
   elements.sectionPanels.forEach((panel) => {
     const key = panel.dataset.sectionKey;
@@ -54,7 +57,7 @@ export function buildSectionRail(labelMap) {
     appendRailButton(key, label);
   });
 
-  appendRailButton("__bottom__", "Bottom");
+  appendRailButton("__bottom__", bottomLabel);
 }
 
 export function updateRailActiveState() {

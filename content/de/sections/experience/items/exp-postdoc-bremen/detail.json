@@ -1,12 +1,112 @@
 {
-  "title": "Postdoctoral Researcher",
-  "summary": "University of Bremen, Hybrid Materials Interfaces Group (Feb 2022 - Jan 2025)",
-  "bullets": [
-    "Skalierbare Simulations-Workflows aufgebaut und Experimente in automatisierte Python/Bash-Pipelines uberfuhrt.",
-    "Hochdimensionale Datenverarbeitung fur 50GB+ Datensatze mit zero validation loss entworfen.",
-    "HPC trial-and-error cycles durch Workflow-Automatisierung um 50% reduziert.",
-    "HPC-Workflows optimiert mit 10x Speedup (100+ Stunden auf unter 12 Stunden)."
-  ],
-  "images": [],
-  "links": []
+  "title": "Nanopartikel und Tenside an Flüssig-Flüssig-Grenzflächen",
+  "content": [
+    {
+      "type": "summary",
+      "text": "University of Bremen, Hybrid Materials Interfaces Group (Feb 2022 - Jan 2025)"
+    },
+    {
+      "type": "body",
+      "html": "<h2>Methoden und wissenschaftlicher Fokus</h2><p>Diese Arbeit untersucht, wie funktionalisierte Silica-Nanopartikel und oberflächenaktive Moleküle an Öl-Wasser-Grenzflächen miteinander wechselwirken. Dabei wurden molekulare Simulation, Kontinuumselektrostatik und synchrotronbasierte Grenzflächencharakterisierung kombiniert. Der Schwerpunkt liegt auf Mechanismen, Methodik und Grenzflächenphysik.</p>"
+    },
+    {
+      "type": "body",
+      "html": "<h2>Beteiligte wissenschaftliche Konzepte</h2>"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "<b>Grenzflächenthermodynamik:</b> Flüssig-Flüssig-Grenzflächen, Grenzflächenspannung, Oberflächendruck, Kontaktwinkel, Partikelbenetzbarkeit und Adsorptionsenergetik.",
+        "<b>Kolloidale und elektrostatische Wechselwirkungen:</b> elektrische Doppelschichten, Debye-Abschirmung, Gegenionenstrukturierung, Tensidpackung, Ladungsregulation und kompetitive Adsorption.",
+        "<b>Nanopartikel-Funktionalisierung:</b> APTES-modifizierte Silica-Oberflächen, Protonierungsverhalten und pH-abhängige Ladungszustände.",
+        "<b>Tensidorganisation an Grenzflächen:</b> Monolagenbildung, Ausschluss-/Depletionszonen nahe geladener Objekte sowie Kopplung zwischen molekularer Ordnung und Grenzflächenspannung."
+      ]
+    },
+    {
+      "type": "body",
+      "html": "<h2>Verwendete Methoden und Techniken</h2><h3>1. Klassische Molekulardynamik (MD)</h3>"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "Aufbau multiphasischer Simulationsboxen (Wasser/Öl/Tensid/Salz).",
+        "Modellierung funktionalisierter Nanopartikel mit gepfropften organischen Gruppen.",
+        "Behandlung von Protonierungszuständen, Gegenionen-Neutralisierung und Ladungsbilanz.",
+        "Langzeitsimulationen (mehrere hundert Nanosekunden).",
+        "Auswertung von Dichteprofilen, radialen Verteilungsfunktionen (RDF und 2D-RDF), Grenzflächenspannung über den Drucktensor sowie Partikelposition, Kontaktwinkel und Stabilität."
+      ]
+    },
+    {
+      "type": "body",
+      "html": "<h3>2. Kontinuumselektrostatik</h3>"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "Einsatz der Poisson-Boltzmann-Theorie zur Modellierung elektrostatischer Potenziale.",
+        "Analytische und numerische Lösungen (APBS).",
+        "Behandlung heterogener dielektrischer Umgebungen (Wasser versus Öl).",
+        "Verknüpfung von Kontinuums-Vorhersagen mit atomistischem Simulationsverhalten."
+      ]
+    },
+    {
+      "type": "body",
+      "html": "<h3>3. Synchrotron-Röntgenreflektometrie</h3>"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "Strukturelle Charakterisierung von Grenzflächenschichten.",
+        "Bestimmung von Partikelbedeckung, Elektronendichteprofilen an der Grenzfläche und Tensidschicht-Organisation.",
+        "Vergleich des Grenzflächenverhaltens unter variierenden Salz- und Tensidbedingungen."
+      ]
+    },
+    {
+      "type": "body",
+      "html": "<h3>4. Grenzflächentensiometrie</h3>"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "Pendant-Drop-Messungen.",
+        "Quantifizierung der Tensidadsorption über den Oberflächendruck.",
+        "Ableitung molekularer Organisation aus Trends der Grenzflächenspannung."
+      ]
+    },
+    {
+      "type": "body",
+      "html": "<h3>5. Datenanalyse und rechnergestützte Werkzeuge</h3>"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "GROMACS für MD-Simulationen.",
+        "VMD für molekulare Visualisierung.",
+        "MDAnalysis für das Laden und Verarbeiten von Trajektorien.",
+        "GNU Parallel für großskalige Batch-Analysen.",
+        "APBS für elektrostatische Analysen.",
+        "Alle Berechnungen und Simulationen wurden auf HPC-Clustern ausgeführt (HLRN via Slurm).",
+        "Sämtliche Pre- und Post-Processing-Schritte wurden selbst geskriptet (Python und Bash).",
+        "Integration von Simulation, Theorie und Experiment in einen reproduzierbaren Workflow."
+      ]
+    },
+    {
+      "type": "images",
+      "items": [
+        {
+          "src": "system.png",
+          "alt": "Übersicht Nanopartikel an Grenzflächen"
+        }
+      ]
+    },
+    {
+      "type": "links",
+      "items": [
+        {
+          "label": "Projekt-Repository",
+          "url": "https://github.com/saeed-amiri/GromacsPanorama"
+        }
+      ]
+    }
+  ]
 }

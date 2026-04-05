@@ -472,8 +472,8 @@ h2 {
 }
 
 .detail-modal {
-  width: min(800px, 100%);
-  max-height: 85vh;
+  width: min(980px, 100%);
+  max-height: 92vh;
   overflow: auto;
   background: var(--paper);
   border: 1px solid var(--line);
@@ -521,6 +521,57 @@ h2 {
   border-radius: 10px;
   border: 1px solid var(--line);
   display: block;
+  cursor: zoom-in;
+}
+
+.image-lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background: rgba(12, 10, 8, 0.78);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.image-lightbox-backdrop.hidden {
+  display: none;
+}
+
+.image-lightbox {
+  position: relative;
+  width: min(1200px, 96vw);
+  max-height: 92vh;
+  display: grid;
+  place-items: center;
+}
+
+.image-lightbox img {
+  max-width: 100%;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.image-lightbox-close {
+  position: absolute;
+  top: 0.55rem;
+  right: 0.55rem;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: rgba(12, 10, 8, 0.8);
+  color: #fff;
+  border-radius: 999px;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+
+.image-lightbox-close:hover {
+  border-color: #fff;
 }
 
 .modal-links {
@@ -536,6 +587,16 @@ h2 {
 
 .modal-links a:hover {
   text-decoration: underline;
+}
+
+.modal-body {
+  margin-top: 0.75rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.modal-body p {
+  margin: 0;
 }
 
 /* What: Footer width and tone. Why: align with page grid while keeping low emphasis. */
@@ -593,7 +654,8 @@ h2 {
   .footer,
   .section-rail,
   .detail-trigger,
-  .modal-backdrop {
+  .modal-backdrop,
+  .image-lightbox-backdrop {
     display: none;
   }
 
