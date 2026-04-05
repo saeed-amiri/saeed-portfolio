@@ -1,0 +1,10 @@
+{
+  "title": "ML-Nachweise",
+  "summary": "Angewandte ML-Methoden mit Produkt- und Produktionsbezug.",
+  "bullets": [
+    "Training und Bewertung mit Blick auf Deployment.",
+    "Modelle in Produkt-Workflows integriert."
+  ],
+  "images": [],
+  "links": []
+}

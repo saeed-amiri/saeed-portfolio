@@ -23,20 +23,37 @@ GitHub cannot automatically open the website when someone opens the repository p
 - [pages/projects.html](pages/projects.html): Secondary page for project-focused content
 - [styles/main.css](styles/main.css): Shared visual design and print styles
 - [scripts/main.js](scripts/main.js): Language switch and dynamic CV rendering
-- [content/en.json](content/en.json): English CV content
-- [content/de.json](content/de.json): German CV content
+- [content/en/manifest.json](content/en/manifest.json): English modular content map
+- [content/de/manifest.json](content/de/manifest.json): German modular content map
 - [assets/](assets): Profile and certification images
 
 ## Customize your CV
 
 1. Replace profile and certificate images in [assets/](assets).
-2. Update data in [content/en.json](content/en.json) and [content/de.json](content/de.json):
+2. Update data in [content/en/](content/en) and [content/de/](content/de):
 	- Name, headline, contact links
 	- Bio
 	- Experience and education
 	- Thesis URL
 	- MLOps project URL
-3. Keep both language files aligned with the same structure.
+3. Keep both language folders aligned with the same structure.
+
+## Modular content architecture
+
+Each language now uses a section-first folder layout for maintainability:
+
+- [content/en/manifest.json](content/en/manifest.json) (and German equivalent): central config of where section data lives
+- [content/en/meta.json](content/en/meta.json): global fields (page title, profile, labels, footer)
+- `sections/<section>/front.json`: the content shown in the main CV view
+- `sections/<section>/detail.json`: the section-level "More" modal content
+- `sections/<section>/items/<id>/front.json`: one subsection/item shown in list views (experience, trainings, education)
+- `sections/<section>/items/<id>/detail.json`: the matching subsection/item "More" modal
+
+Examples:
+
+- [content/en/sections/bio/front.json](content/en/sections/bio/front.json)
+- [content/en/sections/experience/items/exp-mlops-engineer/front.json](content/en/sections/experience/items/exp-mlops-engineer/front.json)
+- [content/en/sections/experience/items/exp-mlops-engineer/detail.json](content/en/sections/experience/items/exp-mlops-engineer/detail.json)
 
 ## Local preview
 

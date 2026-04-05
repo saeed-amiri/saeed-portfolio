@@ -1,0 +1,10 @@
+{
+  "title": "Docker-Nachweise",
+  "summary": "Containerbasierte Workflows und reproduzierbare Laufzeitumgebungen.",
+  "bullets": [
+    "Lokale und CI-Umgebungen standardisiert.",
+    "Umgebungsdrift bei Deployments reduziert."
+  ],
+  "images": [],
+  "links": []
+}

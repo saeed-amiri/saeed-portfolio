@@ -1,0 +1,10 @@
+{
+  "title": "Docker Evidence",
+  "summary": "Containerized workflow and reproducible runtime setup.",
+  "bullets": [
+    "Standardized local and CI runtime environments.",
+    "Reduced environment drift during deployment."
+  ],
+  "images": [],
+  "links": []
+}

@@ -1,0 +1,12 @@
+{
+  "title": "Postdoctoral Researcher",
+  "summary": "University of Bremen, Hybrid Materials Interfaces Group (Feb 2022 - Jan 2025)",
+  "bullets": [
+    "Built scalable simulation workflows translating physical experiments into automated Python/Bash pipelines.",
+    "Designed high-dimensional data-processing logic for 50GB+ datasets with zero validation loss.",
+    "Reduced HPC trial-and-error cycles by 50% through workflow automation.",
+    "Optimized HPC workflows with 10x speedup (100+ hours to under 12 hours)."
+  ],
+  "images": [],
+  "links": []
+}

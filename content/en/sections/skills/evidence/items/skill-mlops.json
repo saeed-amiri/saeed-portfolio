@@ -1,0 +1,15 @@
+{
+  "title": "MLOps Evidence",
+  "summary": "Where I applied MLOps practices in real work.",
+  "bullets": [
+    "CI/CD integration for ML service release flow.",
+    "Model lifecycle monitoring and rollout discipline."
+  ],
+  "images": [],
+  "links": [
+    {
+      "label": "MLOps project repository",
+      "url": "https://github.com/saeed-amiri/your-mlops-project"
+    }
+  ]
+}

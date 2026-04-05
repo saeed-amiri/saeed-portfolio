@@ -1,0 +1,12 @@
+{
+  "title": "Postdoctoral Researcher",
+  "summary": "University of Bremen, Hybrid Materials Interfaces Group (Feb 2022 - Jan 2025)",
+  "bullets": [
+    "Skalierbare Simulations-Workflows aufgebaut und Experimente in automatisierte Python/Bash-Pipelines uberfuhrt.",
+    "Hochdimensionale Datenverarbeitung fur 50GB+ Datensatze mit zero validation loss entworfen.",
+    "HPC trial-and-error cycles durch Workflow-Automatisierung um 50% reduziert.",
+    "HPC-Workflows optimiert mit 10x Speedup (100+ Stunden auf unter 12 Stunden)."
+  ],
+  "images": [],
+  "links": []
+}

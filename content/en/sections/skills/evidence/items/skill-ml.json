@@ -1,0 +1,10 @@
+{
+  "title": "Machine Learning Evidence",
+  "summary": "Applied ML methods in production-oriented contexts.",
+  "bullets": [
+    "Model training and evaluation with deployment considerations.",
+    "Integration of model outputs into product workflows."
+  ],
+  "images": [],
+  "links": []
+}

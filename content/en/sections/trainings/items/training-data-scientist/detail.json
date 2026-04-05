@@ -1,0 +1,16 @@
+{
+  "title": "Data Scientist Training",
+  "summary": "Data science specialization at Liora with advanced ML and DL coverage.",
+  "bullets": [
+    "Machine learning domains: classification, regression, clustering, dimensionality reduction.",
+    "Advanced pipeline work: feature engineering and workflow design.",
+    "Deep learning and modern AI topics: Dense NN, CNN, CV, time series, transformers, and LLMs."
+  ],
+  "images": [
+    {
+      "src": "assets/cert-placeholder-2.svg",
+      "alt": "Data science training certificate"
+    }
+  ],
+  "links": []
+}

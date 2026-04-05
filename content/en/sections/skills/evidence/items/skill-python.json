@@ -1,0 +1,15 @@
+{
+  "title": "Python Evidence",
+  "summary": "Python usage across automation and ML workflows.",
+  "bullets": [
+    "Service scripting and deployment automation.",
+    "Model experimentation and data preparation."
+  ],
+  "images": [],
+  "links": [
+    {
+      "label": "Portfolio repository",
+      "url": "https://github.com/saeed-amiri/saeed-portfolio"
+    }
+  ]
+}

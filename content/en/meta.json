@@ -1,0 +1,38 @@
+{
+  "pageTitle": "Saeed Amiri | Portfolio CV",
+  "profile": {
+    "name": "Saeed Amiri",
+    "headline": "ML & MLOps Engineer | Data Scientist | Physicist (Dr. rer. nat.)",
+    "location": "Deutschland",
+    "email": "email@example.com",
+    "linkedin": "https://www.linkedin.com/in/saeed-amiri-71556391/",
+    "github": "https://github.com/saeed-amiri",
+    "photo": "assets/profile-placeholder.svg?v=20260404-1"
+  },
+  "labels": {
+    "bio": "Short Bio",
+    "experience": "Experience",
+    "trainings": "Further Trainings",
+    "education": "Education",
+    "skills": "Skills",
+    "certifications": "Certifications",
+    "moreDetails": "More",
+    "noSkillsYet": "Add your key skills to unlock evidence popups.",
+    "evidenceTitle": "Evidence",
+    "downloadPdf": "Download PDF",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "profilePhotoAlt": "Profile photo"
+  },
+  "links": {
+    "thesis": {
+      "label": "Read my thesis",
+      "url": "https://example.com/your-thesis"
+    },
+    "mlops": {
+      "label": "See my MLOps project",
+      "url": "https://github.com/saeed-amiri/your-mlops-project"
+    }
+  },
+  "footer": "Open portfolio repository for recruiters and collaborators."
+}

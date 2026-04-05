@@ -1,0 +1,21 @@
+{
+  "title": "MLOps / Machine Learning Engineer Training",
+  "summary": "Professional track at Liora focused on end-to-end MLOps delivery.",
+  "bullets": [
+    "Core stack: Docker, Kubernetes, API Security, Airflow, Prefect, MLflow, DVC, Dagshub.",
+    "Completed AWS modules: Cloud Practitioner, Solutions Architect, and AWS MLOps content.",
+    "Hands-on implementation: experiment tracking, orchestration, CI/CD, BentoML serving, Prometheus and Grafana monitoring."
+  ],
+  "images": [
+    {
+      "src": "assets/cert-placeholder-1.svg",
+      "alt": "MLOps training certificate"
+    }
+  ],
+  "links": [
+    {
+      "label": "MLOps project repository",
+      "url": "https://github.com/saeed-amiri/your-mlops-project"
+    }
+  ]
+}

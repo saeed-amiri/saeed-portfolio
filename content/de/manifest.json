@@ -1,0 +1,34 @@
+{
+  "meta": "meta.json",
+  "sections": {
+    "bio": {
+      "front": "sections/bio/front.json",
+      "detail": "sections/bio/detail.json"
+    },
+    "experience": {
+      "index": "sections/experience/index.json",
+      "itemsDir": "sections/experience/items",
+      "detail": "sections/experience/detail.json"
+    },
+    "trainings": {
+      "index": "sections/trainings/index.json",
+      "itemsDir": "sections/trainings/items",
+      "detail": "sections/trainings/detail.json"
+    },
+    "education": {
+      "index": "sections/education/index.json",
+      "itemsDir": "sections/education/items",
+      "detail": "sections/education/detail.json"
+    },
+    "skills": {
+      "front": "sections/skills/front.json",
+      "detail": "sections/skills/detail.json",
+      "evidenceIndex": "sections/skills/evidence/index.json",
+      "evidenceDir": "sections/skills/evidence/items"
+    },
+    "certifications": {
+      "front": "sections/certifications/front.json",
+      "detail": "sections/certifications/detail.json"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "title": "Experience Deep Dive",
+  "summary": "The main timeline is concise; this view gives richer context.",
+  "bullets": [
+    "Designed CI/CD pipelines for ML services.",
+    "Set observability baselines for model and API behavior.",
+    "Reduced manual release steps through automation."
+  ],
+  "images": [
+    {
+      "src": "assets/cert-placeholder-1.svg",
+      "alt": "Architecture or delivery snapshot"
+    }
+  ],
+  "links": []
+}

@@ -1,0 +1,12 @@
+{
+  "title": "MLOps / Machine Learning Engineer",
+  "summary": "Liora (Present - Mar 2026)",
+  "bullets": [
+    "Weather prediction: end-to-end pipeline, training reproducibility, deployment, and monitoring.",
+    "Model development, inference, DVC repro, Dagshub, CI/CD, testing, MLflow and Airflow integration.",
+    "Model serving, orchestration, production workflows, and monitoring with Prometheus and Grafana.",
+    "Data ingestion via APIs, preprocessing, feature creation, and feature selection."
+  ],
+  "images": [],
+  "links": []
+}
