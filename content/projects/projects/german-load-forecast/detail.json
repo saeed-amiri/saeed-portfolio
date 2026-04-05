@@ -1,0 +1,32 @@
+{
+  "title": "German Load Forecast",
+  "content": [
+    {
+      "type": "summary",
+      "text": "Mar 2026 - Present"
+    },
+    {
+      "type": "body",
+      "html": "<h3>Scope</h3><p>Short-horizon electricity load forecasting workflow for German demand signals with reproducible training and automated inference.</p>"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "<b>Architected</b> containerized MLOps infrastructure &rarr; Docker Compose and FastAPI microservices.",
+        "<b>Orchestrated</b> automated data pipelines &rarr; Airflow (ingestion, preprocessing, feature marts via SQL).",
+        "<b>Enforced</b> reproducibility and dataset versioning &rarr; DVC across pipeline workflows.",
+        "<b>Developed</b> secure API layer &rarr; JWT authentication, RBAC, and automated testing (Pytest).",
+        "<b>Deployed</b> observability stack (Prometheus, Grafana) &rarr; custom alerting rules and health dashboards."
+      ]
+    },
+    {
+      "type": "links",
+      "items": [
+        {
+          "label": "Project Repository",
+          "url": "https://github.com/saeed-amiri/german-load-forecasting-mlops"
+        }
+      ]
+    }
+  ]
+}

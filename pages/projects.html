@@ -27,45 +27,54 @@
 
     <header class="topbar">
       <div class="brand" id="brandName">Saeed Amiri</div>
-      <nav class="controls" aria-label="Page navigation">
-        <a class="chip active" href="projects.html">Projects</a>
+      <nav class="controls" aria-label="Language and actions">
+        <a class="chip active" href="projects.html">Ongoing Projects</a>
         <a class="chip" href="../index.html">CV</a>
       </nav>
     </header>
 
-    <main class="layout">
+    <main class="layout" id="projectsRoot">
       <aside class="profile-card reveal">
         <img
+          id="projectProfilePhoto"
           src="../assets/profile-placeholder.svg?v=20260404-1"
           alt="Profile photo"
           class="profile-photo"
         />
-        <h1>Projects</h1>
-        <p class="headline">Growing portfolio pages with clean structure</p>
-        <p class="meta">.</p>
+        <h1 id="projectOwnerName">Saeed Amiri</h1>
+        <p class="headline" id="projectOwnerHeadline">Project Portfolio</p>
+        <p class="meta" id="projectOwnerMeta">ML, MLOps, and Scientific Computing</p>
+        <a class="contact-link" id="projectContactEmail" href="mailto:email@example.com">email@example.com</a>
+        <a class="contact-link" id="projectLinkedin" href="https://www.linkedin.com/in/saeed-amiri-71556391/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a class="contact-link" id="projectGithub" href="https://github.com/saeed-amiri" target="_blank" rel="noopener noreferrer">GitHub</a>
       </aside>
 
-      <section class="content reveal">
-        <section class="panel">
-          <h2>Featured Projects</h2>
-          <div class="timeline">
-            <article class="timeline-item">
-              <h3>Your MLOps Project - GitHub</h3>
-              <p class="period">Add date range</p>
-              <p>Describe impact, architecture, and production decisions in 3-4 lines.</p>
-            </article>
-            <article class="timeline-item">
-              <h3>Second Highlight Project</h3>
-              <p class="period">Add date range</p>
-              <p>Add another meaningful project to avoid crowding your main CV page.</p>
-            </article>
-          </div>
-        </section>
-      </section>
+      <section class="content reveal" id="projectsContent"></section>
+
+      <aside class="section-rail" aria-label="Project section navigation">
+        <ul id="projectRailList"></ul>
+      </aside>
     </main>
 
     <footer class="footer">
-      <small>Keep this page focused on outcomes, not tool lists.</small>
+      <small id="projectFooterText">Ongoing projects and technical work in progress.</small>
     </footer>
+
+    <div class="modal-backdrop hidden" id="detailModalBackdrop" aria-hidden="true">
+      <div class="detail-modal" id="detailModal" role="dialog" aria-modal="true" aria-labelledby="detailModalTitle">
+        <button class="modal-close" id="detailModalClose" type="button" aria-label="Close detail view">x</button>
+        <h3 id="detailModalTitle"></h3>
+        <div id="detailModalContent"></div>
+      </div>
+    </div>
+
+    <div class="image-lightbox-backdrop hidden" id="imageLightboxBackdrop" aria-hidden="true">
+      <div class="image-lightbox" id="imageLightbox" role="dialog" aria-modal="true" aria-label="Expanded image view">
+        <button class="image-lightbox-close" id="imageLightboxClose" type="button" aria-label="Close image view">x</button>
+        <img id="imageLightboxImg" src="" alt="Expanded detail image" />
+      </div>
+    </div>
+
+    <script type="module" src="../scripts/projects.js"></script>
   </body>
 </html>

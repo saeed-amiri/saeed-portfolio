@@ -1,0 +1,11 @@
+{
+  "title": "German Load Forecast",
+  "period": "Mar 2026 - Present",
+  "summary": "Built a short-horizon electricity load forecasting workflow for Germany with reproducible training and scheduled inference for operational planning.",
+  "links": [
+    {
+      "label": "Project Repository",
+      "url": "https://github.com/saeed-amiri/german-load-forecasting-mlops"
+    }
+  ]
+}
