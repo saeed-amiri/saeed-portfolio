@@ -24,7 +24,7 @@
     "github": "GitHub",
     "profilePhotoAlt": "Profilfoto"
   },
-  "bio": "Physiker (Dr. rer. nat.) und Machine‑Learning‑Engineer mit langjähriger Erfahrung in großskaliger Datenanalyse, wissenschaftlicher Simulation und automatisierten Workflow‑Systemen. Entwickle robuste ML‑ und MLOps‑Pipelines, arbeite sicher mit hochdimensionalen und schnell veränderlichen Datensätzen und überführe komplexe Analyseprozesse in skalierbare, zuverlässige Services. Verbinde Forschung und Produktion durch klare Struktur, Reproduzierbarkeit und technische Präzision. Besonders motiviert durch analytisches Arbeiten, systemisches Denken und die Entwicklung stabiler, wartbarer Lösungen für datengetriebene Entscheidungen in anspruchsvollen technischen Umgebungen.",
+  "bio": "Physiker (Dr. rer. nat.) und Machine‑Learning‑Engineer mit langjähriger Erfahrung in großskaliger Datenanalyse, wissenschaftlicher Simulation und automatisierten Workflow‑Systemen. \nEntwickle robuste ML‑ und MLOps‑Pipelines, arbeite sicher mit hochdimensionalen und schnell veränderlichen Datensätzen und überführe komplexe Analyseprozesse in skalierbare, zuverlässige Services.\nVerbinde Forschung und Produktion durch klare Struktur, Reproduzierbarkeit und technische Präzision. Besonders motiviert durch analytisches Arbeiten, systemisches Denken und die Entwicklung stabiler, wartbarer Lösungen für datengetriebene Entscheidungen in anspruchsvollen technischen Umgebungen.",
   "links": {
     "thesis": {
       "label": "Meine Thesis lesen",
@@ -39,14 +39,14 @@
     {
       "id": "exp-mlops-engineer",
       "role": "MLOps / Machine Learning Engineer",
-      "org": "Liora / DataScientest",
+      "org": "Liora",
       "period": "Heute - Mar 2026",
       "summary": "Weather-Prediction-Pipeline von Modellentwicklung und Reproduzierbarkeit bis Deployment und Monitoring."
     },
     {
       "id": "exp-data-scientist",
       "role": "Data Scientist",
-      "org": "Liora / DataScientest",
+      "org": "Liora",
       "period": "Sep 2025 - Dez 2025",
       "summary": "Anomaly-Detection-Projekt auf Automotive-CAN-Bus-Daten mit 100M+ Records und extremer Klassenimbalanz."
     },
@@ -76,14 +76,14 @@
     {
       "id": "training-mlops-engineer",
       "role": "MLOps / Machine Learning Engineer",
-      "org": "Liora / DataScientest",
+      "org": "Liora",
       "period": "Heute - Mar 2026",
       "summary": "Docker, Kubernetes, API-Sicherheit, Airflow, Prefect, MLflow, DVC, Dagshub; absolvierte 5-tage AWS-Module (Cloud Practitioner, Solutions Architect) sowie AWS MLOps; Experiment-Tracking, Orchestrierung, CI/CD, Model Serving mit BentoML und Monitoring mit Prometheus und Grafana."
     },
     {
       "id": "training-data-scientist",
       "role": "Data Scientist",
-      "org": "Liora / DataScientest",
+      "org": "Liora",
       "period": "Sep 2025 - Dez 2025",
       "summary": "Klassifikation, Regression, Clustering, Dimensionalitatsreduktion und fortgeschrittenes ML; Feature Engineering, Pipelines, Deep Learning (Dense NN, CNN, Computer Vision), Time Series, Transformer und LLMs."
     }
@@ -221,7 +221,7 @@
   "trainingDetails": {
     "training-mlops-engineer": {
       "title": "Weiterbildung MLOps / Machine Learning Engineer",
-      "summary": "Berufsbegleitender Track bei Liora / DataScientest mit Fokus auf produktionsnahe MLOps-Umsetzung.",
+      "summary": "Berufsbegleitender Track bei Liora mit Fokus auf produktionsnahe MLOps-Umsetzung.",
       "bullets": [
         "Kernstack: Docker, Kubernetes, API-Sicherheit, Airflow, Prefect, MLflow, DVC, Dagshub.",
         "Abgeschlossene AWS-Module: Cloud Practitioner, Solutions Architect und AWS-MLOps-Inhalte.",
@@ -236,7 +236,7 @@
     },
     "training-data-scientist": {
       "title": "Weiterbildung Data Scientist",
-      "summary": "Data-Science-Vertiefung bei Liora / DataScientest mit erweiterten ML- und DL-Inhalten.",
+      "summary": "Data-Science-Vertiefung bei Liora mit erweiterten ML- und DL-Inhalten.",
       "bullets": [
         "ML-Bereiche: Klassifikation, Regression, Clustering, Dimensionalitatsreduktion.",
         "Fortgeschrittene Pipeline-Arbeit: Feature Engineering und Workflow-Design.",
@@ -272,7 +272,7 @@
   "experienceDetails": {
     "exp-mlops-engineer": {
       "title": "MLOps / Machine Learning Engineer",
-      "summary": "Liora / DataScientest (Heute - Mar 2026)",
+      "summary": "Liora (Heute - Mar 2026)",
       "bullets": [
         "Weather Prediction: End-to-end Pipeline, Training-Reproduzierbarkeit, Deployment und Monitoring.",
         "Model development, inference, DVC repro, Dagshub, CI/CD, testing, MLflow und Airflow integration.",
@@ -284,7 +284,7 @@
     },
     "exp-data-scientist": {
       "title": "Data Scientist",
-      "summary": "Liora / DataScientest (Sep 2025 - Dez 2025)",
+      "summary": "Liora (Sep 2025 - Dez 2025)",
       "bullets": [
         "Anomaly Detection in Automotive CAN Bus Data project.",
         "100M+ records, extreme class imbalance, time series, rational/non-rational data.",

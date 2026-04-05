@@ -2,6 +2,7 @@
 // Supports both section-level details and skill evidence popups.
 import { elements } from "./elements.js";
 import { state } from "./state.js";
+import { setMultilineText } from "./text.js";
 
 export function openModal(payload) {
   elements.detailModalTitle.textContent = payload.title || "Details";
@@ -9,7 +10,7 @@ export function openModal(payload) {
 
   if (payload.summary) {
     const summary = document.createElement("p");
-    summary.textContent = payload.summary;
+    setMultilineText(summary, payload.summary);
     elements.detailModalContent.appendChild(summary);
   }
 
@@ -17,7 +18,7 @@ export function openModal(payload) {
     const list = document.createElement("ul");
     payload.bullets.forEach((item) => {
       const li = document.createElement("li");
-      li.textContent = item;
+      setMultilineText(li, item);
       list.appendChild(li);
     });
     elements.detailModalContent.appendChild(list);
@@ -46,7 +47,7 @@ export function openModal(payload) {
       anchor.href = link.url;
       anchor.target = "_blank";
       anchor.rel = "noopener noreferrer";
-      anchor.textContent = link.label;
+      setMultilineText(anchor, link.label);
       linksWrap.appendChild(anchor);
     });
 

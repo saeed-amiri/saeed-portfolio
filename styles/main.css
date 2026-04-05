@@ -220,6 +220,10 @@ h2 {
   line-height: 1.6;
 }
 
+#bioText {
+  text-align: justify;
+}
+
 /* What: Horizontal group for featured links. Why: keep key links compact and responsive. */
 .quick-links {
   display: flex;
@@ -254,6 +258,16 @@ h2 {
 /* What: Timeline item heading reset. Why: prevent default margins from breaking card spacing. */
 .timeline-item h3 {
   margin: 0;
+}
+
+.timeline-role,
+.timeline-org {
+  display: block;
+  font-size: calc(1em - 4px);
+}
+
+.timeline-org {
+  font-weight: 500;
 }
 
 .timeline-heading-row {
@@ -371,25 +385,23 @@ h2 {
   border: 0;
   background: transparent;
   color: var(--text);
-  opacity: 0.42;
   cursor: pointer;
   position: relative;
   display: grid;
   place-items: center;
   width: 2rem;
   height: 2rem;
+  overflow: visible;
   border-radius: 999px;
   transition: opacity 180ms ease, background-color 180ms ease, transform 180ms ease;
 }
 
 .rail-link:hover {
-  opacity: 0.82;
   background: rgba(196, 76, 40, 0.14);
   transform: translateX(-1px);
 }
 
 .rail-link.active {
-  opacity: 0.7;
   background: rgba(196, 76, 40, 0.2);
 }
 
@@ -400,28 +412,43 @@ h2 {
   background: currentColor;
 }
 
+.rail-glyph {
+  font-size: 0.85rem;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.rail-link-edge {
+  border: 1px solid rgba(196, 76, 40, 0.22);
+  background: rgba(196, 76, 40, 0.08);
+}
+
 .rail-label {
   position: absolute;
-  right: calc(100% + 0.55rem);
+  left: calc(100% + 0.55rem);
   top: 50%;
-  transform: translateY(-50%) translateX(4px);
+  transform: translateY(-50%);
   white-space: nowrap;
   font-size: 0.78rem;
-  color: #fff;
-  background: rgba(31, 27, 22, 0.9);
+  color: var(--text);
+  background: transparent;
   border-radius: 999px;
-  padding: 0.22rem 0.5rem;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
+  padding: 0.1rem 0.25rem;
+  opacity: 0.5;
+  visibility: visible;
+  pointer-events: auto;
+  cursor: pointer;
   transition: opacity 150ms ease, transform 150ms ease;
+}
+
+.rail-link.active .rail-label {
+  opacity: 0.75;
 }
 
 .rail-link:hover .rail-label,
 .rail-link:focus-visible .rail-label {
   opacity: 1;
-  visibility: visible;
-  transform: translateY(-50%) translateX(0);
+  transform: translateY(-50%);
 }
 
 /* What: Shared hidden utility. Why: toggle modal visibility without DOM removal. */
