@@ -1,0 +1,21 @@
+{
+  "title": "Weiterbildung MLOps / Machine Learning Engineer",
+  "summary": "Berufsbegleitender Track bei Liora mit Fokus auf produktionsnahe MLOps-Umsetzung.",
+  "bullets": [
+    "Kernstack: Docker, Kubernetes, API-Sicherheit, Airflow, Prefect, MLflow, DVC, Dagshub.",
+    "Abgeschlossene AWS-Module: Cloud Practitioner, Solutions Architect und AWS-MLOps-Inhalte.",
+    "Praxis: Experiment-Tracking, Orchestrierung, CI/CD, Serving mit BentoML sowie Monitoring mit Prometheus und Grafana."
+  ],
+  "images": [
+    {
+      "src": "assets/cert-placeholder-1.svg",
+      "alt": "Zertifikat MLOps Weiterbildung"
+    }
+  ],
+  "links": [
+    {
+      "label": "MLOps-Projekt-Repository",
+      "url": "https://github.com/saeed-amiri/your-mlops-project"
+    }
+  ]
+}

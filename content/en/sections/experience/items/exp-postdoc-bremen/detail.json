@@ -1,0 +1,110 @@
+{
+  "title": "Nanoparticles and Surfactants at Liquid-Liquid Interfaces",
+  "content": [
+    {
+      "type": "summary",
+      "text": "University of Bremen, Hybrid Materials Interfaces Group (Feb 2022 - Jan 2025)"
+    },
+    {
+      "type": "body",
+      "html": "<h2>Methods and Scientific Focus</h2><p>This work explores how functionalized Silica nanoparticles and surface-active molecules interact at oil-water interfaces, using molecular simulation, continuum electrostatics, and synchrotron-based interfacial characterization. The emphasis is on mechanisms, methodology, and interfacial physics.</p>"
+    },
+    {
+      "type": "body",
+      "html": "<h2>Scientific Concepts Involved</h2>"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "<b>Interfacial thermodynamics:</b> liquid-liquid interfaces, interfacial tension, surface pressure, contact angle, particle wettability, and adsorption energetics.",
+        "<b>Colloidal and electrostatic interactions:</b> electric double layers, Debye screening, counterion structuring, surfactant packing, charge regulation, and competitive adsorption.",
+        "<b>Nanoparticle functionalization:</b> APTES-modified silica surfaces, protonation behavior, and pH-dependent charge states.",
+        "<b>Surfactant organization at interfaces:</b> monolayer formation, exclusion/depletion zones near charged objects, and coupling between molecular ordering and interfacial stress."
+      ]
+    },
+    {
+      "type": "body",
+      "html": "<h2>Methods and Techniques Demonstrated</h2><h3>1. Classical Molecular Dynamics (MD)</h3>"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "Construction of multiphase simulation boxes (water/oil/surfactant/salt).",
+        "Modeling functionalized nanoparticles with grafted organic groups.",
+        "Handling protonation states, counterion neutralization, and charge balance.",
+        "Long-timescale simulations (hundreds of nanoseconds).",
+        "Analysis of density profiles, radial distribution functions (RDF and 2D-RDF), interfacial tension via pressure tensor, nanoparticle position, contact angle, and stability."
+      ]
+    },
+    {
+      "type": "body",
+      "html": "<h3>2. Continuum Electrostatics</h3>"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "Use of Poisson-Boltzmann theory to model electrostatic potentials.",
+        "Analytical and numerical solutions (APBS).",
+        "Treatment of heterogeneous dielectric environments (water versus oil).",
+        "Linking continuum predictions to atomistic simulation behavior."
+      ]
+    },
+    {
+      "type": "body",
+      "html": "<h3>3. Synchrotron X-ray Reflectometry</h3>"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "Structural characterization of interfacial layers.",
+        "Extraction of particle coverage, interfacial electron density profiles, and surfactant layer organization.",
+        "Comparison of interfacial behavior under varying salt and surfactant conditions."
+      ]
+    },
+    {
+      "type": "body",
+      "html": "<h3>4. Interfacial Tensiometry</h3>"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "Pendant-drop measurements.",
+        "Quantification of surfactant adsorption via surface pressure.",
+        "Use of interfacial tension trends to infer molecular organization."
+      ]
+    },
+    {
+      "type": "body",
+      "html": "<h3>5. Data Analysis and Computational Tools</h3>"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "GROMACS for MD simulations",
+        "VMD for molecular visualization.",
+        "MDAnalysis for trajectory loading.",
+        "GNU Parallel for large-scale batch analysis.",
+        "APBS for electrostatic analysis.",
+        "All the calculations and Simulations executed in HPC clusters (HLRN via Slurm)",
+        "All the pre- and post-processing were self-scripted (Python and Bash).",
+        "Integration of simulation, theory, and experiment into one reproducible workflow."
+      ]
+    },
+    {
+      "type": "images",
+      "items": [{
+          "src": "system.png",
+          "alt": "NP at interface overview"
+        }]
+    },
+    {
+      "type": "links",
+      "items": [
+        {
+          "label": "Project repository",
+          "url": "https://github.com/saeed-amiri/GromacsPanorama"
+        }
+      ]
+    }
+  ]
+}

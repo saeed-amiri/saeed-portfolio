@@ -1,0 +1,11 @@
+{
+  "title": "Details Weiterbildung",
+  "summary": "Weiterbildungs-Track mit Fokus auf MLOps und angewandte Data Science.",
+  "bullets": [
+    "MLOps-Stack: Orchestrierung, Experiment-Tracking, CI/CD, Model Serving, Monitoring.",
+    "AWS-Lernmodule: Cloud Practitioner, Solutions Architect und MLOps-orientierte Praxis.",
+    "Fortgeschrittene Data-Science- und Deep-Learning-Inhalte inkl. Transformer und LLMs."
+  ],
+  "images": [],
+  "links": []
+}

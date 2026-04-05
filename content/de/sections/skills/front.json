@@ -1,0 +1,29 @@
+{
+  "skills": [],
+  "skillRows": [
+    {
+      "category": "Programmierung und Tools",
+      "items": "Python (9+ Jahre), SQL, C, Fortran, Git, GitHub, Dagshub, CI/CD, Linux (14+ Jahre), FastAPI"
+    },
+    {
+      "category": "MLOps und Deployment",
+      "items": "Docker, MLflow, DVC, Echtzeit-Model-Serving, automatisiertes Retraining, Drift-Monitoring"
+    },
+    {
+      "category": "Daten und Visualisierung",
+      "items": "Pandas, asyncio, multiprocessing, Matplotlib, Seaborn, Plotly, Streamlit"
+    },
+    {
+      "category": "Cloud und Infrastruktur",
+      "items": "AWS Cloud Practitioner-Module, Cloud-Grundlagen, API-Sicherheit"
+    },
+    {
+      "category": "Data Engineering und Orchestrierung",
+      "items": "Batch- und Stream-Processing, ELT/ETL-Pipelines, Airflow, Prefect"
+    },
+    {
+      "category": "Machine Learning",
+      "items": "scikit-learn, TensorFlow, PyTorch, SciPy, NumPy, XGBoost"
+    }
+  ]
+}

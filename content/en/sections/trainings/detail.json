@@ -1,0 +1,11 @@
+{
+  "title": "Further Trainings Details",
+  "summary": "Professional training track focused on MLOps and applied data science.",
+  "bullets": [
+    "MLOps stack: orchestration, experiment tracking, CI/CD, model serving, monitoring.",
+    "AWS learning modules: Cloud Practitioner, Solutions Architect, and MLOps-oriented practice.",
+    "Advanced data science and deep learning curriculum including transformers and LLMs."
+  ],
+  "images": [],
+  "links": []
+}

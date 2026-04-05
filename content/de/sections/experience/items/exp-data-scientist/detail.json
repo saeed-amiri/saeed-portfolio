@@ -1,0 +1,11 @@
+{
+  "title": "Data Scientist",
+  "summary": "Liora (Sep 2025 - Dez 2025)",
+  "bullets": [
+    "Anomaly Detection in Automotive CAN Bus Data project.",
+    "100M+ records, extreme class imbalance, time series, rational/non-rational data.",
+    "Supervised/unsupervised Modelle (XGBoost, SVM, Isolation Forest) mit 99% Prediction Accuracy."
+  ],
+  "images": [],
+  "links": []
+}

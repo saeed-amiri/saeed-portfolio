@@ -1,0 +1,16 @@
+{
+  "title": "Weiterbildung Data Scientist",
+  "summary": "Data-Science-Vertiefung bei Liora mit erweiterten ML- und DL-Inhalten.",
+  "bullets": [
+    "ML-Bereiche: Klassifikation, Regression, Clustering, Dimensionalitatsreduktion.",
+    "Fortgeschrittene Pipeline-Arbeit: Feature Engineering und Workflow-Design.",
+    "Deep Learning und moderne KI: Dense NN, CNN, Computer Vision, Time Series, Transformer und LLMs."
+  ],
+  "images": [
+    {
+      "src": "assets/cert-placeholder-2.svg",
+      "alt": "Zertifikat Data-Science Weiterbildung"
+    }
+  ],
+  "links": []
+}

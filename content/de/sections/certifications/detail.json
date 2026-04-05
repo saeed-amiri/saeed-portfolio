@@ -1,0 +1,19 @@
+{
+  "title": "Kontext zu Zertifikaten",
+  "summary": "Zertifikate wirken am starksten in Kombination mit praktischen Ergebnissen.",
+  "bullets": [
+    "Jedes Zertifikat mit einem Umsetzungsbeispiel verbinden.",
+    "Bilder sauber und metadata-bereinigt offentlich teilen."
+  ],
+  "images": [
+    {
+      "src": "assets/cert-placeholder-1.svg",
+      "alt": "Beispiel Zertifikat"
+    },
+    {
+      "src": "assets/cert-placeholder-2.svg",
+      "alt": "Beispiel Zertifikat"
+    }
+  ],
+  "links": []
+}

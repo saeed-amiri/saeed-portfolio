@@ -1,0 +1,7 @@
+{
+  "id": "exp-data-scientist",
+  "role": "Data Scientist",
+  "org": "Liora",
+  "period": "Sep 2025 - Dec 2025",
+  "summary": "Anomaly detection in automotive CAN bus data with 100M+ records and extreme class imbalance."
+}

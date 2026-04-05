@@ -1,0 +1,16 @@
+{
+  "title": "Zu meiner Arbeitsweise",
+  "summary": "Ich fokussiere mich auf produktionsreife ML-Systeme, die nach dem Go-live stabil bleiben.",
+  "bullets": [
+    "Starker Fokus auf Wartbarkeit und klare Verantwortlichkeiten.",
+    "Messbarer Nutzen ist wichtiger als Tool-Listen.",
+    "Business-Ziele werden in konkrete technische Meilensteine ubersetzt."
+  ],
+  "images": [
+    {
+      "src": "assets/profile-placeholder.svg?v=20260404-1",
+      "alt": "Professionelles Profilbild"
+    }
+  ],
+  "links": []
+}

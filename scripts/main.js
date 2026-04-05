@@ -21,6 +21,7 @@ import {
   setupModalDismissHandlers,
 } from "./modal.js";
 import { state } from "./state.js";
+import { setMultilineText } from "./text.js";
 
 function setLanguageButtonState() {
   elements.langEn.classList.toggle("active", state.lang === "en");
@@ -52,7 +53,7 @@ function applyContent(raw) {
   elements.profilePhoto.alt = data.labels.profilePhotoAlt;
 
   elements.bioTitle.textContent = data.labels.bio;
-  elements.bioText.textContent = data.bio;
+  setMultilineText(elements.bioText, data.bio);
 
   elements.experienceTitle.textContent = data.labels.experience;
   elements.trainingsTitle.textContent = data.labels.trainings;
@@ -87,7 +88,10 @@ function applyContent(raw) {
 
   annotateSectionDetailAvailability(data.sectionDetails);
   ensureSectionDetailTriggers(data);
-  buildSectionRail(getSectionLabelMap(data));
+  buildSectionRail(getSectionLabelMap(data), {
+    top: data.labels.railTop,
+    bottom: data.labels.railBottom,
+  });
   updateRailActiveState();
 
   elements.footerText.textContent = data.footer;

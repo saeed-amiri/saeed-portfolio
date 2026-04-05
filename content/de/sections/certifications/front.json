@@ -1,0 +1,16 @@
+{
+  "certifications": [
+    {
+      "id": "cert-1",
+      "title": "Zertifikat Beispiel 1",
+      "image": "assets/cert-placeholder-1.svg",
+      "link": "assets/cert-placeholder-1.svg"
+    },
+    {
+      "id": "cert-2",
+      "title": "Zertifikat Beispiel 2",
+      "image": "assets/cert-placeholder-2.svg",
+      "link": "assets/cert-placeholder-2.svg"
+    }
+  ]
+}

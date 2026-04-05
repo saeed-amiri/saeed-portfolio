@@ -1,6 +1,7 @@
 // Duty: section-level rendering and metadata.
 // Responsible for content blocks, list rendering, and detail-trigger buttons.
 import { elements } from "./elements.js";
+import { setMultilineText } from "./text.js";
 
 export function initializeSectionMetadata() {
   elements.sectionPanels.forEach((panel, index) => {
@@ -67,7 +68,15 @@ export function fillTimeline(container, entries, entryType) {
     wrap.dataset.entryId = entry.id || `${entryType}-${index}`;
 
     const title = document.createElement("h3");
-    title.textContent = `${entry.role} - ${entry.org}`;
+    const roleLine = document.createElement("span");
+    roleLine.className = "timeline-role";
+    setMultilineText(roleLine, entry.role);
+
+    const orgLine = document.createElement("span");
+    orgLine.className = "timeline-org";
+    setMultilineText(orgLine, entry.org);
+
+    title.append(roleLine, orgLine);
 
     if (entryType === "trainings" || entryType === "education" || entryType === "experience") {
       const headingRow = document.createElement("div");
@@ -101,10 +110,10 @@ export function fillTimeline(container, entries, entryType) {
 
     const period = document.createElement("p");
     period.className = "period";
-    period.textContent = entry.period;
+    setMultilineText(period, entry.period);
 
     const summary = document.createElement("p");
-    summary.textContent = entry.summary;
+    setMultilineText(summary, entry.summary);
 
     wrap.append(period, summary);
 
@@ -152,7 +161,7 @@ export function renderSkills(data) {
 
       const details = document.createElement("p");
       details.className = "skills-cv-text";
-      details.textContent = row.items;
+      setMultilineText(details, row.items);
 
       item.append(heading, details);
       list.appendChild(item);

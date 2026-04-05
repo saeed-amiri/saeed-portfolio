@@ -1,0 +1,63 @@
+{
+  "title": "MLOps / Machine Learning Engineer",
+  "content": [
+    {
+      "type": "summary",
+      "text": "Liora (Jan 2026 - Mär 2026)\nWeather Forecast in Australia – MLOps‑Projekt (Training Program)"
+    },
+    {
+      "type": "body",
+      "html": "<h2>Überblick – Was das Projekt ist</h2>\n<p>Dieses Projekt implementiert eine vollständige End-to-End-MLOps-Pipeline zur Vorhersage von RainTomorrow (binäre Niederschlagsvorhersage) auf Basis von 10 Jahren australischer Wetterdaten. Es zeigt, wie man ein produktionsreifes ML-System mit modernen DevOps- und MLOps-Methoden entwirft, orchestriert, bereitstellt und überwacht.</p>"
+
+    },
+    {
+      "type": "body",
+      "html": "<h2>Zweck – Warum das Projekt wichtig ist</h2> \n<p>Zeigt die Fähigkeit, skalierbare und automatisierte ML-Workflows statt statischer Notebooks zu entwickeln. Demonstriert produktionsreife Engineering-Kompetenzen: Microservices, Orchestrierung, Monitoring und CI/CD-Denken. Löst ein reales überwachtes Klassifikationsproblem mit einem umfangreichen meteorologischen Datensatz. Hebt Erfahrung mit Datenpipelines, Modell-Lifecycle-Management und servicebasierten Architekturen hervor.</p>"
+    },
+    {
+      "type": "body",
+      "html": "<h2>Pipeline Steps</h2>"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "<b>Dateningestion</b>: Abruf der neuesten Wetterdaten und Zusammenführung mit dem historischen Datensatz.",
+        "<b>Preprocessing</b>: Umgang mit fehlenden Werten, Kodierung kategorialer Merkmale und Erstellung modellbereiter Features.",
+        "<b>Train/Test Split</b>: Standardmäßige 80/20‑Aufteilung.",
+        "<b>Modellauswahl</b>: 5‑fach Cross‑Validation zur Auswahl der besten Hyperparameter.",
+        "<b>Modelltraining</b>: Training des finalen Modells und Bewertung anhand von Accuracy und F‑Metriken.",
+        "<b>Model Serving</b>: Bereitstellung eines Vorhersage‑Endpoints über einen Microservice."
+      ]
+    },
+    {
+      "type": "body",
+      "text": "<h2>Architecture & Tools</h2>"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "<b>API Gateway:</b> Zentraler Einstiegspunkt für alle Anfragen &rarr; FastAPI / Nginx (abhängig vom Repository-Setup)",
+        "<b>Data Ingestion Service:</b> Ruft neue Rohdaten ab und fügt sie hinzu &rarr; Python, Pandas, Requests",
+        "<b>Data Processing Service:</b> Bereinigt, kodiert und erstellt Features &rarr; Pandas, NumPy, Scikit-learn",
+        "<b>Model Training Service:</b> Cross-Validation, Hyperparameter-Tuning, Training &rarr; Scikit-learn",
+        "<b>Inference Service:</b> Stellt Vorhersagen über eine API bereit &rarr; FastAPI, Pickle/Joblib",
+        "<b>Orchestration:</b> Automatisiert die Pipeline-Schritte &rarr; Apache Airflow",
+        "<b>Monitoring Metrics:</b> Metriksammlung und Dashboards &rarr; Prometheus + Grafana",
+        "<b>Containerization:</b> Reproduzierbare Bereitstellung &rarr; Docker"
+      ]
+    },
+    {
+      "type": "images",
+      "items": [
+        {
+          "src": "mlops_pipeline.png",
+          "alt": "MLOps pipeline overview"
+        }
+      ]
+    },
+    {
+      "type": "links",
+      "items": []
+    }
+  ]
+}

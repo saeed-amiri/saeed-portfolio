@@ -4,7 +4,40 @@ import { featureFlags } from "./config.js";
 import { elements } from "./elements.js";
 import { state } from "./state.js";
 
-export function buildSectionRail(labelMap) {
+function appendRailButton(key, label) {
+  const item = document.createElement("li");
+  const button = document.createElement("button");
+  const isEdgeAction = key === "__top__" || key === "__bottom__";
+
+  button.type = "button";
+  button.className = "rail-link";
+  if (isEdgeAction) {
+    button.classList.add("rail-link-edge");
+  }
+  button.dataset.sectionKey = key;
+  button.setAttribute("aria-label", label);
+
+  if (isEdgeAction) {
+    const glyph = document.createElement("span");
+    glyph.className = "rail-glyph";
+    glyph.textContent = key === "__top__" ? "↑" : "↓";
+    button.appendChild(glyph);
+  } else {
+    const dot = document.createElement("span");
+    dot.className = "rail-dot";
+    button.appendChild(dot);
+  }
+
+  const labelTag = document.createElement("span");
+  labelTag.className = "rail-label";
+  labelTag.textContent = label;
+  button.appendChild(labelTag);
+
+  item.appendChild(button);
+  elements.sectionRailList.appendChild(item);
+}
+
+export function buildSectionRail(labelMap, edgeLabels = {}) {
   if (!featureFlags.sectionRail) {
     elements.sectionRail.classList.add("hidden");
     return;
@@ -13,29 +46,18 @@ export function buildSectionRail(labelMap) {
   elements.sectionRail.classList.remove("hidden");
   elements.sectionRailList.innerHTML = "";
 
+  const topLabel = edgeLabels.top || (state.lang === "de" ? "Oben" : "Top");
+  const bottomLabel = edgeLabels.bottom || (state.lang === "de" ? "Unten" : "Bottom");
+
+  appendRailButton("__top__", topLabel);
+
   elements.sectionPanels.forEach((panel) => {
     const key = panel.dataset.sectionKey;
     const label = labelMap[key] || key;
-    const item = document.createElement("li");
-    const button = document.createElement("button");
-
-    button.type = "button";
-    button.className = "rail-link";
-    button.dataset.sectionKey = key;
-    button.setAttribute("aria-label", label);
-
-    const dot = document.createElement("span");
-    dot.className = "rail-dot";
-    button.appendChild(dot);
-
-    const labelTag = document.createElement("span");
-    labelTag.className = "rail-label";
-    labelTag.textContent = label;
-    button.appendChild(labelTag);
-
-    item.appendChild(button);
-    elements.sectionRailList.appendChild(item);
+    appendRailButton(key, label);
   });
+
+  appendRailButton("__bottom__", bottomLabel);
 }
 
 export function updateRailActiveState() {
@@ -50,6 +72,16 @@ export function updateRailActiveState() {
 }
 
 export function scrollToSection(sectionKey) {
+  if (sectionKey === "__top__") {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    return;
+  }
+
+  if (sectionKey === "__bottom__") {
+    window.scrollTo({ top: document.documentElement.scrollHeight, behavior: "smooth" });
+    return;
+  }
+
   const panel = elements.sectionPanels.find((item) => item.dataset.sectionKey === sectionKey);
   if (!panel) {
     return;

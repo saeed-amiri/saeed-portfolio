@@ -1,0 +1,62 @@
+{
+  "title": "MLOps / Machine Learning Engineer",
+  "content": [
+    {
+      "type": "summary",
+      "text": "Liora (Jan 2026 - Mar 2026)\nWeather forecast in Australia MLOps project (Training program)"
+    },
+    {
+      "type": "body",
+      "html": "<h2>Overview - What the Project Is</h2>\n<p>This project implements a full end-to-end MLOps pipeline for predicting RainTomorrow (binary rainfall prediction) using 10 years of Australian weather data. It demonstrates how to design, orchestrate, deploy, and monitor a production-ready ML system using modern DevOps and MLOps practices.</p>"
+    },
+    {
+      "type": "body",
+      "html": "<h2>Purpose - Why the Project Matters</h2>\n<p>Shows the ability to build scalable, automated ML workflows instead of static notebooks. Demonstrates production-grade engineering skills: microservices, orchestration, monitoring, CI/CD thinking. Solves a real-world supervised classification problem with a rich meteorological dataset. Highlights experience with data pipelines, model lifecycle management, and service-based architectures.</p>"
+    },
+    {
+      "type": "body",
+      "html": "<h2>Pipeline Steps</h2>"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "<b>Data Ingestion</b>: Pull latest weather data and merge with historical dataset.",
+        "<b>Preprocessing</b>: Handle missing values, encode categorical features, generate model-ready features.",
+        "<b>Train/Test Split</b>: Standard 80/20 split.",
+        "<b>Model Selection</b>: 5-fold cross-validation to choose best hyperparameters.",
+        "<b>Model Training</b>: Train final model and evaluate accuracy + F-metrics.",
+        "<b>Model Serving</b>: Expose prediction endpoint via microservice."
+      ]
+    },
+    {
+      "type": "body",
+      "text": "<h2>Architecture & Tools</h2>"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "<b>API Gateway:</b> Single entry point for all requests &rarr; FastAPI / Nginx (depending on repo setup)",
+        "<b>Data Ingestion Service:</b> Fetches and appends new raw data &rarr; Python, Pandas, Requests",
+        "<b>Data Processing Service:</b> Cleans, encodes, and feature-engineers &rarr; Pandas, NumPy, Scikit-learn",
+        "<b>Model Training Service:</b> Cross-validation, hyperparameter tuning, training &rarr; Scikit-learn",
+        "<b>Inference Service:</b> Serves predictions via API &rarr; FastAPI, Pickle/Joblib",
+        "<b>Orchestration:</b> Automates pipeline steps &rarr; Apache Airflow",
+        "<b>Monitoring Metrics:</b> Collection and dashboards &rarr; Prometheus + Grafana",
+        "<b>Containerization:</b> Reproducible deployment &rarr; Docker"
+      ]
+    },
+    {
+      "type": "images",
+      "items": [
+        {
+          "src": "mlops_pipeline.png",
+          "alt": "MLOps pipeline overview"
+        }
+      ]
+    },
+    {
+      "type": "links",
+      "items": []
+    }
+  ]
+}

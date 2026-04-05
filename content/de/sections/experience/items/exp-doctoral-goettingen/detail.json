@@ -1,0 +1,11 @@
+{
+  "title": "Doctoral Researcher",
+  "summary": "Georg-August-Universitat Gottingen, Institut fur Materialphysik (Mai 2018 - Okt 2021)",
+  "bullets": [
+    "Atomare Reibungssysteme mit Python und C auf HLRN HPC clusters modelliert.",
+    "Recheneffizienz um 10% durch Constraint-Monitoring und automatisiertes Cleanup verbessert.",
+    "Speichernutzung um 60% durch optimierte Datenstrukturen und on-the-fly processing reduziert."
+  ],
+  "images": [],
+  "links": []
+}
