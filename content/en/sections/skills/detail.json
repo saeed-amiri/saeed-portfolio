@@ -1,10 +1,7 @@
 {
-  "title": "Skill Strategy",
-  "summary": "Each skill chip opens evidence from repositories, projects, or certifications.",
-  "bullets": [
-    "Use evidence links instead of generic skill bars.",
-    "Keep proof concrete: repo, file, or certificate reference."
-  ],
+  "title": "Skill",
+  "summary": "",
+  "bullets": [],
   "images": [],
   "links": []
 }

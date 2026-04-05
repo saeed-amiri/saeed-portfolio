@@ -1,0 +1,30 @@
+{
+  "title": "Stream Monitoring Stack",
+  "content": [
+    {
+      "type": "summary",
+      "text": "2025 - Ongoing"
+    },
+    {
+      "type": "body",
+      "html": "<h3>Monitoring Focus</h3><p>Service-level observability layer for model/API behavior with alerting and dashboard-driven incident response.</p>"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "Metric selection strategy for inference quality and API health.",
+        "Alert routing for reliability and actionable incident context.",
+        "Dashboards for trend tracking, drift checks, and capacity visibility."
+      ]
+    },
+    {
+      "type": "links",
+      "items": [
+        {
+          "label": "GitHub Profile",
+          "url": "https://github.com/saeed-amiri"
+        }
+      ]
+    }
+  ]
+}

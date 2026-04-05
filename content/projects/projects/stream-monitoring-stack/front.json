@@ -1,0 +1,11 @@
+{
+  "title": "Stream Monitoring Stack",
+  "period": "2025 - Ongoing",
+  "summary": "Designed service-level monitoring for model and API behavior using metrics pipelines, alerting strategy, and dashboard-driven incident visibility.",
+  "links": [
+    {
+      "label": "GitHub Profile",
+      "url": "https://github.com/saeed-amiri"
+    }
+  ]
+}

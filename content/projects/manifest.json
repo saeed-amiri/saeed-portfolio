@@ -1,0 +1,35 @@
+{
+  "pageTitle": "Saeed Amiri | Ongoing Projects",
+  "profile": {
+    "name": "Saeed Amiri",
+    "headline": "Project Portfolio",
+    "meta": "ML, MLOps, and Scientific Computing",
+    "photo": "../assets/profile-placeholder.svg?v=20260404-1",
+    "photoAlt": "Profile photo",
+    "email": "email@example.com",
+    "linkedin": "https://www.linkedin.com/in/saeed-amiri-71556391/",
+    "github": "https://github.com/saeed-amiri"
+  },
+  "labels": {
+    "moreDetails": "More"
+  },
+  "sections": [
+    {
+      "id": "featured-projects",
+      "title": "Featured Projects",
+      "railLabel": "Featured",
+      "description": "High-impact projects with production-facing architecture and measurable outcomes.",
+      "projectIds": [
+        "german-load-forecast"
+      ]
+    },
+    {
+      "id": "research-simulation",
+      "title": "Research and Simulation Projects",
+      "railLabel": "Research",
+      "description": "Computational physics, simulation workflows, and data-intensive analysis pipelines.",
+      "projectIds": []
+    }
+  ],
+  "footer": "Ongoing projects and technical work in progress."
+}
