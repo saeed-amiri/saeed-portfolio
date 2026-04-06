@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700" role="img" aria-label="Certification placeholder 1">
-  <rect width="1000" height="700" fill="#efe7da" />
-  <rect x="50" y="50" width="900" height="600" rx="24" fill="#fffdf9" stroke="#cbbda9" stroke-width="6" />
-  <text x="500" y="260" text-anchor="middle" font-size="54" font-family="Arial, sans-serif" fill="#413a31">Certification</text>
-  <text x="500" y="330" text-anchor="middle" font-size="34" font-family="Arial, sans-serif" fill="#6d6256">Replace with your real certificate image</text>
-</svg>

@@ -20,6 +20,7 @@ export function annotateSectionDetailAvailability(sectionDetails) {
 export function ensureSectionDetailTriggers(data) {
   elements.sectionPanels.forEach((panel) => {
     if (
+      panel.dataset.sectionKey === "bio" ||
       panel.dataset.sectionKey === "trainings" ||
       panel.dataset.sectionKey === "education" ||
       panel.dataset.sectionKey === "experience"

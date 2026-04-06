@@ -1,0 +1,59 @@
+{
+  "pageTitle": "Saeed Amiri | About Me",
+  "tabLabel": "About Me",
+  "profile": {
+    "name": "Saeed Amiri",
+    "headline": "ML and MLOps Engineer | Data Scientist | Physicist",
+    "location": "Germany, Bremen",
+    "photo": "../assets/profile-placeholder.svg?v=20260404-1",
+    "photoAlt": "Profile photo"
+  },
+  "title": "About Me",
+  "intro": "This is the personal side of my portfolio. I use this page to share motivation, values, and the story behind my work beyond the CV format.",
+  "sections": [
+    {
+      "id": "personal-story",
+      "title": "My Story",
+      "body": [
+        "I am curious about how ideas become useful tools for people. My path moved from physics to machine learning and MLOps, but the core stayed the same: understand systems deeply and build things that last.",
+        "Outside of technical goals, I care about thoughtful collaboration, reliability, and creating calm, focused environments where teams can do their best work."
+      ]
+    },
+    {
+      "id": "how-i-work",
+      "title": "How I Work",
+      "body": [
+        "I value clarity, documentation, and incremental delivery. I enjoy turning complex requirements into practical, maintainable systems.",
+        "I am especially motivated by projects where research depth and production quality need to coexist."
+      ]
+    },
+    {
+      "id": "beyond-work",
+      "title": "Beyond Work",
+      "body": [
+        "I enjoy long-form learning, writing technical notes, and exploring ideas that connect science, engineering, and real-world impact."
+      ],
+			"content": [
+		    {
+					"type": "images",
+      		"items": [
+        	{
+          	"src": "office.jpg",
+        	  "alt": ""
+					},
+					{
+          	"src": "conf.png",
+        	  "alt": ""
+					}
+				]
+			}
+		]
+	}
+],
+
+  "labels": {
+    "railTop": "Top",
+    "railBottom": "Bottom"
+  },
+  "footer": "Personal notes and values. Separate from the printable CV."
+}

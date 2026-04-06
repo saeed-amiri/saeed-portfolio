@@ -9,8 +9,12 @@ function openImageLightbox(src, alt) {
     return;
   }
 
+  const caption = typeof alt === "string" ? alt.trim() : "";
+
   elements.imageLightboxImg.src = src;
   elements.imageLightboxImg.alt = alt || "Expanded detail image";
+  elements.imageLightboxCaption.textContent = caption;
+  elements.imageLightboxCaption.classList.toggle("hidden", !caption);
   elements.imageLightboxBackdrop.classList.remove("hidden");
   elements.imageLightboxBackdrop.setAttribute("aria-hidden", "false");
 }
@@ -19,6 +23,8 @@ function closeImageLightbox() {
   elements.imageLightboxBackdrop.classList.add("hidden");
   elements.imageLightboxBackdrop.setAttribute("aria-hidden", "true");
   elements.imageLightboxImg.src = "";
+  elements.imageLightboxCaption.textContent = "";
+  elements.imageLightboxCaption.classList.add("hidden");
 }
 
 function appendBodyBlock(content) {
