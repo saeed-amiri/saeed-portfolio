@@ -32,6 +32,7 @@
       <div class="brand" id="brandName">Saeed Amiri</div>
       <nav class="controls" aria-label="Language and actions">
         <a class="chip" href="pages/projects.html">Ongoing Projects</a>
+        <a class="chip" href="pages/about.html">About Me</a>
         <button class="chip" id="langEn" type="button">English</button>
         <button class="chip" id="langDe" type="button">Deutsch</button>
         <button class="chip accent" id="downloadPdf" type="button">Download PDF</button>
@@ -60,6 +61,11 @@
           <p id="bioText"></p>
         </section>
 
+        <section class="panel" id="educationSection" data-section-key="education" data-detail-key="education">
+          <h2 id="educationTitle"></h2>
+          <div id="educationList" class="timeline"></div>
+        </section>
+
         <section class="panel" id="experienceSection" data-section-key="experience" data-detail-key="experience">
           <h2 id="experienceTitle"></h2>
           <div id="experienceList" class="timeline"></div>
@@ -68,11 +74,6 @@
         <section class="panel" id="trainingsSection" data-section-key="trainings" data-detail-key="trainings">
           <h2 id="trainingsTitle"></h2>
           <div id="trainingsList" class="timeline"></div>
-        </section>
-
-        <section class="panel" id="educationSection" data-section-key="education" data-detail-key="education">
-          <h2 id="educationTitle"></h2>
-          <div id="educationList" class="timeline"></div>
         </section>
 
         <section class="panel" id="skillsSection" data-section-key="skills" data-detail-key="skills">
@@ -105,6 +106,7 @@
 
     <div class="image-lightbox-backdrop hidden" id="imageLightboxBackdrop" aria-hidden="true">
       <div class="image-lightbox" id="imageLightbox" role="dialog" aria-modal="true" aria-label="Expanded image view">
+        <p class="image-lightbox-caption hidden" id="imageLightboxCaption"></p>
         <button class="image-lightbox-close" id="imageLightboxClose" type="button" aria-label="Close image view">x</button>
         <img id="imageLightboxImg" src="" alt="Expanded detail image" />
       </div>

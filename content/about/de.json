@@ -1,0 +1,54 @@
+{
+  "pageTitle": "Saeed Amiri | Uber mich",
+  "tabLabel": "Uber mich",
+  "profile": {
+    "name": "Saeed Amiri",
+    "headline": "ML und MLOps Engineer | Data Scientist | Physiker",
+    "location": "Deutschland, Bremen",
+    "photo": "../assets/profile-placeholder.svg?v=20260404-1",
+    "photoAlt": "Profilfoto"
+  },
+  "title": "Uber mich",
+  "intro": "Dies ist der persoenliche Teil meines Portfolios. Hier teile ich Motivation, Werte und den Hintergrund meiner Arbeit jenseits des klassischen Lebenslaufs.",
+  "sections": [
+    {
+      "id": "personlicher-weg",
+      "title": "Mein Weg",
+      "body": [
+        "Mich fasziniert, wie aus Ideen nuetzliche Werkzeuge fuer Menschen werden. Mein Weg fuehrte von der Physik zu Machine Learning und MLOps, aber der Kern blieb gleich: Systeme tief verstehen und nachhaltige Loesungen bauen.",
+        "Neben technischen Zielen sind mir gute Zusammenarbeit, Verlaesslichkeit und eine fokussierte Arbeitskultur wichtig, in der Teams ihr Bestes leisten koennen."
+      ]
+    },
+    {
+      "id": "arbeitsweise",
+      "title": "Wie ich arbeite",
+      "body": [
+        "Ich lege Wert auf Klarheit, Dokumentation und inkrementelle Lieferung. Komplexe Anforderungen in praktikable, wartbare Systeme zu uebersetzen motiviert mich besonders.",
+        "Besonders reizvoll finde ich Projekte, in denen Forschungstiefe und Produktionsqualitaet zusammenkommen."
+      ]
+    },
+    {
+      "id": "neben-der-arbeit",
+      "title": "Abseits der Arbeit",
+      "body": [
+        "Ich beschaeftige mich gern mit vertiefendem Lernen, technischen Notizen und Themen an der Schnittstelle von Wissenschaft, Engineering und Wirkung in der Praxis."
+      ],
+			"content": [
+			{
+							"type": "images",
+			"items": [
+			{
+			"src": "office.jpg",
+					"alt": ""
+							}
+					]
+			}
+		]
+    }
+  ],
+  "labels": {
+    "railTop": "Top",
+    "railBottom": "Unten"
+  },
+  "footer": "Persoenliche Notizen und Werte. Getrennt vom druckbaren Lebenslauf."
+}

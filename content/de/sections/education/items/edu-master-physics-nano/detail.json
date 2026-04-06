@@ -1,9 +1,67 @@
 {
-  "title": "Master in Physik (NanoScience und NanoTechnology)",
-  "summary": "University of Damghan, Damghan, Iran (Sep 2013 - Sep 2016)",
-  "bullets": [
-    "Dissertation: Investigation of the band structure and quantum transmission through phosphorene in presence of impurities and defects (DFT study of 2D materials)."
-  ],
-  "images": [],
-  "links": []
+  "title": "M.Sc.-Arbeit (Physik, Nanowissenschaft und Nanotechnologie)",
+  "content": [
+    {
+      "type": "summary",
+      "text": "University of Damghan, Damghan, Iran (Sep 2013 - Sep 2016)"
+    },
+    {
+      "type": "body",
+      "text": "Elektronische Struktur und Quantentransport in verunreinigtem Phosphoren"
+    },
+    {
+      "type": "body",
+      "text": "Diese Arbeit untersucht, wie Defekte und Verunreinigungen auf atomarer Skala die elektronische Struktur und die Quantentransporteigenschaften von Phosphoren beeinflussen, einem zweidimensionalen Halbleiter mit starker Anisotropie und abstimmbarer Bandlücke. Dafür wurden erstprinzipielle Rechnungen zur elektronischen Struktur mit Quantentransportsimulationen kombiniert, um den Einfluss struktureller Imperfektionen auf bauelementrelevantes Verhalten zu analysieren."
+    },
+    {
+      "type": "body",
+      "text": "Wissenschaftlicher Fokus"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "Elektronische Bandstruktur von monolagigem Phosphoren.",
+        "Einfluss von Punktdefekten, Vakanzstellen und substitutionellen Dotierungen.",
+        "Spinabhängige elektronische Zustände und Magnetisierungseffekte.",
+        "Randphysik in Zickzack-Phosphoren-Nanobändern.",
+        "Quantentransport durch nanoskalige Junctions und hybride Graphen-Phosphoren-Systeme."
+      ]
+    },
+    {
+      "type": "body",
+      "text": "Methoden und numerische Techniken"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "<b>Dichtefunktionaltheorie (DFT)</b>: Gleichgewichtsgeometrien, Bandstrukturen, DOS/PDOS, verunreinigungsinduzierte lokalisierte Zustände, magnetische Momente und Ladungsumverteilung.",
+        "<b>Technische Umsetzung</b>: GGA/PBE-Austausch-Korrelations-Funktional, doppelt‑ζ polarisierte Basissätze, Superzellen für Defekte und Dotierungen, Strukturrelaxation und Totalenergie-Minimierung.",
+        "<b>Defekt- und Verunreinigungsmodellierung</b>: Halogen-Adatome, substitutionelle Dotierungen (H, N, O, F), Monovakanzen, dislokationsähnliche Defekte und Verunreinigungs‑Vakanz‑Wechselwirkungen.",
+        "<b>Elektronische Analyse</b>: defektinduzierte Mid-Gap-Zustände, Ladungstransfer, Bindungsinterpretation und spinpolarisierte Effekte.",
+        "<b>Quantentransport mit NEGF</b> für Zickzack-Phosphoren-Nanobänder, H/O-passivierte Kanten, Graphen/Phosphoren/Graphen-Junctions und Phosphoren/Graphen-Flake/Phosphoren-Bauelemente.",
+        "<b>Transportauswertung</b>: spinaufgelöste Transmissionsspektren, Elektroden‑Kanal‑Kopplung und Struktur‑Transport‑Korrelationen."
+      ]
+    },
+    {
+      "type": "images",
+      "items": [
+        {
+          "src": "band_structure.png",
+          "alt": "Elektronische Bandstrukturen von perfektem und defektem Phosphoren durch die Versetzung eines P-Atoms. Die rot und blau schattierten Bereiche zeigen die Bandstruktur des perfekten Phosphorens. Das Ferminiveau ist durch grün gestrichelte Linien markiert und auf Null gesetzt."
+        },
+        {
+          "src": "projected_dos_bandstructure.png",
+          "alt": "Projizierte Zustandsdichte auf der Bandstruktur. Die farbigen Kreise zeigen die Zustandsdichte für jeden Fall an. Der Radius der Kreise entspricht dem Wert der DOS in diesem Bereich."
+        },
+        {
+          "src": "transport_jn.png",
+          "alt": "Struktur der molekularen Junction vor (rechts) und nach (links) der Optimierung. P-Atome sind als gelbe Kugeln dargestellt, C-Atome als rote."
+        },
+        {
+          "src": "transport.png",
+          "alt": "P/Graphene/P-Struktur vor (rechts) und nach (links) der Relaxation. P-Atome sind als gelbe Kugeln dargestellt, C-Atome als rote."
+        }
+      ]
+    }
+  ]
 }

@@ -1,10 +1,63 @@
 {
   "title": "Dr. rer. nat. in Theoretischer Physik (Materialwissenschaft)",
-  "summary": "Georg-August-Universitat Gottingen (Mai 2018 - Okt 2021)",
-  "bullets": [
-    "Dissertation: Friction under active control in systems with tailored degrees of freedom.",
-    "Note: magna cum laude"
-  ],
-  "images": [],
-  "links": []
+  "content": [
+    {
+      "type": "summary",
+      "text": "Georg-August-Universität Göttingen (Mai 2018 - Okt 2021)\nNote: magna cum laude"
+    },
+    {
+      "type": "body",
+      "html": "<h2>Atomare Reibung und Energiedissipation</h2><p>Meine Promotion entwickelte ein Molekulardynamik-Framework zur Untersuchung, wie trockene Gleitgrenzflächen Energie über Phononmoden dissipieren. Durch die Analyse eines angestoßenen atomaren Sliders auf einem inkommensurablen Substrat konnte ich zeigen, wie translatorische kinetische Energie in Schwingungsbewegung übergeht und wie dieser Prozess die Reibung auf mikroskopischer Ebene bestimmt. Mit klassischer MD und Eigenmodenanalyse liefert die Arbeit ein modenaufgelöstes Verständnis von Energiefluss, Thermalisierung und nichtlinearer Dynamik in niedrigdimensionalen Systemen.</p>"
+    },
+    {
+      "type": "body",
+      "html": "<h2>Zentrale wissenschaftliche Beiträge</h2>"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "<b>Anharmonizität als Treiber der Reibung:</b> gezeigt, wie intrinsische und extrinsische Anharmonizität (Bindungswechselwirkungen, Defekte, Randbedingungen) Modenkopplung, Resonanzverhalten und die Rate der Thermalisierung steuern.",
+        "<b>Effekte der Randbedingungen:</b> gezeigt, dass freie Slider-Enden zusätzliche Dissipationskanäle (Rotation, Torsion, Breathing-Moden) eröffnen, während starre oder periodische Randbedingungen diese Wege unterdrücken und die Reibung verändern.",
+        "<b>Defekte und Substratgeometrie:</b> identifiziert, wie Defekte Pinning und Reibung verstärken und wie die Substratperiodizität Resonanzgeschwindigkeiten sowie die Aktivierung spezifischer Schwingungsmoden bestimmt."
+      ]
+    },
+    {
+      "type": "body",
+      "html": "<p>Aufbauend auf diesen Ergebnissen liefert die Dissertation ein konsistentes physikalisches Bild davon, wie mikroskopische Strukturmerkmale makroskopische Reibung prägen. Durch den Vergleich defektfreier, defektreicher und randmodifizierter Systeme verbindet die Arbeit Tribologie mit nichtlinearer Dynamik und Phonontransport. Die Ergebnisse bilden eine Grundlage, um solche Modelle auf realistischere dreidimensionale Grenzflächen zu erweitern und Reibung in komplexen, ungeordneten Materialien besser zu verstehen.</p>"
+    },
+    {
+      "type": "images",
+      "items": [
+        {
+          "src": "model.png",
+          "alt": "Lattice Dynamics."
+        },
+        {
+          "src": "modes.png",
+          "alt": "Die Abbildung zeigt sechs der aktivsten Schwingungsmoden des harmonischen OBC‑Sliders (Open Boundary Conditions). Die ausgefüllten roten Kreise stellen die Teilchen im OBC‑Slider dar, und die Pfeile zeigen Amplitude und Richtung der Schwingungen an."
+        },
+        {
+          "src": "trapped_ions.png",
+          "alt": "Schematische Darstellung von Ionen, die in einer typischen Potentiallandschaft mit einer Tiefe von U<u>0 gefangen sind"
+        }
+      ]
+    },
+    {
+      "type": "links",
+      "items": [
+        {
+          "label": "Thesis (eDiSS)",
+          "url": "https://ediss.uni-goettingen.de/handle/21.11130/00-1735-0000-0008-59BC-1"
+        },
+        {
+          "label": "Thesis (pdf)",
+          "url": "https://share.google/B2CrXDvI6q5e21XlD"
+        },
+        {
+          "label": "Friction on incommensurate substrates: Role of anharmonicity and defects (PRE)",
+          "url": "https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.014802"
+        }           
+      ]
+    }
+  ]
 }

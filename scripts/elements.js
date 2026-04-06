@@ -16,6 +16,7 @@ export const elements = {
   imageLightbox: document.getElementById("imageLightbox"),
   imageLightboxClose: document.getElementById("imageLightboxClose"),
   imageLightboxImg: document.getElementById("imageLightboxImg"),
+  imageLightboxCaption: document.getElementById("imageLightboxCaption"),
   fullName: document.getElementById("fullName"),
   brandName: document.getElementById("brandName"),
   headline: document.getElementById("headline"),

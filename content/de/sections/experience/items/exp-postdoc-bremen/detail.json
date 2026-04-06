@@ -63,6 +63,18 @@
     },
     {
       "type": "body",
+      "html": "<h4>Experimentelle Kampagnen (Synchrotron-Beamtime)</h4>"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "Teilnahme am <b>ESRF in Grenoble</b> (01.03.2022 - 06.03.2022.",
+        "Teilnahme an <b>DESY PETRA III</b> (26.10.2022 - 31.10.2022).",
+        "Aktive Mitarbeit in der experimentellen Gruppe für <b>GISAXS/GISACS</b>- und <b>Roentgenmessungen</b>."
+      ]
+    },
+    {
+      "type": "body",
       "html": "<h3>4. Grenzflächentensiometrie</h3>"
     },
     {
@@ -107,6 +119,19 @@
           "url": "https://github.com/saeed-amiri/GromacsPanorama"
         }
       ]
+    },
+    {
+      "type": "body",
+      "html": "<h3>6. Vorträge & Veröffentlichungen</h3>"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "<b>Temperature-Dependent Behavior of C14 –C18 Alkyl Surfactants with Ionizable and Neutral Head Groups at the Water-Decane Interface</b>,<br>F. Menke, S. Amiri, K. Rezwan, L. C. Ciacchi, M. Maas, Eingereicht. 2025",
+        "<b>Coated Silica Nanoparticles and Surfactant at the Water–Oil Interface</b><br>S. Amiri, F. Menke, M. Maas, L. C. Ciacchi, In Vorbereitung.",
+        "<b>Particle-Based Materials Symposium  (Vortrag),</b><br>Sep 2024, Bremen."
+      ]
     }
+
   ]
 }

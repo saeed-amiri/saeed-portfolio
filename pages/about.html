@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Personal About page for Saeed Amiri portfolio." />
+    <title>Saeed Amiri | About Me</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Space+Grotesk:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/main.css?v=20260406-1" />
+    <style>
+      #brandName {
+        font-family: "Pinyon Script", "Brush Script MT", cursive !important;
+        font-size: 2rem !important;
+        font-weight: 400 !important;
+        letter-spacing: 0.01em !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-shape bg-shape-1" aria-hidden="true"></div>
+    <div class="bg-shape bg-shape-2" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <div class="brand" id="brandName">Saeed Amiri</div>
+      <nav class="controls" aria-label="Language and actions">
+        <a class="chip" href="projects.html">Ongoing Projects</a>
+        <a class="chip" href="../index.html">CV</a>
+        <a class="chip active" href="about.html" id="aboutTab">About Me</a>
+        <button class="chip" id="langEn" type="button">English</button>
+        <button class="chip" id="langDe" type="button">Deutsch</button>
+      </nav>
+    </header>
+
+    <main class="layout">
+      <aside class="profile-card reveal">
+        <img
+          id="aboutProfilePhoto"
+          src="../assets/profile-placeholder.svg?v=20260404-1"
+          alt="Profile photo"
+          class="profile-photo"
+        />
+        <h1 id="aboutName">Saeed Amiri</h1>
+        <p id="aboutHeadline" class="headline"></p>
+        <p id="aboutLocation" class="meta"></p>
+      </aside>
+
+      <section class="content reveal" id="aboutContentRoot">
+        <section class="panel">
+          <h2 id="aboutTitle">About Me</h2>
+          <p id="aboutIntro"></p>
+        </section>
+
+        <section class="panel" id="aboutSections"></section>
+      </section>
+
+      <aside class="section-rail" aria-label="About section navigation">
+        <ul id="aboutRailList"></ul>
+      </aside>
+    </main>
+
+    <footer class="footer">
+      <small id="aboutFooter"></small>
+    </footer>
+
+    <script type="module" src="../scripts/about.js"></script>
+  </body>
+</html>

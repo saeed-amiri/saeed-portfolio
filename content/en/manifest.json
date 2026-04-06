@@ -5,6 +5,11 @@
       "front": "sections/bio/front.json",
       "detail": "sections/bio/detail.json"
     },
+    "education": {
+      "index": "sections/education/index.json",
+      "itemsDir": "sections/education/items",
+      "detail": "sections/education/detail.json"
+    },
     "experience": {
       "index": "sections/experience/index.json",
       "itemsDir": "sections/experience/items",
@@ -14,11 +19,6 @@
       "index": "sections/trainings/index.json",
       "itemsDir": "sections/trainings/items",
       "detail": "sections/trainings/detail.json"
-    },
-    "education": {
-      "index": "sections/education/index.json",
-      "itemsDir": "sections/education/items",
-      "detail": "sections/education/detail.json"
     },
     "skills": {
       "front": "sections/skills/front.json",

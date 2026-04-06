@@ -22,7 +22,7 @@ const elements = {
 const projectDetailsById = new Map();
 
 async function fetchJson(path) {
-  const response = await fetch(path);
+  const response = await fetch(path, { cache: "no-store" });
   if (!response.ok) {
     throw new Error(`Failed to load ${path}`);
   }

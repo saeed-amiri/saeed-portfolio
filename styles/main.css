@@ -546,6 +546,23 @@ h2 {
   place-items: center;
 }
 
+.image-lightbox-caption {
+  position: absolute;
+  left: 0;
+  right: 3.2rem;
+  bottom: calc(100% + 0.45rem);
+  margin: 0;
+  padding: 0.42rem 0.65rem;
+  text-align: center;
+  border-radius: 10px;
+  background: rgba(12, 10, 8, 0.66);
+  color: #fff;
+  font-size: 0.98rem;
+  line-height: 1.35;
+  z-index: 1;
+  pointer-events: none;
+}
+
 .image-lightbox img {
   max-width: 100%;
   max-height: 90vh;
@@ -643,13 +660,16 @@ h2 {
 
 /* What: Print-specific styles for PDF export. Why: produce a clean CV document without UI chrome. */
 @media print {
-  /* What: Remove decorative page background. Why: save ink and improve print contrast. */
+  /* Keep print output visually close to the on-screen design. */
   body {
-    background: #fff;
+    background: var(--bg);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
-  /* What: Hide non-essential UI/decorative elements. Why: keep printed output focused on CV content. */
+  /* Hide UI/navigation and interactive overlays in print. */
   .bg-shape,
+  .topbar,
   .controls,
   .footer,
   .section-rail,
@@ -659,19 +679,42 @@ h2 {
     display: none;
   }
 
-  /* What: Normalize layout for paper. Why: use full printable width in one column. */
+  /* Use a compact two-column print layout to keep profile and first sections on page one. */
   .layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: 220px minmax(0, 1fr);
     max-width: none;
     padding: 0;
+    gap: 0.6rem;
+    align-items: start;
   }
 
-  /* What: Strip card chrome for print. Why: avoid borders/shadows and reduce page break artifacts. */
-  .profile-card,
-  .panel {
-    border: none;
-    box-shadow: none;
-    border-radius: 0;
+  .profile-card {
+    position: static;
+    top: auto;
+    padding: 0.75rem;
     break-inside: avoid;
+  }
+
+  .profile-photo {
+    max-height: 180px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .content {
+    gap: 0.6rem;
+  }
+
+  .panel {
+    break-inside: auto;
+  }
+
+  .timeline-item {
+    break-inside: avoid;
+  }
+
+  /* Remove certifications from print output. */
+  #certSection {
+    display: none;
   }
 }

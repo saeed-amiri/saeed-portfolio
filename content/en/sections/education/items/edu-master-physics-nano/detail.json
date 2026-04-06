@@ -1,9 +1,67 @@
 {
-  "title": "Master in Physics (NanoScience and NanoTechnology)",
-  "summary": "University of Damghan, Damghan, Iran (Sep 2013 - Sep 2016)",
-  "bullets": [
-    "Dissertation: Investigation of the band structure and quantum transmission through phosphorene in presence of impurities and defects (DFT study of 2D materials)."
-  ],
-  "images": [],
-  "links": []
+  "title": "M.Sc. Thesis (Physics, Nanoscience and Nanotechnology)",
+  "content": [
+    {
+      "type": "summary",
+      "text": "University of Damghan, Damghan, Iran (Sep 2013 - Sep 2016)"
+    },
+    {
+      "type": "body",
+      "text": "Electronic Structure and Quantum Transport in Impurity-Modified Phosphorene"
+    },
+    {
+      "type": "body",
+      "text": "This thesis investigated how atomic-scale defects and impurities modify the electronic structure and quantum transport properties of phosphorene, a two-dimensional semiconductor with strong anisotropy and a tunable band gap. The work combined first-principles electronic-structure calculations with quantum transport simulations to analyze how structural imperfections influence device-relevant behavior."
+    },
+    {
+      "type": "body",
+      "text": "Scientific Focus"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "Electronic band structure of monolayer phosphorene.",
+        "Influence of point defects, vacancies, and substitutional dopants.",
+        "Spin-dependent electronic states and magnetization effects.",
+        "Edge physics in zigzag phosphorene nanoribbons.",
+        "Quantum transport through nanoscale junctions and hybrid graphene-phosphorene systems."
+      ]
+    },
+    {
+      "type": "body",
+      "text": "Methods and Computational Techniques"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "<b>Density Functional Theory (DFT)</b>: equilibrium geometries, band structures, DOS/PDOS, impurity-induced localized states, magnetic moments, and charge redistribution.",
+        "<b>Technical setup</b>: GGA/PBE exchange-correlation functional, double-zeta polarized basis sets, supercell models for defects and dopants, structural relaxation, and total-energy minimization.",
+        "<b>Defect and impurity modeling</b>: halogen adatoms, substitutional dopants (H, N, O, F), monovacancies, dislocation-type defects, and impurity-vacancy interactions.",
+        "<b>Electronic analysis</b>: defect-induced mid-gap states, charge transfer, bonding interpretation, and spin-polarized effects.",
+        "<b>Quantum transport via NEGF</b> for zigzag phosphorene nanoribbons, H/O-passivated edges, graphene/phosphorene/graphene junctions, and phosphorene/graphene-flake/phosphorene devices.",
+        "<b>Transport analysis</b>: spin-resolved transmission spectra, electrode-channel coupling, and structure-transport correlations."
+      ]
+    },
+    {
+      "type": "images",
+      "items": [
+        {
+          "src": "band_structure.png",
+          "alt": "Electronic band structures of perfect and defective phosphorene by dislocation of one P atom. The red and blue shaded area indicate the band structure of perfect phosphorene. The Fermi level is shown by green dotted lines and set to zero."
+        },
+        {
+          "src": "projected_dos_bandstructure.png",
+          "alt": "Projected density of state on the band structure. The colorful circles indicate the density of state for each case. The radius of this circle are coefficients of a value of DOS in that area."
+        },
+        {
+          "src": "transport_jn.png",
+          "alt": "Molecular junction’s structure before (right) and after (left) optimization. P atoms are denoted with yellow balls and C atoms with red ones."
+        },
+        {
+          "src": "transport.png",
+          "alt": "P/Graphene/P’s structure before (right) and after (left) relaxation. P atoms are denoted with yellow balls and C atoms with red ones."
+        }
+      ]
+    }
+  ]
 }

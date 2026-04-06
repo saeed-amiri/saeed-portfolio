@@ -1,11 +1,47 @@
 {
   "title": "Data Scientist",
-  "summary": "Liora (Sep 2025 - Dec 2025)",
-  "bullets": [
-    "Anomaly detection in automotive CAN bus data project.",
-    "Handled 100M+ records, extreme class imbalance, time series, and rational/non-rational data.",
-    "Built supervised and unsupervised models (XGBoost, SVM, Isolation Forest) with 99% prediction accuracy."
-  ],
-  "images": [],
-  "links": []
+  "content": [
+    {
+      "type": "summary",
+      "text": "Liora (Sep 2025 - Dec 2025)"
+    },
+    {
+      "type": "body",
+      "html": "<h2>CAN Bus Anomaly Detection</h2><p>This project delivers a realistic and well-structured approach to detecting anomalies in automotive CAN bus traffic. It combines supervised machine learning with unsupervised deep learning, demonstrating the ability to design, justify, and evaluate multiple modeling strategies for a security-critical domain.</p>"
+    },
+    {
+      "type": "body",
+      "html": "<h2>Key Strengths</h2>"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "<b>Clear technical focus:</b> building a robust anomaly-detection system for real-time CAN bus intrusion detection.",
+        "<b>Dual-model approach:</b> supervised classifier with expert-engineered features for known attack types, plus an LSTM autoencoder trained on normal traffic to detect zero-day anomalies.",
+        "<b>Thoughtful data strategy:</b> use of two independent datasets (OTIDS and can-train-and-test) to simulate real-world conditions and test generalization.",
+        "<b>Strong methodological reasoning:</b> explicit trade-off analysis between feature-based ML and end-to-end deep learning.",
+        "<b>Practical relevance:</b> addresses a real automotive cybersecurity challenge with modern ML techniques."
+      ]
+    },
+    {
+      "type": "images",
+      "items": [{
+        "src": "attack_entropy.jpeg",
+        "alt": "Entropy"
+      },
+      {
+        "src": "conclusion.png",
+        "alt": "Conclusion"
+      }
+    ]
+    },
+    {
+      "type": "links",
+      "items": [
+        {
+          "label": "Projekt-Repository",
+          "url": "https://github.com/saeed-amiri/can-bus-anomaly-detection/tree/main"
+        }]
+    }
+  ]
 }

@@ -2,6 +2,10 @@
   "skills": [],
   "skillRows": [
     {
+      "category": "Sprachen",
+      "items": "<b>Englisch</b>: professionelle Arbeitskompetenz;<br><b>Deutsch</b>: B1-B2 (aktive Weiterentwicklung Richtung C1);<br><b>Persisch</b>: Muttersprache;<br><b>Kurdisch</b>: Muttersprache."
+    },
+    {
       "category": "Programmierung und Tools",
       "items": "Python (9+ Jahre), SQL, C, Fortran, Git, GitHub, Dagshub, CI/CD, Linux (14+ Jahre), FastAPI"
     },
