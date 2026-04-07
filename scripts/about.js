@@ -27,12 +27,31 @@ const elements = {
   name: document.getElementById("aboutName"),
   headline: document.getElementById("aboutHeadline"),
   location: document.getElementById("aboutLocation"),
+  contactEmail: document.getElementById("aboutContactEmail"),
+  linkedin: document.getElementById("aboutLinkedin"),
+  github: document.getElementById("aboutGithub"),
   title: document.getElementById("aboutTitle"),
   intro: document.getElementById("aboutIntro"),
   sections: document.getElementById("aboutSections"),
   footer: document.getElementById("aboutFooter"),
   railList: document.getElementById("aboutRailList"),
 };
+
+function setContactLink(anchor, href, label) {
+  if (!anchor) {
+    return;
+  }
+
+  if (!href) {
+    anchor.hidden = true;
+    anchor.removeAttribute("href");
+    return;
+  }
+
+  anchor.hidden = false;
+  anchor.href = href;
+  anchor.textContent = label;
+}
 
 async function fetchJson(path) {
   const response = await fetch(path, { cache: "no-store" });
@@ -230,6 +249,21 @@ function applyContent(data) {
   elements.location.textContent = data.profile?.location || "";
   elements.profilePhoto.src = resolveSectionMediaPath(data.profile?.photo || "../assets/profile-placeholder.svg");
   elements.profilePhoto.alt = data.profile?.photoAlt || "Profile photo";
+  setContactLink(
+    elements.contactEmail,
+    data.profile?.email ? `mailto:${data.profile.email}` : "",
+    data.profile?.email || ""
+  );
+  setContactLink(
+    elements.linkedin,
+    data.profile?.linkedin || "",
+    (data.labels && data.labels.linkedin) || "LinkedIn"
+  );
+  setContactLink(
+    elements.github,
+    data.profile?.github || "",
+    (data.labels && data.labels.github) || "GitHub"
+  );
 
   elements.aboutTab.textContent = data.tabLabel || "About Me";
   elements.title.textContent = data.title || "About Me";

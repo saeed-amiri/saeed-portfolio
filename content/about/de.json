@@ -3,9 +3,12 @@
   "tabLabel": "Uber mich",
   "profile": {
     "name": "Saeed Amiri",
-    "headline": "ML und MLOps Engineer | Data Scientist | Physiker",
+    "headline": "ML & MLOps Engineer | Data Scientist | Physiker (Dr. rer. nat.)",
     "location": "Deutschland, Bremen",
     "photo": "../assets/profile-placeholder.svg?v=20260404-1",
+    "email": "sdamiri7@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/saeed-amiri-71556391/",
+    "github": "https://github.com/saeed-amiri",
     "photoAlt": "Profilfoto"
   },
   "title": "Uber mich",
