@@ -616,6 +616,43 @@ h2 {
   margin: 0;
 }
 
+.modal-tabs {
+  margin-top: 0.9rem;
+}
+
+.modal-tab-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.7rem;
+}
+
+.modal-tab-button {
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+  font: inherit;
+  cursor: pointer;
+}
+
+.modal-tab-button[aria-selected="true"] {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, #fff);
+}
+
+.modal-tab-button:focus-visible {
+  outline: 2px solid var(--accent-soft);
+  outline-offset: 2px;
+}
+
+.modal-tab-panel {
+  border-top: 1px solid var(--line);
+  padding-top: 0.25rem;
+}
+
 /* What: Footer width and tone. Why: align with page grid while keeping low emphasis. */
 .footer {
   max-width: 1100px;

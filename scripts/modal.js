@@ -27,7 +27,16 @@ function closeImageLightbox() {
   elements.imageLightboxCaption.classList.add("hidden");
 }
 
-function appendBodyBlock(content) {
+function createModalTargetId(seed = "") {
+  const safe = String(seed)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+  const entropy = Math.random().toString(36).slice(2, 8);
+  return `${safe || "tab"}-${entropy}`;
+}
+
+function appendBodyBlock(content, container = elements.detailModalContent) {
   if (!content) {
     return;
   }
@@ -45,10 +54,10 @@ function appendBodyBlock(content) {
     setMultilineText(body, content);
   }
 
-  elements.detailModalContent.appendChild(body);
+  container.appendChild(body);
 }
 
-function appendBulletsBlock(items) {
+function appendBulletsBlock(items, container = elements.detailModalContent) {
   if (!Array.isArray(items) || !items.length) {
     return;
   }
@@ -59,10 +68,10 @@ function appendBulletsBlock(items) {
     setMultilineText(li, item);
     list.appendChild(li);
   });
-  elements.detailModalContent.appendChild(list);
+  container.appendChild(list);
 }
 
-function appendImagesBlock(images, fallbackTitle) {
+function appendImagesBlock(images, fallbackTitle, container = elements.detailModalContent) {
   if (!Array.isArray(images) || !images.length) {
     return;
   }
@@ -77,10 +86,10 @@ function appendImagesBlock(images, fallbackTitle) {
     imageWrap.appendChild(img);
   });
 
-  elements.detailModalContent.appendChild(imageWrap);
+  container.appendChild(imageWrap);
 }
 
-function appendLinksBlock(links) {
+function appendLinksBlock(links, container = elements.detailModalContent) {
   if (!Array.isArray(links) || !links.length) {
     return;
   }
@@ -97,13 +106,128 @@ function appendLinksBlock(links) {
     linksWrap.appendChild(anchor);
   });
 
-  elements.detailModalContent.appendChild(linksWrap);
+  container.appendChild(linksWrap);
 }
 
-function appendOrderedContentBlocks(blocks, fallbackTitle) {
+function appendLegacyPayload(payload, fallbackTitle, container = elements.detailModalContent) {
+  if (payload.summary) {
+    const summary = document.createElement("p");
+    setMultilineText(summary, payload.summary);
+    container.appendChild(summary);
+  }
+
+  appendBodyBlock(payload.body ?? payload.content, container);
+  appendBulletsBlock(payload.bullets, container);
+  appendImagesBlock(payload.images, fallbackTitle, container);
+  appendLinksBlock(payload.links, container);
+}
+
+function appendTabsBlock(block, fallbackTitle, container = elements.detailModalContent) {
+  const tabs = Array.isArray(block.tabs) ? block.tabs.filter((tab) => tab && typeof tab === "object") : [];
+  if (!tabs.length) {
+    return;
+  }
+
+  const tabsWrap = document.createElement("section");
+  tabsWrap.className = "modal-tabs";
+
+  const tabList = document.createElement("div");
+  tabList.className = "modal-tab-list";
+  tabList.setAttribute("role", "tablist");
+
+  const panels = document.createElement("div");
+  panels.className = "modal-tab-panels";
+
+  const tabNodes = [];
+  const panelNodes = [];
+
+  tabs.forEach((tab, index) => {
+    const label = tab.label || tab.title || `Tab ${index + 1}`;
+    const key = createModalTargetId(tab.id || label);
+    const tabId = `modal-tab-${key}`;
+    const panelId = `modal-panel-${key}`;
+
+    const tabButton = document.createElement("button");
+    tabButton.type = "button";
+    tabButton.className = "modal-tab-button";
+    tabButton.id = tabId;
+    tabButton.setAttribute("role", "tab");
+    tabButton.setAttribute("aria-controls", panelId);
+    tabButton.setAttribute("aria-selected", "false");
+    tabButton.tabIndex = -1;
+    tabButton.textContent = label;
+
+    const panel = document.createElement("section");
+    panel.className = "modal-tab-panel hidden";
+    panel.id = panelId;
+    panel.setAttribute("role", "tabpanel");
+    panel.setAttribute("aria-labelledby", tabId);
+
+    if (Array.isArray(tab.content)) {
+      appendOrderedContentBlocks(tab.content, tab.title || fallbackTitle, panel);
+    } else {
+      appendLegacyPayload(tab, tab.title || fallbackTitle, panel);
+    }
+
+    tabList.appendChild(tabButton);
+    panels.appendChild(panel);
+    tabNodes.push(tabButton);
+    panelNodes.push(panel);
+  });
+
+  function activateTab(nextIndex) {
+    tabNodes.forEach((tabNode, index) => {
+      const active = index === nextIndex;
+      tabNode.setAttribute("aria-selected", String(active));
+      tabNode.tabIndex = active ? 0 : -1;
+      panelNodes[index].classList.toggle("hidden", !active);
+    });
+  }
+
+  tabList.addEventListener("click", (event) => {
+    const tabNode = event.target.closest(".modal-tab-button");
+    if (!tabNode) {
+      return;
+    }
+    const index = tabNodes.indexOf(tabNode);
+    if (index >= 0) {
+      activateTab(index);
+    }
+  });
+
+  tabList.addEventListener("keydown", (event) => {
+    const currentIndex = tabNodes.findIndex((tabNode) => tabNode.getAttribute("aria-selected") === "true");
+    if (currentIndex === -1) {
+      return;
+    }
+
+    let nextIndex = currentIndex;
+    if (event.key === "ArrowRight") {
+      nextIndex = (currentIndex + 1) % tabNodes.length;
+    } else if (event.key === "ArrowLeft") {
+      nextIndex = (currentIndex - 1 + tabNodes.length) % tabNodes.length;
+    } else if (event.key === "Home") {
+      nextIndex = 0;
+    } else if (event.key === "End") {
+      nextIndex = tabNodes.length - 1;
+    } else {
+      return;
+    }
+
+    event.preventDefault();
+    activateTab(nextIndex);
+    tabNodes[nextIndex].focus();
+  });
+
+  activateTab(0);
+  tabsWrap.append(tabList, panels);
+  container.appendChild(tabsWrap);
+}
+
+function appendOrderedContentBlocks(blocks, fallbackTitle, container = elements.detailModalContent) {
   blocks.forEach((block) => {
     if (typeof block === "string") {
-      appendBodyBlock(block);
+      appendBodyBlock(block, container);
       return;
     }
 
@@ -116,28 +240,33 @@ function appendOrderedContentBlocks(blocks, fallbackTitle) {
     if (type === "summary") {
       const summary = document.createElement("p");
       setMultilineText(summary, block.text ?? block.value ?? "");
-      elements.detailModalContent.appendChild(summary);
+      container.appendChild(summary);
       return;
     }
 
     if (type === "body" || type === "text" || type === "html") {
-      appendBodyBlock(block.text ?? block.body ?? block.html ?? block.value);
+      appendBodyBlock(block.text ?? block.body ?? block.html ?? block.value, container);
       return;
     }
 
     if (type === "bullets" || type === "list") {
-      appendBulletsBlock(block.items ?? block.bullets);
+      appendBulletsBlock(block.items ?? block.bullets, container);
       return;
     }
 
     if (type === "images" || type === "image") {
       const images = block.items ?? block.images;
-      appendImagesBlock(images, fallbackTitle);
+      appendImagesBlock(images, fallbackTitle, container);
       return;
     }
 
     if (type === "links") {
-      appendLinksBlock(block.items ?? block.links);
+      appendLinksBlock(block.items ?? block.links, container);
+      return;
+    }
+
+    if (type === "tabs") {
+      appendTabsBlock(block, fallbackTitle, container);
     }
   });
 }
@@ -147,23 +276,14 @@ export function openModal(payload) {
   elements.detailModalContent.innerHTML = "";
 
   if (Array.isArray(payload.content)) {
-    appendOrderedContentBlocks(payload.content, payload.title);
+    appendOrderedContentBlocks(payload.content, payload.title, elements.detailModalContent);
 
     elements.detailModalBackdrop.classList.remove("hidden");
     elements.detailModalBackdrop.setAttribute("aria-hidden", "false");
     return;
   }
 
-  if (payload.summary) {
-    const summary = document.createElement("p");
-    setMultilineText(summary, payload.summary);
-    elements.detailModalContent.appendChild(summary);
-  }
-
-  appendBodyBlock(payload.body ?? payload.content);
-  appendBulletsBlock(payload.bullets);
-  appendImagesBlock(payload.images, payload.title);
-  appendLinksBlock(payload.links);
+  appendLegacyPayload(payload, payload.title, elements.detailModalContent);
 
   elements.detailModalBackdrop.classList.remove("hidden");
   elements.detailModalBackdrop.setAttribute("aria-hidden", "false");
