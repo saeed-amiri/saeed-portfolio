@@ -110,12 +110,15 @@ function resolveSectionMediaPath(path) {
     return path;
   }
 
+  // About page lives in /pages, so project-root style paths need one level up.
+  if (path.startsWith("assets/") || path.startsWith("content/")) {
+    return `../${path}`;
+  }
+
   if (
     path.startsWith("/") ||
     path.startsWith("../") ||
     path.startsWith("./") ||
-    path.startsWith("assets/") ||
-    path.startsWith("content/") ||
     /^[a-z]+:\/\//i.test(path)
   ) {
     return path;
@@ -225,7 +228,7 @@ function applyContent(data) {
   elements.name.textContent = data.profile?.name || "Saeed Amiri";
   elements.headline.textContent = data.profile?.headline || "";
   elements.location.textContent = data.profile?.location || "";
-  elements.profilePhoto.src = data.profile?.photo || "../assets/profile-placeholder.svg";
+  elements.profilePhoto.src = resolveSectionMediaPath(data.profile?.photo || "../assets/profile-placeholder.svg");
   elements.profilePhoto.alt = data.profile?.photoAlt || "Profile photo";
 
   elements.aboutTab.textContent = data.tabLabel || "About Me";

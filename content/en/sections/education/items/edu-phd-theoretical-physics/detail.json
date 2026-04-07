@@ -29,15 +29,15 @@
       "type": "images",
       "items": [
         {
-          "src": "model.png",
+          "src": "assets/model.png",
           "alt": "Lattice Dynamics."
         },
         {
-          "src": "modes.png",
+          "src": "assets/modes.png",
           "alt": "The figure shows six of the most active vibrational modes of the harmonic obc (Open Boundary Conditions) slider. The solid red circles show the particles in the obc slider, and the arrows indicate the amplitude and direction of the vibrations."
         },
         {
-          "src": "trapped_ions.png",
+          "src": "assets/trapped_ions.png",
           "alt": "Schematic view of ions trapped in a typical potential surface with a depth of U<u>0."
         }
       ]

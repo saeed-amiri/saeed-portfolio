@@ -34,13 +34,17 @@
         "Ich beschaeftige mich gern mit vertiefendem Lernen, technischen Notizen und Themen an der Schnittstelle von Wissenschaft, Engineering und Wirkung in der Praxis."
       ],
 			"content": [
-			{
-							"type": "images",
-			"items": [
-			{
-			"src": "office.jpg",
-					"alt": ""
-							}
+		    {
+					"type": "images",
+      		"items": [
+        	{
+          	"src": "assets/office.jpg",
+        	  "alt": ""
+					},
+					{
+          	"src": "assets/conf.png",
+        	  "alt": ""
+					}
 					]
 			}
 		]

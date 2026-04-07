@@ -50,7 +50,7 @@
       "type": "images",
       "items": [
         {
-          "src": "mlops_pipeline.png",
+          "src": "assets/mlops_pipeline.png",
           "alt": "MLOps pipeline overview"
         }
       ]

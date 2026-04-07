@@ -38,11 +38,11 @@
 					"type": "images",
       		"items": [
         	{
-          	"src": "office.jpg",
+          	"src": "assets/office.jpg",
         	  "alt": ""
 					},
 					{
-          	"src": "conf.png",
+          	"src": "assets/conf.png",
         	  "alt": ""
 					}
 				]

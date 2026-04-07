@@ -106,7 +106,7 @@
       "type": "images",
       "items": [
         {
-          "src": "system.png",
+          "src": "assets/system.png",
           "alt": "Übersicht Nanopartikel an Grenzflächen"
         }
       ]

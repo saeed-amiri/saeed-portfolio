@@ -46,19 +46,19 @@
       "type": "images",
       "items": [
         {
-          "src": "band_structure.png",
+          "src": "assets/band_structure.png",
           "alt": "Elektronische Bandstrukturen von perfektem und defektem Phosphoren durch die Versetzung eines P-Atoms. Die rot und blau schattierten Bereiche zeigen die Bandstruktur des perfekten Phosphorens. Das Ferminiveau ist durch grün gestrichelte Linien markiert und auf Null gesetzt."
         },
         {
-          "src": "projected_dos_bandstructure.png",
+          "src": "assets/projected_dos_bandstructure.png",
           "alt": "Projizierte Zustandsdichte auf der Bandstruktur. Die farbigen Kreise zeigen die Zustandsdichte für jeden Fall an. Der Radius der Kreise entspricht dem Wert der DOS in diesem Bereich."
         },
         {
-          "src": "transport_jn.png",
+          "src": "assets/transport_jn.png",
           "alt": "Struktur der molekularen Junction vor (rechts) und nach (links) der Optimierung. P-Atome sind als gelbe Kugeln dargestellt, C-Atome als rote."
         },
         {
-          "src": "transport.png",
+          "src": "assets/transport.png",
           "alt": "P/Graphene/P-Struktur vor (rechts) und nach (links) der Relaxation. P-Atome sind als gelbe Kugeln dargestellt, C-Atome als rote."
         }
       ]
