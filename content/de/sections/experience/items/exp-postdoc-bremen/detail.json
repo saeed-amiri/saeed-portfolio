@@ -105,37 +105,11 @@
               ]
             },
             {
-              "type": "body",
-              "html": "<h2>Datenanalyse und rechnergestützter Workflow</h2>"
-            },
-            {
-              "type": "bullets",
-              "items": [
-                "GROMACS für MD-Simulationen.",
-                "VMD für molekulare Visualisierung.",
-                "MDAnalysis für das Laden und Verarbeiten von Trajektorien.",
-                "GNU Parallel für großskalige Batch-Analysen.",
-                "APBS für elektrostatische Analysen.",
-                "Alle Berechnungen und Simulationen wurden auf HPC-Clustern ausgeführt (HLRN via Slurm).",
-                "Sämtliche Pre- und Post-Processing-Schritte wurden selbst geskriptet (Python und Bash).",
-                "Integration von Simulation, Theorie und Experiment in einen reproduzierbaren Workflow."
-              ]
-            },
-            {
               "type": "images",
               "items": [
                 {
                   "src": "assets/system.png",
-                  "alt": "Übersicht Nanopartikel an Grenzflächen"
-                }
-              ]
-            },
-            {
-              "type": "links",
-              "items": [
-                {
-                  "label": "Projekt-Repository",
-                  "url": "https://github.com/saeed-amiri/GromacsPanorama"
+                  "alt": "Übersicht zu Simulation und Daten-Workflow"
                 }
               ]
             }
@@ -145,6 +119,50 @@
           "id": "daten-workflow",
           "label": "Daten & Workflow",
           "content": [
+            {
+              "type": "body",
+              "html": "<h2>Data Engineering für physikalisch belastbare Simulationen</h2><p>Ich habe eine komplette Daten-zu-Simulation-Pipeline aufgebaut: Altdaten aus unterschiedlichen Simulationsformaten übernommen, wissenschaftlich validiert, in GROMACS-/LAMMPS-kompatible Eingaben überführt und reproduzierbare Workflows für großskalige HPC-Rechnungen und Auswertung implementiert.</p>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "<b>Harmonisierung von Altdaten:</b> heterogene Trajektorien- und Force-Field-Formate in konsistente, reproduzierbare Inputs überführt.",
+                "<b>Wissenschaftliche Daten-QC:</b> Topologie, Ladungsbilanz und physikalische Plausibilität vor Produktionsläufen systematisch geprüft.",
+                "<b>Generischer Coating-Workflow:</b> wiederverwendbare Skripte zur Funktionalisierung unregelmäßiger Silica-Nanopartikel (ca. 3-10 nm) entwickelt.",
+                "<b>Automatisches Protonierungs-Tuning:</b> Oberflächenchemie iterativ angepasst, um Ziel-Kontaktwinkel und Interphasenverhalten zu erreichen.",
+                "<b>Stabile Partikel-/Ionen-Insertion:</b> abstandsbasierte Platzierungslogik (baumartige Nachbarschaftssuche) für äquilibrierte Systeme genutzt.",
+                "<b>Neutralitätsgesicherte Updates:</b> bei jeder Protonierungsänderung Gegenionen-Kompensation berücksichtigt.",
+                "<b>Stufenweise Entlastung von Zwangskräften:</b> kontrollierte Relaxationsschritte für den Übergang von hochgespannten Startzuständen zu stabilen Grenzflächen.",
+                "<b>Analysefähige Datenprodukte:</b> strukturierte Outputs für Grenzflächenlokalisierung, Kontaktwinkelbestimmung und interphasische NP-Position erzeugt."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h2>Skalierung, Automatisierung und Reproduzierbarkeit</h2>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Systemgrößen bis etwa <b>1 Million Atome</b> (bei Zwei-Partikel-Setups entsprechend mehr).",
+                "Produktionsläufe häufig über <b>400 ns</b> mit Snapshots in etwa <b>0.001 ns</b> Auflösung.",
+                "End-to-end-Orchestrierung mit Bash + Slurm auf <b>HLRN HPC</b> (Submit, Continue, Retry, Checkpoint-Handling).",
+                "Eigene Python-/Bash-Pipeline für hochvolumige, teilstrukturierte wissenschaftliche Daten (NoSQL-artiger Workflow).",
+                "Direkte Verbindung von Simulationsdaten zu publizierbaren Abbildungen und belastbaren wissenschaftlichen Aussagen."
+              ]
+            },
+            {
+              "type": "links",
+              "items": [
+                {
+                  "label": "GromacsPanorama-Repository",
+                  "url": "https://github.com/saeed-amiri/GromacsPanorama"
+                },
+                {
+                  "label": "GromacsPanorama repository (Bash)",
+                  "url": "https://github.com/saeed-amiri/bash"
+                }
+              ]
+            }
           ]
         }
       ]

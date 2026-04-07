@@ -105,37 +105,11 @@
               ]
             },
             {
-              "type": "body",
-              "html": "<h2>Data Analysis and Computational Workflow</h2>"
-            },
-            {
-              "type": "bullets",
-              "items": [
-                "GROMACS for MD simulations.",
-                "VMD for molecular visualization.",
-                "MDAnalysis for trajectory loading and processing.",
-                "GNU Parallel for large-scale batch analysis.",
-                "APBS for electrostatic analysis.",
-                "All calculations and simulations executed on HPC clusters (HLRN via Slurm).",
-                "All pre- and post-processing steps scripted in Python and Bash.",
-                "Integration of simulation, theory, and experiment into one reproducible workflow."
-              ]
-            },
-            {
               "type": "images",
               "items": [
                 {
                   "src": "assets/system.png",
-                  "alt": "NP at interface overview"
-                }
-              ]
-            },
-            {
-              "type": "links",
-              "items": [
-                {
-                  "label": "Project repository",
-                  "url": "https://github.com/saeed-amiri/GromacsPanorama"
+                  "alt": "Nanoparticle interface simulation and workflow overview"
                 }
               ]
             }
@@ -145,6 +119,50 @@
           "id": "data-workflow",
           "label": "Data & Workflow",
           "content": [
+            {
+              "type": "body",
+              "html": "<h2>Data Engineering for Physically Meaningful Simulations</h2><p>I handled a full data-to-simulation pipeline: collecting legacy simulation files in mixed formats, validating scientific consistency, converting them into GROMACS/LAMMPS-ready inputs, and building reproducible workflows for large-scale HPC runs and analysis.</p>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "<b>Legacy data harmonization:</b> migrated heterogeneous trajectory and force-field files into consistent, reproducible simulation inputs.",
+                "<b>Scientific data QC:</b> validated topology, charge balance, and physical plausibility before production runs.",
+                "<b>General coating workflow:</b> built reusable scripts to functionalize irregular silica nanoparticles (about 3-10 nm) despite non-uniform surfaces.",
+                "<b>Automated protonation tuning:</b> iteratively adjusted surface chemistry to match target contact angles and interfacial behavior.",
+                "<b>Stable insertion in dense systems:</b> used distance-based placement logic (tree-style neighbor search) to insert atoms/ions into equilibrated boxes while minimizing clashes.",
+                "<b>Neutrality-aware updates:</b> enforced counter-ion compensation after each protonation/deprotonation change.",
+                "<b>Staged restraint release:</b> designed controlled relaxation steps so high-pressure initial states could converge to physically stable interfaces.",
+                "<b>Analysis-ready data products:</b> generated structured outputs for interface localization, contact-angle estimation, and nanoparticle interfacial partitioning."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h2>Scale, Automation, and Reproducibility</h2>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Systems up to about <b>1 million atoms</b> (and roughly double for two-particle setups).",
+                "Production trajectories commonly above <b>400 ns</b> with snapshots near <b>0.001 ns</b> resolution.",
+                "End-to-end orchestration with Bash + Slurm on <b>HLRN HPC</b> (submission, continuation, retries, and checkpoint handling).",
+                "Custom Python/Bash analysis pipeline for high-volume, semi-structured scientific data (NoSQL-style workflow).",
+                "Connected simulation outputs to publishable figures and interpretable scientific conclusions."
+              ]
+            },
+            {
+              "type": "links",
+              "items": [
+                {
+                  "label": "GromacsPanorama repository (Python)",
+                  "url": "https://github.com/saeed-amiri/GromacsPanorama"
+                },
+                {
+                  "label": "GromacsPanorama repository (Bash)",
+                  "url": "https://github.com/saeed-amiri/bash"
+                }
+              ]
+            }
           ]
         }
       ]
