@@ -1,7 +1,135 @@
 {
-  "title": "Kompetenz",
-  "summary": "",
-  "bullets": [],
-  "images": [],
-  "links": []
+  "title": "Kompetenzen im Überblick",
+  "content": [
+    {
+      "type": "tabs",
+      "tabs": [
+        {
+          "id": "kernkompetenzen",
+          "label": "Kernkompetenzen",
+          "content": [
+            {
+              "type": "body",
+              "html": "<h2>Kernkompetenzen</h2><p>Zentrale Stärken aus Forschung, datenintensiver Entwicklung und produktionsnaher Problemlösung.</p>"
+            },
+            {
+              "type": "body",
+              "html": "<h3>Analytische und modellbasierte Expertise</h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Fortgeschrittene statistische Modellierung, simulationsgestuetztes Denken und praediktive Analyse.",
+                "Starker Hintergrund in physikalischer Modellierung und hochdimensionaler Datenauswertung."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3>Problemloesung und Forschung</h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "14+ Jahre Erfahrung in der Loesung komplexer wissenschaftlicher und rechnerischer Fragestellungen.",
+                "Ueberfuehrung physikalischer Intuition in belastbare, datengetriebene Loesungen."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3>Data Engineering und Workflow-Design</h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Aufbau robuster Datenprozesse von der Eingabe bis zu validierten Ergebnissen.",
+                "Automatisierungsorientierte Arbeitsweise fuer skalierbare und reproduzierbare Ablaeufe."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3>Machine-Learning-Umsetzung</h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "End-to-end-Verantwortung von Datenaufbereitung bis Betrieb und Ueberwachung.",
+                "Fokus auf Reproduzierbarkeit, Nachvollziehbarkeit und wartbare Modellprozesse."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3>Zusammenarbeit und Kommunikation</h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Interdisziplinaere Zusammenarbeit mit Engineering-, Wissenschafts- und Fachteams.",
+                "Klare Vermittlung technischer Erkenntnisse an gemischte Zielgruppen."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "technische-tools",
+          "label": "Technische Tools",
+          "content": [
+            {
+              "type": "body",
+              "html": "<h2>Technische Tools</h2>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Programmierung: Python, SQL, C, Fortran.",
+                "Versionsverwaltung und Kollaboration: Git, GitHub, Dagshub.",
+                "Engineering-Umgebung: Linux, API-Entwicklung und Service-Integration.",
+                "Daten- und Visualisierungs-Stack fuer Analyse und Berichterstattung.",
+                "Datenorchestrierung und Workflow-Steuerung in produktiven Umgebungen.",
+                "Cloud- und Plattformgrundlagen."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "wissenschaftliche-tools",
+          "label": "Wissenschaftliche Tools",
+          "content": [
+            {
+              "type": "body",
+              "html": "<h2>Wissenschaftliche Tools</h2>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Workflows fuer molekulare Simulation: Aufbau, Lauf und Auswertung.",
+                "Wissenschaftliche Visualisierung und Trajektorienanalyse.",
+                "Statistische und numerische Verfahren zur Modellvalidierung.",
+                "Rechenmethoden fuer Elektrostatik und Grenzflaechenanalyse.",
+                "Verknuepfung von Simulationsergebnissen mit publizierbaren wissenschaftlichen Aussagen."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "sprachen",
+          "label": "Sprachen",
+          "content": [
+            {
+              "type": "body",
+              "html": "<h2>Sprachen</h2>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Englisch: professionelle Arbeitskompetenz.",
+                "Deutsch: B1-B2 (aktive Weiterentwicklung Richtung C1).",
+                "Persisch: Muttersprache.",
+                "Kurdisch: Muttersprache."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
