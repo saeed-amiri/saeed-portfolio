@@ -78,14 +78,147 @@
               "html": "<h2>Technical Tools</h2>"
             },
             {
+              "type": "body",
+              "html": "<p>These are the tools I have actively used in my own repositories and project work.</p>"
+            },
+            {
+              "type": "body",
+              "html": "<h3><b>Programming Languages</b></h3>"
+            },
+            {
               "type": "bullets",
               "items": [
-                "Programming: Python, SQL, C, Fortran.",
-                "Versioning and collaboration: Git, GitHub, Dagshub.",
-                "Engineering environment: Linux, API development and service integration.",
-                "Data and visualization stack for analysis and reporting.",
-                "Data orchestration and workflow scheduling in production settings.",
-                "Cloud and platform fundamentals."
+                "Python, SQL, C, Fortran."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3><b>Python Data and Scientific Stack</b></h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "NumPy, Pandas, SciPy, PyArrow, Fastparquet, Statsmodels, Dask."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3><b>Machine Learning and Modeling</b></h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "scikit-learn, XGBoost, TensorFlow, PyTorch, Torchaudio, Torchvision, SHAP, Joblib."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3><b>Time-Series and Forecasting</b></h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Statsmodels, scikit-learn pipelines, feature engineering workflows, DuckDB marts, custom forecasting pipelines (load forecasting)."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3><b>Deep Learning and Representation Learning</b></h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "TensorFlow, PyTorch, Torchaudio, Torchvision, TruncatedSVD, TF-IDF, embeddings."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3><b>MLOps and Experiment Tracking</b></h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "MLflow, DVC, Dagshub, Prometheus-FastAPI-Instrumentator, model serving, model registry, reproducible pipelines."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3><b>Data Engineering and Orchestration</b></h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Apache Airflow, Prefect, ETL/ELT pipelines, SQL-based transformations (staging -> features -> marts), multiprocessing, asyncio."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3><b>API Development and Backend</b></h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "FastAPI, Uvicorn, Python-Jose / PyJWT, Pydantic, Jinja2, HTTPX, Requests, Python-Multipart."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3><b>Infrastructure and Cloud</b></h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Docker, Docker Compose, Kubernetes (concepts), AWS Cloud Practitioner modules, API security, bridge networks, named volumes."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3><b>Monitoring, Observability and Metrics</b></h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Prometheus, Alertmanager, Grafana, Node Exporter, cAdvisor, Promtool."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3><b>Reverse Proxy and Gateway Layer</b></h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Nginx, Nginx Prometheus Exporter, JWT/RBAC gateway patterns."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3><b>Visualization and Interactive Apps</b></h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Matplotlib, Seaborn, Plotly, Streamlit, Wordcloud."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3><b>Configuration, Packaging and Environment Management</b></h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Hydra, OmegaConf, YAML configs, Conda, Pip, Setuptools, Pyproject.toml, environment pinning."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3><b>Testing, Linting and Quality</b></h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Pytest, Pytest-cov, Mypy, Ruff, Flake8, Unittest."
               ]
             }
           ]
@@ -99,13 +232,13 @@
               "html": "<h2>Scientific Tools</h2>"
             },
             {
+              "type": "body",
+              "html": "<h3><b>HPC, Simulation and Scientific Ecosystem</b></h3>"
+            },
+            {
               "type": "bullets",
               "items": [
-                "Molecular simulation setup, execution, and analysis workflows.",
-                "Scientific visualization and trajectory interrogation.",
-                "Statistical and numerical computing for model validation.",
-                "Computational electrostatics and interface-focused analysis methods.",
-                "Experiment-linked data interpretation for publishable scientific outputs."
+                "GROMACS, APBS, VMD (CLI), LAMMPS, MDAnalysis, HPC module environments (Intel compilers, IMPI, MKL), SIESTA, Quantum Espresso."
               ]
             }
           ]
