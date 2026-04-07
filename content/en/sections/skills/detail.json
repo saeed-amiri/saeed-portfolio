@@ -1,7 +1,268 @@
 {
-  "title": "Skill",
-  "summary": "",
-  "bullets": [],
-  "images": [],
-  "links": []
+  "title": "Skills Overview",
+  "content": [
+    {
+      "type": "tabs",
+      "tabs": [
+        {
+          "id": "key-competencies",
+          "label": "Key Competencies",
+          "content": [
+            {
+              "type": "body",
+              "html": "<h2>Key Competencies</h2><p>Core strengths developed across research, data-intensive engineering, and production-grade problem solving.</p>"
+            },
+            {
+              "type": "body",
+              "html": "<h3>Analytical and Modeling Expertise</h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Advanced statistical modeling, simulation thinking, and predictive reasoning.",
+                "Strong background in physical modeling and high-dimensional data interpretation."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3>Problem-Solving and Research</h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "14+ years solving complex scientific and computational problems.",
+                "Translating physical intuition into robust, data-driven solutions."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3>Data Engineering and Workflow Design</h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Designing reliable data workflows from ingestion to validated outputs.",
+                "Automation-oriented mindset for scalable and repeatable operations."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3>Machine Learning Delivery</h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "End-to-end ownership from data preparation to deployment and monitoring.",
+                "Emphasis on reproducibility, traceability, and maintainable model operations."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3>Collaboration and Communication</h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Cross-functional collaboration with engineering, science, and domain teams.",
+                "Clear communication of technical insights to mixed technical and non-technical audiences."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "technical-tools",
+          "label": "Technical Tools",
+          "content": [
+            {
+              "type": "body",
+              "html": "<h2>Technical Tools</h2>"
+            },
+            {
+              "type": "body",
+              "html": "<p>These are the tools I have actively used in my own repositories and project work.</p>"
+            },
+            {
+              "type": "body",
+              "html": "<h3><b>Programming Languages</b></h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Python, SQL, C, Fortran."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3><b>Python Data and Scientific Stack</b></h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "NumPy, Pandas, SciPy, PyArrow, Fastparquet, Statsmodels, Dask."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3><b>Machine Learning and Modeling</b></h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "scikit-learn, XGBoost, TensorFlow, PyTorch, Torchaudio, Torchvision, SHAP, Joblib."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3><b>Time-Series and Forecasting</b></h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Statsmodels, scikit-learn pipelines, feature engineering workflows, DuckDB marts, custom forecasting pipelines (load forecasting)."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3><b>Deep Learning and Representation Learning</b></h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "TensorFlow, PyTorch, Torchaudio, Torchvision, TruncatedSVD, TF-IDF, embeddings."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3><b>MLOps and Experiment Tracking</b></h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "MLflow, DVC, Dagshub, Prometheus-FastAPI-Instrumentator, model serving, model registry, reproducible pipelines."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3><b>Data Engineering and Orchestration</b></h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Apache Airflow, Prefect, ETL/ELT pipelines, SQL-based transformations (staging -> features -> marts), multiprocessing, asyncio."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3><b>API Development and Backend</b></h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "FastAPI, Uvicorn, Python-Jose / PyJWT, Pydantic, Jinja2, HTTPX, Requests, Python-Multipart."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3><b>Infrastructure and Cloud</b></h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Docker, Docker Compose, Kubernetes (concepts), AWS Cloud Practitioner modules, API security, bridge networks, named volumes."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3><b>Monitoring, Observability and Metrics</b></h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Prometheus, Alertmanager, Grafana, Node Exporter, cAdvisor, Promtool."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3><b>Reverse Proxy and Gateway Layer</b></h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Nginx, Nginx Prometheus Exporter, JWT/RBAC gateway patterns."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3><b>Visualization and Interactive Apps</b></h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Matplotlib, Seaborn, Plotly, Streamlit, Wordcloud."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3><b>Configuration, Packaging and Environment Management</b></h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Hydra, OmegaConf, YAML configs, Conda, Pip, Setuptools, Pyproject.toml, environment pinning."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3><b>Testing, Linting and Quality</b></h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Pytest, Pytest-cov, Mypy, Ruff, Flake8, Unittest."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "scientific-tools",
+          "label": "Scientific Tools",
+          "content": [
+            {
+              "type": "body",
+              "html": "<h2>Scientific Tools</h2>"
+            },
+            {
+              "type": "body",
+              "html": "<h3><b>HPC, Simulation and Scientific Ecosystem</b></h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "GROMACS, APBS, VMD (CLI), LAMMPS, MDAnalysis, HPC module environments (Intel compilers, IMPI, MKL), SIESTA, Quantum Espresso."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "languages",
+          "label": "Languages",
+          "content": [
+            {
+              "type": "body",
+              "html": "<h2>Languages</h2>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "English: professional working proficiency.",
+                "German: B1-B2 (actively improving toward C1).",
+                "Persian: native.",
+                "Kurdish: native."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }

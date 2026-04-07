@@ -52,6 +52,10 @@ function applyContent(raw) {
   elements.profilePhoto.src = data.profile.photo;
   elements.profilePhoto.alt = data.labels.profilePhotoAlt;
 
+  if (elements.aboutNavLink) {
+    elements.aboutNavLink.textContent = state.lang === "de" ? "Uber mich" : "About Me";
+  }
+
   elements.bioTitle.textContent = data.labels.bio;
   setMultilineText(elements.bioText, data.bio);
 

@@ -55,6 +55,50 @@ Examples:
 - [content/en/sections/experience/items/exp-mlops-engineer/front.json](content/en/sections/experience/items/exp-mlops-engineer/front.json)
 - [content/en/sections/experience/items/exp-mlops-engineer/detail.json](content/en/sections/experience/items/exp-mlops-engineer/detail.json)
 
+## Modal content blocks (reusable)
+
+Detail popups (`detail.json`) support ordered blocks in `content`:
+
+- `summary`
+- `body` / `text` / `html`
+- `bullets` / `list`
+- `images`
+- `links`
+- `tabs` (new)
+
+Use `tabs` when you want multiple views inside one popup, and keep each tab's content in the same block format.
+
+```json
+{
+	"title": "Example Detail",
+	"content": [
+		{ "type": "summary", "text": "Optional summary" },
+		{
+			"type": "tabs",
+			"tabs": [
+				{
+					"id": "theory",
+					"label": "Theoretical",
+					"content": [
+						{ "type": "body", "html": "<h2>Concepts</h2><p>...</p>" },
+						{ "type": "bullets", "items": ["Point A", "Point B"] }
+					]
+				},
+				{
+					"id": "data",
+					"label": "Data",
+					"content": [
+						{ "type": "bullets", "items": ["Pipeline", "Validation"] },
+						{ "type": "images", "items": [{ "src": "assets/example.png", "alt": "Diagram" }] },
+						{ "type": "links", "items": [{ "label": "Repo", "url": "https://github.com/..." }] }
+					]
+				}
+			]
+		}
+	]
+}
+```
+
 ## Local preview
 
 Use any static server from repository root.

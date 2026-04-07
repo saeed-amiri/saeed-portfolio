@@ -3,8 +3,11 @@
   "tabLabel": "About Me",
   "profile": {
     "name": "Saeed Amiri",
-    "headline": "ML and MLOps Engineer | Data Scientist | Physicist",
+    "headline": "ML & MLOps Engineer | Data Scientist | Physicist (Dr. rer. nat.)",
     "location": "Germany, Bremen",
+    "email": "sdamiri7@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/saeed-amiri-71556391/",
+    "github": "https://github.com/saeed-amiri",
     "photo": "../assets/profile-placeholder.svg?v=20260404-1",
     "photoAlt": "Profile photo"
   },
@@ -38,11 +41,11 @@
 					"type": "images",
       		"items": [
         	{
-          	"src": "office.jpg",
+          	"src": "assets/office.jpg",
         	  "alt": ""
 					},
 					{
-          	"src": "conf.png",
+          	"src": "assets/conf.png",
         	  "alt": ""
 					}
 				]

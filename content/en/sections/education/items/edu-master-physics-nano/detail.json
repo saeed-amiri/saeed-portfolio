@@ -46,19 +46,19 @@
       "type": "images",
       "items": [
         {
-          "src": "band_structure.png",
+          "src": "assets/band_structure.png",
           "alt": "Electronic band structures of perfect and defective phosphorene by dislocation of one P atom. The red and blue shaded area indicate the band structure of perfect phosphorene. The Fermi level is shown by green dotted lines and set to zero."
         },
         {
-          "src": "projected_dos_bandstructure.png",
+          "src": "assets/projected_dos_bandstructure.png",
           "alt": "Projected density of state on the band structure. The colorful circles indicate the density of state for each case. The radius of this circle are coefficients of a value of DOS in that area."
         },
         {
-          "src": "transport_jn.png",
+          "src": "assets/transport_jn.png",
           "alt": "Molecular junction’s structure before (right) and after (left) optimization. P atoms are denoted with yellow balls and C atoms with red ones."
         },
         {
-          "src": "transport.png",
+          "src": "assets/transport.png",
           "alt": "P/Graphene/P’s structure before (right) and after (left) relaxation. P atoms are denoted with yellow balls and C atoms with red ones."
         }
       ]

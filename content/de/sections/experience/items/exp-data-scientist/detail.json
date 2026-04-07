@@ -26,11 +26,11 @@
     {
       "type": "images",
       "items": [{
-        "src": "attack_entropy.jpeg",
+        "src": "assets/attack_entropy.jpeg",
         "alt": "Entropy"
       },
       {
-        "src": "conclusion.png",
+        "src": "assets/conclusion.png",
         "alt": "Conclusion"
       }
     ]

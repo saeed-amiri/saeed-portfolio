@@ -3,6 +3,7 @@
 export const elements = {
   langEn: document.getElementById("langEn"),
   langDe: document.getElementById("langDe"),
+  aboutNavLink: document.getElementById("aboutNavLink"),
   downloadPdf: document.getElementById("downloadPdf"),
   contentRoot: document.getElementById("contentRoot"),
   sectionRail: document.getElementById("sectionRail"),

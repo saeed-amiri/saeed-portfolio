@@ -29,15 +29,15 @@
       "type": "images",
       "items": [
         {
-          "src": "model.png",
+          "src": "assets/model.png",
           "alt": "Lattice Dynamics."
         },
         {
-          "src": "modes.png",
+          "src": "assets/modes.png",
           "alt": "Die Abbildung zeigt sechs der aktivsten Schwingungsmoden des harmonischen OBC‑Sliders (Open Boundary Conditions). Die ausgefüllten roten Kreise stellen die Teilchen im OBC‑Slider dar, und die Pfeile zeigen Amplitude und Richtung der Schwingungen an."
         },
         {
-          "src": "trapped_ions.png",
+          "src": "assets/trapped_ions.png",
           "alt": "Schematische Darstellung von Ionen, die in einer typischen Potentiallandschaft mit einer Tiefe von U<u>0 gefangen sind"
         }
       ]

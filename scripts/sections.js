@@ -23,7 +23,8 @@ export function ensureSectionDetailTriggers(data) {
       panel.dataset.sectionKey === "bio" ||
       panel.dataset.sectionKey === "trainings" ||
       panel.dataset.sectionKey === "education" ||
-      panel.dataset.sectionKey === "experience"
+      panel.dataset.sectionKey === "experience" ||
+      panel.dataset.sectionKey === "skills"
     ) {
       const existingTrigger = panel.querySelector(".section-heading-row .detail-trigger");
       if (existingTrigger) {
@@ -147,6 +148,223 @@ export function fillCertifications(entries) {
 
 export function renderSkills(data) {
   elements.skillsList.innerHTML = "";
+
+  const inlineTabsBlock = Array.isArray(data.sectionDetails?.skills?.content)
+    ? data.sectionDetails.skills.content.find(
+        (block) => block && typeof block === "object" && (block.type || "").toLowerCase() === "tabs"
+      )
+    : null;
+
+  const inlineTabs = Array.isArray(inlineTabsBlock?.tabs)
+    ? inlineTabsBlock.tabs.filter((tab) => tab && typeof tab === "object")
+    : [];
+
+  if (inlineTabs.length) {
+    const tabsWrap = document.createElement("section");
+    tabsWrap.className = "modal-tabs";
+
+    const tabList = document.createElement("div");
+    tabList.className = "modal-tab-list";
+    tabList.setAttribute("role", "tablist");
+
+    const panelsWrap = document.createElement("div");
+    panelsWrap.className = "modal-tab-panels";
+
+    const tabNodes = [];
+    const panelNodes = [];
+
+    function appendBodyBlock(content, target) {
+      if (!content) {
+        return;
+      }
+
+      const body = document.createElement("div");
+      body.className = "modal-body";
+
+      if (Array.isArray(content)) {
+        content.forEach((chunk) => {
+          const paragraph = document.createElement("p");
+          setMultilineText(paragraph, chunk);
+          body.appendChild(paragraph);
+        });
+      } else {
+        setMultilineText(body, content);
+      }
+
+      target.appendChild(body);
+    }
+
+    function appendBulletsBlock(items, target) {
+      if (!Array.isArray(items) || !items.length) {
+        return;
+      }
+
+      const list = document.createElement("ul");
+      items.forEach((item) => {
+        const li = document.createElement("li");
+        setMultilineText(li, item);
+        list.appendChild(li);
+      });
+      target.appendChild(list);
+    }
+
+    function appendImagesBlock(images, fallbackTitle, target) {
+      if (!Array.isArray(images) || !images.length) {
+        return;
+      }
+
+      const imageWrap = document.createElement("div");
+      imageWrap.className = "modal-images";
+
+      images.forEach((image) => {
+        const img = document.createElement("img");
+        img.src = image.src;
+        img.alt = image.alt || fallbackTitle || "Skill image";
+        imageWrap.appendChild(img);
+      });
+
+      target.appendChild(imageWrap);
+    }
+
+    function appendLinksBlock(links, target) {
+      if (!Array.isArray(links) || !links.length) {
+        return;
+      }
+
+      const linksWrap = document.createElement("div");
+      linksWrap.className = "modal-links";
+
+      links.forEach((link) => {
+        const anchor = document.createElement("a");
+        anchor.href = link.url;
+        anchor.target = "_blank";
+        anchor.rel = "noopener noreferrer";
+        setMultilineText(anchor, link.label);
+        linksWrap.appendChild(anchor);
+      });
+
+      target.appendChild(linksWrap);
+    }
+
+    function appendBlocks(blocks, fallbackTitle, target) {
+      blocks.forEach((block) => {
+        if (typeof block === "string") {
+          appendBodyBlock(block, target);
+          return;
+        }
+
+        if (!block || typeof block !== "object") {
+          return;
+        }
+
+        const type = (block.type || "").toLowerCase();
+        if (type === "summary") {
+          const summary = document.createElement("p");
+          setMultilineText(summary, block.text ?? block.value ?? "");
+          target.appendChild(summary);
+          return;
+        }
+
+        if (type === "body" || type === "text" || type === "html") {
+          appendBodyBlock(block.text ?? block.body ?? block.html ?? block.value, target);
+          return;
+        }
+
+        if (type === "bullets" || type === "list") {
+          appendBulletsBlock(block.items ?? block.bullets, target);
+          return;
+        }
+
+        if (type === "images" || type === "image") {
+          appendImagesBlock(block.items ?? block.images, fallbackTitle, target);
+          return;
+        }
+
+        if (type === "links") {
+          appendLinksBlock(block.items ?? block.links, target);
+        }
+      });
+    }
+
+    inlineTabs.forEach((tab, index) => {
+      const tabId = `skills-tab-${tab.id || index}`;
+      const panelId = `skills-panel-${tab.id || index}`;
+
+      const tabButton = document.createElement("button");
+      tabButton.type = "button";
+      tabButton.className = "modal-tab-button";
+      tabButton.id = tabId;
+      tabButton.setAttribute("role", "tab");
+      tabButton.setAttribute("aria-controls", panelId);
+      tabButton.setAttribute("aria-selected", "false");
+      tabButton.tabIndex = -1;
+      tabButton.textContent = tab.label || tab.title || `Tab ${index + 1}`;
+
+      const panel = document.createElement("section");
+      panel.className = "modal-tab-panel hidden";
+      panel.id = panelId;
+      panel.setAttribute("role", "tabpanel");
+      panel.setAttribute("aria-labelledby", tabId);
+
+      if (Array.isArray(tab.content)) {
+        appendBlocks(tab.content, tab.title || tab.label, panel);
+      }
+
+      tabList.appendChild(tabButton);
+      panelsWrap.appendChild(panel);
+      tabNodes.push(tabButton);
+      panelNodes.push(panel);
+    });
+
+    function activateTab(nextIndex) {
+      tabNodes.forEach((tabNode, index) => {
+        const active = index === nextIndex;
+        tabNode.setAttribute("aria-selected", String(active));
+        tabNode.tabIndex = active ? 0 : -1;
+        panelNodes[index].classList.toggle("hidden", !active);
+      });
+    }
+
+    tabList.addEventListener("click", (event) => {
+      const tabNode = event.target.closest(".modal-tab-button");
+      if (!tabNode) {
+        return;
+      }
+      const index = tabNodes.indexOf(tabNode);
+      if (index >= 0) {
+        activateTab(index);
+      }
+    });
+
+    tabList.addEventListener("keydown", (event) => {
+      const currentIndex = tabNodes.findIndex((tabNode) => tabNode.getAttribute("aria-selected") === "true");
+      if (currentIndex === -1) {
+        return;
+      }
+
+      let nextIndex = currentIndex;
+      if (event.key === "ArrowRight") {
+        nextIndex = (currentIndex + 1) % tabNodes.length;
+      } else if (event.key === "ArrowLeft") {
+        nextIndex = (currentIndex - 1 + tabNodes.length) % tabNodes.length;
+      } else if (event.key === "Home") {
+        nextIndex = 0;
+      } else if (event.key === "End") {
+        nextIndex = tabNodes.length - 1;
+      } else {
+        return;
+      }
+
+      event.preventDefault();
+      activateTab(nextIndex);
+      tabNodes[nextIndex].focus();
+    });
+
+    activateTab(0);
+    tabsWrap.append(tabList, panelsWrap);
+    elements.skillsList.appendChild(tabsWrap);
+    return;
+  }
 
   if (Array.isArray(data.skillRows) && data.skillRows.length) {
     const list = document.createElement("div");

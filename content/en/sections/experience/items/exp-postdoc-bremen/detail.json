@@ -6,128 +6,165 @@
       "text": "University of Bremen, Hybrid Materials Interfaces Group (Feb 2022 - Jan 2025)"
     },
     {
-      "type": "body",
-      "html": "<h2>Methods and Scientific Focus</h2><p>This work explores how functionalized Silica nanoparticles and surface-active molecules interact at oil-water interfaces, using molecular simulation, continuum electrostatics, and synchrotron-based interfacial characterization. The emphasis is on mechanisms, methodology, and interfacial physics.</p>"
-    },
-    {
-      "type": "body",
-      "html": "<h2>Scientific Concepts Involved</h2>"
-    },
-    {
-      "type": "bullets",
-      "items": [
-        "<b>Interfacial thermodynamics:</b> liquid-liquid interfaces, interfacial tension, surface pressure, contact angle, particle wettability, and adsorption energetics.",
-        "<b>Colloidal and electrostatic interactions:</b> electric double layers, Debye screening, counterion structuring, surfactant packing, charge regulation, and competitive adsorption.",
-        "<b>Nanoparticle functionalization:</b> APTES-modified silica surfaces, protonation behavior, and pH-dependent charge states.",
-        "<b>Surfactant organization at interfaces:</b> monolayer formation, exclusion/depletion zones near charged objects, and coupling between molecular ordering and interfacial stress."
-      ]
-    },
-    {
-      "type": "body",
-      "html": "<h2>Methods and Techniques Demonstrated</h2><h3>1. Classical Molecular Dynamics (MD)</h3>"
-    },
-    {
-      "type": "bullets",
-      "items": [
-        "Construction of multiphase simulation boxes (water/oil/surfactant/salt).",
-        "Modeling functionalized nanoparticles with grafted organic groups.",
-        "Handling protonation states, counterion neutralization, and charge balance.",
-        "Long-timescale simulations (hundreds of nanoseconds).",
-        "Analysis of density profiles, radial distribution functions (RDF and 2D-RDF), interfacial tension via pressure tensor, nanoparticle position, contact angle, and stability."
-      ]
-    },
-    {
-      "type": "body",
-      "html": "<h3>2. Continuum Electrostatics</h3>"
-    },
-    {
-      "type": "bullets",
-      "items": [
-        "Use of Poisson-Boltzmann theory to model electrostatic potentials.",
-        "Analytical and numerical solutions (APBS).",
-        "Treatment of heterogeneous dielectric environments (water versus oil).",
-        "Linking continuum predictions to atomistic simulation behavior."
-      ]
-    },
-    {
-      "type": "body",
-      "html": "<h3>3. Synchrotron X-ray Reflectometry</h3>"
-    },
-    {
-      "type": "bullets",
-      "items": [
-        "Structural characterization of interfacial layers.",
-        "Extraction of particle coverage, interfacial electron density profiles, and surfactant layer organization.",
-        "Comparison of interfacial behavior under varying salt and surfactant conditions."
-      ]
-    },
-    {
-      "type": "body",
-      "html": "<h4>Experimental Campaigns (Synchrotron Beamtime)</h4>"
-    },
-    {
-      "type": "bullets",
-      "items": [
-        "<b>ESRF Grenoble</b> attendance (01.03.2022 - 06.03.2022).",
-        "<b>DESY PETRA III</b> attendance (26.10.2022 - 31.10.2022).",
-        "Active participation in the experimental group for <b>GISAXS/GISACS</b> and <b>X-ray</b> measurements."
-      ]
-    },
-    {
-      "type": "body",
-      "html": "<h3>4. Interfacial Tensiometry</h3>"
-    },
-    {
-      "type": "bullets",
-      "items": [
-        "Pendant-drop measurements.",
-        "Quantification of surfactant adsorption via surface pressure.",
-        "Use of interfacial tension trends to infer molecular organization."
-      ]
-    },
-    {
-      "type": "body",
-      "html": "<h3>5. Data Analysis and Computational Tools</h3>"
-    },
-    {
-      "type": "bullets",
-      "items": [
-        "GROMACS for MD simulations",
-        "VMD for molecular visualization.",
-        "MDAnalysis for trajectory loading.",
-        "GNU Parallel for large-scale batch analysis.",
-        "APBS for electrostatic analysis.",
-        "All the calculations and Simulations executed in HPC clusters (HLRN via Slurm)",
-        "All the pre- and post-processing were self-scripted (Python and Bash).",
-        "Integration of simulation, theory, and experiment into one reproducible workflow."
-      ]
-    },
-    {
-      "type": "images",
-      "items": [{
-          "src": "system.png",
-          "alt": "NP at interface overview"
-        }]
-    },
-    {
-      "type": "links",
-      "items": [
+      "type": "tabs",
+      "tabs": [
         {
-          "label": "Project repository",
-          "url": "https://github.com/saeed-amiri/GromacsPanorama"
+          "id": "theory-science",
+          "label": "Theoretical & Scientific",
+          "content": [
+            {
+              "type": "body",
+              "html": "<h2>Methods and Scientific Focus</h2><p>This work explores how functionalized silica nanoparticles and surface-active molecules interact at oil-water interfaces, using molecular simulation, continuum electrostatics, and synchrotron-based interfacial characterization. The emphasis is on mechanisms, methodology, and interfacial physics.</p>"
+            },
+            {
+              "type": "body",
+              "html": "<h2>Scientific Concepts Involved</h2>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "<b>Interfacial thermodynamics:</b> liquid-liquid interfaces, interfacial tension, surface pressure, contact angle, particle wettability, and adsorption energetics.",
+                "<b>Colloidal and electrostatic interactions:</b> electric double layers, Debye screening, counterion structuring, surfactant packing, charge regulation, and competitive adsorption.",
+                "<b>Nanoparticle functionalization:</b> APTES-modified silica surfaces, protonation behavior, and pH-dependent charge states.",
+                "<b>Surfactant organization at interfaces:</b> monolayer formation, exclusion/depletion zones near charged objects, and coupling between molecular ordering and interfacial stress."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h2>Methods and Techniques Demonstrated</h2><h3>1. Classical Molecular Dynamics (MD)</h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Construction of multiphase simulation boxes (water/oil/surfactant/salt).",
+                "Modeling functionalized nanoparticles with grafted organic groups.",
+                "Handling protonation states, counterion neutralization, and charge balance.",
+                "Long-timescale simulations (hundreds of nanoseconds).",
+                "Analysis of density profiles, radial distribution functions (RDF and 2D-RDF), interfacial tension via pressure tensor, nanoparticle position, contact angle, and stability."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3>2. Continuum Electrostatics</h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Use of Poisson-Boltzmann theory to model electrostatic potentials.",
+                "Analytical and numerical solutions (APBS).",
+                "Treatment of heterogeneous dielectric environments (water versus oil).",
+                "Linking continuum predictions to atomistic simulation behavior."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3>3. Synchrotron X-ray Reflectometry</h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Structural characterization of interfacial layers.",
+                "Extraction of particle coverage, interfacial electron density profiles, and surfactant layer organization.",
+                "Comparison of interfacial behavior under varying salt and surfactant conditions."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h4>Experimental Campaigns (Synchrotron Beamtime)</h4>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "<b>ESRF Grenoble</b> attendance (01.03.2022 - 06.03.2022).",
+                "<b>DESY PETRA III</b> attendance (26.10.2022 - 31.10.2022).",
+                "Active participation in the experimental group for <b>GISAXS/GISACS</b> and <b>X-ray</b> measurements."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3>4. Interfacial Tensiometry</h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Pendant-drop measurements.",
+                "Quantification of surfactant adsorption via surface pressure.",
+                "Use of interfacial tension trends to infer molecular organization."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h3>Presentations & Publications</h3>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "<b>Temperature-Dependent Behavior of C14 - C18 Alkyl Surfactants with Ionizable and Neutral Head Groups at the Water-Decane Interface</b>,<br>F. Menke, S. Amiri, K. Rezwan, L. C. Ciacchi, M. Maas, Submitted. 2025",
+                "<b>Coated Silica Nanoparticles and Surfactant at the Water-Oil Interface</b><br>S. Amiri, F. Menke, M. Maas, L. C. Ciacchi, Under preparation.",
+                "<b>Particle-Based Materials Symposium (Talk),</b><br>Sep 2024, Bremen."
+              ]
+            },
+            {
+              "type": "images",
+              "items": [
+                {
+                  "src": "assets/system.png",
+                  "alt": "Nanoparticle interface simulation and workflow overview"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "data-workflow",
+          "label": "Data & Workflow",
+          "content": [
+            {
+              "type": "body",
+              "html": "<h2>Data Engineering for Physically Meaningful Simulations</h2><p>I handled a full data-to-simulation pipeline: collecting legacy simulation files in mixed formats, validating scientific consistency, converting them into GROMACS/LAMMPS-ready inputs, and building reproducible workflows for large-scale HPC runs and analysis.</p>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "<b>Legacy data harmonization:</b> migrated heterogeneous trajectory and force-field files into consistent, reproducible simulation inputs.",
+                "<b>Scientific data QC:</b> validated topology, charge balance, and physical plausibility before production runs.",
+                "<b>General coating workflow:</b> built reusable scripts to functionalize irregular silica nanoparticles (about 3-10 nm) despite non-uniform surfaces.",
+                "<b>Automated protonation tuning:</b> iteratively adjusted surface chemistry to match target contact angles and interfacial behavior.",
+                "<b>Stable insertion in dense systems:</b> used distance-based placement logic (tree-style neighbor search) to insert atoms/ions into equilibrated boxes while minimizing clashes.",
+                "<b>Neutrality-aware updates:</b> enforced counter-ion compensation after each protonation/deprotonation change.",
+                "<b>Staged restraint release:</b> designed controlled relaxation steps so high-pressure initial states could converge to physically stable interfaces.",
+                "<b>Analysis-ready data products:</b> generated structured outputs for interface localization, contact-angle estimation, and nanoparticle interfacial partitioning."
+              ]
+            },
+            {
+              "type": "body",
+              "html": "<h2>Scale, Automation, and Reproducibility</h2>"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Systems up to about <b>1 million atoms</b> (and roughly double for two-particle setups).",
+                "Production trajectories commonly above <b>400 ns</b> with snapshots near <b>0.001 ns</b> resolution.",
+                "End-to-end orchestration with Bash + Slurm on <b>HLRN HPC</b> (submission, continuation, retries, and checkpoint handling).",
+                "Custom Python/Bash analysis pipeline for high-volume, semi-structured scientific data (NoSQL-style workflow).",
+                "Connected simulation outputs to publishable figures and interpretable scientific conclusions."
+              ]
+            },
+            {
+              "type": "links",
+              "items": [
+                {
+                  "label": "GromacsPanorama repository (Python)",
+                  "url": "https://github.com/saeed-amiri/GromacsPanorama"
+                },
+                {
+                  "label": "GromacsPanorama repository (Bash)",
+                  "url": "https://github.com/saeed-amiri/bash"
+                }
+              ]
+            }
+          ]
         }
-      ]
-    },
-    {
-      "type": "body",
-      "html": "<h3>6. Presentations & Publications</h3>"
-    },
-    {
-      "type": "bullets",
-      "items": [
-        "<b>Temperature-Dependent Behavior of C14 –C18 Alkyl Surfactants with Ionizable and Neutral Head Groups at the Water-Decane Interface</b>,<br>F. Menke, S. Amiri, K. Rezwan, L. C. Ciacchi, M. Maas, Submitted. 2025",
-        "<b>Coated Silica Nanoparticles and Surfactant at the Water–Oil Interface</b><br>S. Amiri, F. Menke, M. Maas, L. C. Ciacchi, Under preparation.",
-        "<b>Particle-Based Materials Symposium  (Talk),</b><br>Sep 2024, Bremen."
       ]
     }
 

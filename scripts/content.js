@@ -51,6 +51,86 @@ function resolveMediaPaths(payload, filePath) {
     return payload;
   }
 
+  function resolveContentBlock(block) {
+    if (!block || typeof block !== "object") {
+      return block;
+    }
+
+    const nextBlock = { ...block };
+    const type = (nextBlock.type || "").toLowerCase();
+
+    if (type === "images" || type === "image") {
+      const images = Array.isArray(nextBlock.items)
+        ? nextBlock.items
+        : Array.isArray(nextBlock.images)
+          ? nextBlock.images
+          : [];
+
+      const resolvedImages = images.map((image) => ({
+        ...image,
+        src: resolveJsonPath(image?.src, filePath),
+      }));
+
+      if (Array.isArray(nextBlock.items)) {
+        nextBlock.items = resolvedImages;
+      }
+      if (Array.isArray(nextBlock.images)) {
+        nextBlock.images = resolvedImages;
+      }
+    }
+
+    if (type === "links") {
+      const links = Array.isArray(nextBlock.items)
+        ? nextBlock.items
+        : Array.isArray(nextBlock.links)
+          ? nextBlock.links
+          : [];
+
+      const resolvedLinks = links.map((link) => ({
+        ...link,
+        url: resolveJsonPath(link?.url, filePath),
+      }));
+
+      if (Array.isArray(nextBlock.items)) {
+        nextBlock.items = resolvedLinks;
+      }
+      if (Array.isArray(nextBlock.links)) {
+        nextBlock.links = resolvedLinks;
+      }
+    }
+
+    if (type === "tabs" && Array.isArray(nextBlock.tabs)) {
+      nextBlock.tabs = nextBlock.tabs.map((tab) => {
+        if (!tab || typeof tab !== "object") {
+          return tab;
+        }
+
+        const nextTab = { ...tab };
+        if (Array.isArray(nextTab.content)) {
+          nextTab.content = nextTab.content.map((innerBlock) => resolveContentBlock(innerBlock));
+        }
+
+        if (Array.isArray(nextTab.images)) {
+          nextTab.images = nextTab.images.map((image) => ({
+            ...image,
+            src: resolveJsonPath(image?.src, filePath),
+          }));
+        }
+
+        if (Array.isArray(nextTab.links)) {
+          nextTab.links = nextTab.links.map((link) => ({
+            ...link,
+            url: resolveJsonPath(link?.url, filePath),
+          }));
+        }
+
+        return nextTab;
+      });
+    }
+
+    return nextBlock;
+  }
+
   const resolved = { ...payload };
 
   if (Array.isArray(payload.images)) {
@@ -68,56 +148,7 @@ function resolveMediaPaths(payload, filePath) {
   }
 
   if (Array.isArray(payload.content)) {
-    resolved.content = payload.content.map((block) => {
-      if (!block || typeof block !== "object") {
-        return block;
-      }
-
-      const nextBlock = { ...block };
-      const type = (nextBlock.type || "").toLowerCase();
-
-      if (type === "images" || type === "image") {
-        const images = Array.isArray(nextBlock.items)
-          ? nextBlock.items
-          : Array.isArray(nextBlock.images)
-            ? nextBlock.images
-            : [];
-
-        const resolvedImages = images.map((image) => ({
-          ...image,
-          src: resolveJsonPath(image?.src, filePath),
-        }));
-
-        if (Array.isArray(nextBlock.items)) {
-          nextBlock.items = resolvedImages;
-        }
-        if (Array.isArray(nextBlock.images)) {
-          nextBlock.images = resolvedImages;
-        }
-      }
-
-      if (type === "links") {
-        const links = Array.isArray(nextBlock.items)
-          ? nextBlock.items
-          : Array.isArray(nextBlock.links)
-            ? nextBlock.links
-            : [];
-
-        const resolvedLinks = links.map((link) => ({
-          ...link,
-          url: resolveJsonPath(link?.url, filePath),
-        }));
-
-        if (Array.isArray(nextBlock.items)) {
-          nextBlock.items = resolvedLinks;
-        }
-        if (Array.isArray(nextBlock.links)) {
-          nextBlock.links = resolvedLinks;
-        }
-      }
-
-      return nextBlock;
-    });
+    resolved.content = payload.content.map((block) => resolveContentBlock(block));
   }
 
   if (Array.isArray(payload.certifications)) {
