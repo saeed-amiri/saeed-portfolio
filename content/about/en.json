@@ -19,6 +19,7 @@
       "title": "My Story",
       "body": [
         "I am curious about how ideas become useful tools for people. My path moved from physics to machine learning and MLOps, but the core stayed the same: understand systems deeply and build things that last.",
+        "In research, I repeatedly saw valuable data, models, and code become hard to reproduce or maintain once a responsible person moved on. Git-based code versioning was often present, but data versioning, reproducibility, and operational maintainability were frequently missing, even when expensive HPC and supercomputer workloads were involved. That experience is why I intentionally trained in Data Science, MLOps, cloud practices, containerization, and related tooling: to build workflows that remain usable, traceable, and sustainable over time.",
         "Outside of technical goals, I care about thoughtful collaboration, reliability, and creating calm, focused environments where teams can do their best work."
       ]
     },
