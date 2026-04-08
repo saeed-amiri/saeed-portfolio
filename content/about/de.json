@@ -18,16 +18,17 @@
       "id": "personlicher-weg",
       "title": "Mein Weg",
       "body": [
-        "Mich fasziniert, wie aus Ideen nuetzliche Werkzeuge fuer Menschen werden. Mein Weg fuehrte von der Physik zu Machine Learning und MLOps, aber der Kern blieb gleich: Systeme tief verstehen und nachhaltige Loesungen bauen.",
-        "Neben technischen Zielen sind mir gute Zusammenarbeit, Verlaesslichkeit und eine fokussierte Arbeitskultur wichtig, in der Teams ihr Bestes leisten koennen."
+        "Mich fasziniert, wie aus Ideen nützliche Werkzeuge für Menschen werden. Mein Weg führte von der Physik zu Machine Learning und MLOps, aber der Kern blieb gleich: Systeme tief verstehen und nachhaltige Lösungen bauen.",
+        "In der Forschung habe ich immer wieder erlebt, dass wertvolle Daten, Modelle und Code schnell schwer reproduzierbar oder wartbar wurden, sobald die verantwortliche Person nicht mehr verfügbar war. Git-basiertes Code-Versioning war oft vorhanden, aber Data-Versioning, Reproduzierbarkeit und operative Wartbarkeit fehlten häufig – selbst bei teuren Rechnungen auf HPC- und Supercomputer-Infrastruktur. Genau deshalb habe ich mich bewusst in Data Science, MLOps, Cloud-Praktiken, Containerisierung und verwandten Tools weitergebildet: um Workflows zu bauen, die langfristig nutzbar, nachvollziehbar und nachhaltig bleiben.",
+        "Neben technischen Zielen sind mir gute Zusammenarbeit, Verlässlichkeit und eine fokussierte Arbeitskultur wichtig, in der Teams ihr Bestes leisten können."
       ]
     },
     {
       "id": "arbeitsweise",
       "title": "Wie ich arbeite",
       "body": [
-        "Ich lege Wert auf Klarheit, Dokumentation und inkrementelle Lieferung. Komplexe Anforderungen in praktikable, wartbare Systeme zu uebersetzen motiviert mich besonders.",
-        "Besonders reizvoll finde ich Projekte, in denen Forschungstiefe und Produktionsqualitaet zusammenkommen."
+        "Ich lege Wert auf Klarheit, Dokumentation und inkrementelle Lieferung. Komplexe Anforderungen in praktikable, wartbare Systeme zu übersetzen motiviert mich besonders.",
+        "Besonders reizvoll finde ich Projekte, in denen Forschungstiefe und Produktionsqualität zusammenkommen."
       ]
     },
     {
