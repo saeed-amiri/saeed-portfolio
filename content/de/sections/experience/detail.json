@@ -2,8 +2,8 @@
   "title": "Vertiefung Berufserfahrung",
   "summary": "Die Timeline bleibt kurz; hier gibt es den erweiterten Kontext.",
   "bullets": [
-    "CI/CD-Pipelines fur ML-Services aufgebaut.",
-    "Observability-Standards fur Modelle und APIs definiert.",
+    "CI/CD-Pipelines für ML-Services aufgebaut.",
+    "Observability-Standards für Modelle und APIs definiert.",
     "Manuelle Release-Schritte durch Automatisierung reduziert."
   ],
   "images": [

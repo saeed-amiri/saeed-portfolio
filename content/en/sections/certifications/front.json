@@ -2,15 +2,27 @@
   "certifications": [
     {
       "id": "cert-1",
-      "title": "Certificate 1",
+      "title": "Data Science",
       "image": "assets/cert-1.png",
       "link": "assets/cert-1.png"
     },
     {
       "id": "cert-2",
-      "title": "Certificate 2",
+      "title": "MLOps",
       "image": "assets/cert-placeholder-2.svg",
       "link": "assets/cert-placeholder-2.svg"
+    },
+    {
+      "id": "cert-3",
+      "title": "Quantum Computing",
+      "image": "assets/quantum.png",
+      "link": "assets/quantum.png"
+    },
+    {
+      "id": "cert-4",
+      "title": "DFT",
+      "image": "assets/dft.png",
+      "link": "assets/dft.png"
     }
   ]
 }

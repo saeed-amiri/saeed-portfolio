@@ -1,7 +1,7 @@
 {
   "id": "training-mlops-engineer",
   "role": "MLOps / Machine Learning Engineer",
-  "org": "Liora",
-  "period": "Heute - Mar 2026",
+  "org": "Liora\nZertifikat ausgestellt von Université Paris 1 Panthéon-Sorbonne (Vollzeit, Online)",
+  "period": "Jan 2026 - Mär 2026 ",
   "summary": "Docker, Kubernetes, API-Sicherheit, Airflow, Prefect, MLflow, DVC, Dagshub; absolvierte 5-tage AWS-Module (Cloud Practitioner, Solutions Architect) sowie AWS MLOps; Experiment-Tracking, Orchestrierung, CI/CD, Model Serving mit BentoML und Monitoring mit Prometheus und Grafana."
 }

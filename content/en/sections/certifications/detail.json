@@ -1,10 +1,7 @@
 {
   "title": "Certification Context",
-  "summary": "Certificates are strongest when linked to practical project outcomes.",
-  "bullets": [
-    "Pair each certificate with one real implementation example.",
-    "Keep images clear and metadata-clean for public sharing."
-  ],
+  "summary": "Certificates",
+  "bullets": [],
   "images": [
     {
       "src": "assets/cert-1.png",
@@ -13,6 +10,14 @@
     {
       "src": "assets/cert-placeholder-2.svg",
       "alt": "Certification image sample"
+    },
+    {
+      "src": "assets/quantum.png",
+      "alt": "Beispiel Zertifikat"
+    },
+    {
+      "src": "assets/dft.png",
+      "alt": "Beispiel Zertifikat"
     }
   ],
   "links": []
