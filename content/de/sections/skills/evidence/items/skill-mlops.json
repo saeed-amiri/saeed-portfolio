@@ -2,7 +2,7 @@
   "title": "MLOps-Nachweise",
   "summary": "Wo ich MLOps-Praktiken konkret eingesetzt habe.",
   "bullets": [
-    "CI/CD-Integration fur ML-Service-Releases.",
+    "CI/CD-Integration für ML-Service-Releases.",
     "Modell-Lifecycle-Monitoring und kontrollierte Rollouts."
   ],
   "images": [],
