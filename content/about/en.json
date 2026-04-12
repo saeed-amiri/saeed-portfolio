@@ -49,11 +49,44 @@
           	"src": "assets/conf.png",
         	  "alt": ""
 					}
-				]
-			}
+        ]
+      }
 		]
 	}
 ],
+  "resources": {
+    "title": "Professional Sources I Follow",
+    "intro": "These references support my continuous learning in machine learning, MLOps, reliable software delivery, coding,  Math, and Physics.",
+    "content": [
+      {
+        "type": "links",
+        "title": "Selected Sources for Continuous Learning",
+        "description": "A selected set of open-source references, and books that continue to shape my approach to dependable ML and software engineering.",
+        "items": [
+          {
+            "label": "Corey Schafer: Python (I learned a lot from him)",
+            "url": "https://www.youtube.com/@coreyms"
+          },
+          {
+            "label": "ArjanCodes: Python (Specially in system design)",
+            "url": "https://www.youtube.com/@ArjanCodes"
+          },
+          {
+            "label": "Uncle Bob!",
+            "url": "https://martinfowler.com/books/continuousDelivery.html"
+          },
+          {
+            "label": "Math!",
+            "url": "https://www.youtube.com/@numberphile"
+          },
+          {
+            "label": "3blue1brown!",
+            "url": "https://www.youtube.com/@3blue1brown"
+          }
+        ]
+      }
+    ]
+  },
 
   "labels": {
     "railTop": "Top",

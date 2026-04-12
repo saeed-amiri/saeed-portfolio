@@ -33,6 +33,10 @@ const elements = {
   title: document.getElementById("aboutTitle"),
   intro: document.getElementById("aboutIntro"),
   sections: document.getElementById("aboutSections"),
+  resourcesPanel: document.getElementById("aboutResourcesPanel"),
+  resourcesTitle: document.getElementById("aboutResourcesTitle"),
+  resourcesIntro: document.getElementById("aboutResourcesIntro"),
+  resourcesContent: document.getElementById("aboutResourcesContent"),
   footer: document.getElementById("aboutFooter"),
   railList: document.getElementById("aboutRailList"),
 };
@@ -66,6 +70,61 @@ function setLanguageButtonState() {
   elements.langDe.classList.toggle("active", state.lang === "de");
 }
 
+function createLinksBlock(contentBlock) {
+  const items = Array.isArray(contentBlock.items) ? contentBlock.items : [];
+  if (!items.length) {
+    return null;
+  }
+
+  const resourceWrap = document.createElement("div");
+  resourceWrap.className = "about-resource-block";
+
+  if (contentBlock.title) {
+    const heading = document.createElement("h4");
+    heading.textContent = contentBlock.title;
+    resourceWrap.appendChild(heading);
+  }
+
+  if (contentBlock.description) {
+    const description = document.createElement("p");
+    setMultilineText(description, contentBlock.description);
+    resourceWrap.appendChild(description);
+  }
+
+  const list = document.createElement("ul");
+  list.className = "about-resource-list";
+
+  items.forEach((item) => {
+    if (!item || typeof item !== "object" || !item.url) {
+      return;
+    }
+
+    const li = document.createElement("li");
+    const link = document.createElement("a");
+    link.href = item.url;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.textContent = item.label || item.url;
+    li.appendChild(link);
+
+    if (item.note) {
+      const note = document.createElement("span");
+      note.className = "about-resource-note";
+      note.textContent = ` - ${item.note}`;
+      li.appendChild(note);
+    }
+
+    list.appendChild(li);
+  });
+
+  if (!list.children.length) {
+    return null;
+  }
+
+  resourceWrap.appendChild(list);
+  return resourceWrap;
+}
+
 function createSectionBlock(section) {
   const block = document.createElement("article");
   block.className = "timeline-item";
@@ -90,35 +149,42 @@ function createSectionBlock(section) {
     }
 
     const type = (contentBlock.type || "").toLowerCase();
-    if (type !== "images" && type !== "image") {
-      return;
-    }
+    if (type === "images" || type === "image") {
+      const items = Array.isArray(contentBlock.items)
+        ? contentBlock.items
+        : Array.isArray(contentBlock.images)
+          ? contentBlock.images
+          : [];
 
-    const items = Array.isArray(contentBlock.items)
-      ? contentBlock.items
-      : Array.isArray(contentBlock.images)
-        ? contentBlock.images
-        : [];
-
-    if (!items.length) {
-      return;
-    }
-
-    const imageWrap = document.createElement("div");
-    imageWrap.className = "modal-images";
-
-    items.forEach((item) => {
-      if (!item || typeof item !== "object") {
+      if (!items.length) {
         return;
       }
 
-      const img = document.createElement("img");
-      img.src = resolveSectionMediaPath(item.src);
-      img.alt = item.alt || section.title || "About image";
-      imageWrap.appendChild(img);
-    });
+      const imageWrap = document.createElement("div");
+      imageWrap.className = "modal-images";
 
-    block.appendChild(imageWrap);
+      items.forEach((item) => {
+        if (!item || typeof item !== "object") {
+          return;
+        }
+
+        const img = document.createElement("img");
+        img.src = resolveSectionMediaPath(item.src);
+        img.alt = item.alt || section.title || "About image";
+        imageWrap.appendChild(img);
+      });
+
+      block.appendChild(imageWrap);
+      return;
+    }
+
+    if (type === "links" || type === "resources") {
+      const linksBlock = createLinksBlock(contentBlock);
+      if (!linksBlock) {
+        return;
+      }
+      block.appendChild(linksBlock);
+    }
   });
 
   return block;
@@ -185,6 +251,10 @@ function renderRail(sections, labels) {
 
   appendRailButton("__top__", labels.railTop || "Top", "↑");
   sections.forEach((section) => appendRailButton(section.id, section.title));
+  if (!elements.resourcesPanel.hidden) {
+    const resourcesLabel = elements.resourcesTitle.textContent || labels.resources || "Resources";
+    appendRailButton("__resources__", resourcesLabel);
+  }
   appendRailButton("__bottom__", labels.railBottom || "Bottom", "↓");
 }
 
@@ -206,6 +276,13 @@ function scrollToSection(sectionKey) {
     return;
   }
 
+  if (sectionKey === "__resources__") {
+    if (!elements.resourcesPanel.hidden) {
+      elements.resourcesPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    return;
+  }
+
   const panel = elements.sections.querySelector(`[data-section-key="${sectionKey}"]`);
   if (!panel) {
     return;
@@ -215,6 +292,12 @@ function scrollToSection(sectionKey) {
 
 function setupSectionObserver() {
   const sectionPanels = Array.from(elements.sections.querySelectorAll("[data-section-key]"));
+  if (!elements.resourcesPanel.hidden) {
+    elements.resourcesPanel.dataset.sectionKey = "__resources__";
+    sectionPanels.push(elements.resourcesPanel);
+  } else {
+    delete elements.resourcesPanel.dataset.sectionKey;
+  }
 
   if (typeof IntersectionObserver === "undefined") {
     state.activeSectionKey = sectionPanels[0]?.dataset.sectionKey || null;
@@ -279,6 +362,32 @@ function applyContent(data) {
   });
 
   elements.sections.appendChild(timeline);
+
+  const resources = data.resources && typeof data.resources === "object" ? data.resources : null;
+  elements.resourcesContent.innerHTML = "";
+  if (resources) {
+    elements.resourcesTitle.textContent = resources.title || "";
+    setMultilineText(elements.resourcesIntro, resources.intro || "");
+
+    const blocks = Array.isArray(resources.content) ? resources.content : [];
+    blocks.forEach((contentBlock) => {
+      if (!contentBlock || typeof contentBlock !== "object") {
+        return;
+      }
+      const type = (contentBlock.type || "").toLowerCase();
+      if (type === "links" || type === "resources") {
+        const linksBlock = createLinksBlock(contentBlock);
+        if (linksBlock) {
+          elements.resourcesContent.appendChild(linksBlock);
+        }
+      }
+    });
+
+    elements.resourcesPanel.hidden = elements.resourcesContent.children.length === 0;
+  } else {
+    elements.resourcesPanel.hidden = true;
+  }
+
   renderRail(sections, data.labels || {});
   setupSectionObserver();
   updateRailActiveState();
