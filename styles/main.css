@@ -524,6 +524,39 @@ h2 {
   cursor: zoom-in;
 }
 
+.about-resource-block {
+  margin-top: 1rem;
+}
+
+.about-resource-block h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.about-resource-block p {
+  margin: 0.45rem 0 0;
+}
+
+.about-resource-list {
+  margin: 0.65rem 0 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.about-resource-list a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.about-resource-list a:hover {
+  text-decoration: underline;
+}
+
+.about-resource-note {
+  color: var(--muted);
+}
+
 .image-lightbox-backdrop {
   position: fixed;
   inset: 0;
