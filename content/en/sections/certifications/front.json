@@ -1,16 +1,22 @@
 {
   "certifications": [
     {
-      "id": "cert-1",
-      "title": "Data Science",
-      "image": "assets/cert-1.png",
-      "link": "assets/cert-1.png"
+      "id": "cert-ds",
+      "title": "Data Scientist",
+      "image": "assets/cert-ds.png",
+      "link": "assets/cert-ds.png"
     },
     {
-      "id": "cert-2",
-      "title": "MLOps",
-      "image": "assets/cert-placeholder-2.svg",
-      "link": "assets/cert-placeholder-2.svg"
+      "id": "cert-mlops",
+      "title": "MLOps Engineer",
+      "image": "assets/cert-mlops.png",
+      "link": "assets/cert-mlops.png"
+    },
+    {
+      "id": "cert-ml",
+      "title": "ML Engineer",
+      "image": "assets/cert-ml.png",
+      "link": "assets/cert-ml.png"
     },
     {
       "id": "cert-3",
