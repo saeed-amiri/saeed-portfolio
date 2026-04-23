@@ -4,20 +4,24 @@
   "bullets": [],
   "images": [
     {
-      "src": "assets/cert-1.png",
-      "alt": "Certification image sample"
+      "src": "assets/cert-ds.png",
+      "alt": "Data Scientist"
     },
     {
-      "src": "assets/cert-placeholder-2.svg",
-      "alt": "Certification image sample"
+      "src": "assets/cert-mlops.png",
+      "alt": "MLOps Engineer"
+    },
+    {
+      "src": "assets/cert-ml.png",
+      "alt": "ML Engineer"
     },
     {
       "src": "assets/quantum.png",
-      "alt": "Beispiel Zertifikat"
+      "alt": "Quantum Computing"
     },
     {
       "src": "assets/dft.png",
-      "alt": "Beispiel Zertifikat"
+      "alt": "DFT"
     }
   ],
   "links": []
