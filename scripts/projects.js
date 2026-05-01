@@ -52,6 +52,11 @@ function resolveProjectPath(path, filePath) {
     return path;
   }
 
+  // If path starts with 'assets/', treat as root-relative (prepend slash)
+  if (path.startsWith("assets/")) {
+    return "/" + path;
+  }
+
   if (path.startsWith("../") || path.startsWith("./") || !path.includes("/")) {
     return joinPath(dirname(filePath), path);
   }

@@ -83,6 +83,10 @@ function appendImagesBlock(images, fallbackTitle, container = elements.detailMod
     const img = document.createElement("img");
     img.src = image.src;
     img.alt = image.alt || fallbackTitle || "Detail image";
+    img.style.cursor = "pointer";
+    img.addEventListener("click", () => {
+      openImageLightbox(image.src, image.alt || fallbackTitle || "Detail image");
+    });
     imageWrap.appendChild(img);
   });
 
