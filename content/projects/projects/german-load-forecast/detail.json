@@ -20,6 +20,15 @@
       ]
     },
     {
+      "type": "images",
+      "items": [
+        {
+          "src": "assets/glf_mloops_process.png",
+          "alt": "Conceptual Workflow of a German-Load-Forecast-MLOps System"
+        }
+      ]
+    },
+    {
       "type": "links",
       "items": [
         {
