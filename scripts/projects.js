@@ -47,19 +47,29 @@ function isAbsoluteOrExternalPath(path) {
   );
 }
 
+function getSiteBasePath() {
+  if (typeof window === "undefined" || !window.location) {
+    return "";
+  }
+
+  const { hostname, pathname } = window.location;
+  if (!hostname.endsWith("github.io")) {
+    return "";
+  }
+
+  const segments = pathname.split("/").filter(Boolean);
+  return segments.length ? `/${segments[0]}` : "";
+}
+
 function resolveProjectPath(path, filePath) {
   if (typeof path !== "string" || path.length === 0 || isAbsoluteOrExternalPath(path)) {
     return path;
   }
 
-  // If path starts with 'assets/', prepend correct base path for local and GitHub Pages
+  // If path starts with 'assets/', prepend the deployment base path.
   if (path.startsWith("assets/")) {
-    let base = "/";
-    // If running on GitHub Pages, prepend repo name
-    if (typeof window !== "undefined" && window.location && window.location.pathname.startsWith("/saeed-portfolio")) {
-      base = "/saeed-portfolio/";
-    }
-    return base.replace(/\/$/, "") + "/" + path;
+    const base = getSiteBasePath();
+    return `${base}/${path}`;
   }
 
   if (path.startsWith("../") || path.startsWith("./") || !path.includes("/")) {
