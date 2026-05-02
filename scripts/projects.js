@@ -52,9 +52,14 @@ function resolveProjectPath(path, filePath) {
     return path;
   }
 
-  // If path starts with 'assets/', treat as root-relative (prepend slash)
+  // If path starts with 'assets/', prepend correct base path for local and GitHub Pages
   if (path.startsWith("assets/")) {
-    return "/" + path;
+    let base = "/";
+    // If running on GitHub Pages, prepend repo name
+    if (typeof window !== "undefined" && window.location && window.location.pathname.startsWith("/saeed-portfolio")) {
+      base = "/saeed-portfolio/";
+    }
+    return base.replace(/\/$/, "") + "/" + path;
   }
 
   if (path.startsWith("../") || path.startsWith("./") || !path.includes("/")) {
