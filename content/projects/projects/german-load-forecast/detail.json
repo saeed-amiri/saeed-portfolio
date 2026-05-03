@@ -25,6 +25,10 @@
         {
           "src": "assets/glf_mloops_process.png",
           "alt": "Conceptual Workflow of a German-Load-Forecast-MLOps System"
+        },
+        {
+          "src": "assets/glf_request_flow.png",
+          "alt":"Conceptual Workflow of a request from German-Load-Forecast-MLOps System"
         }
       ]
     },
