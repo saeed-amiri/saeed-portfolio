@@ -29,6 +29,10 @@
         {
           "src": "assets/glf_request_flow.png",
           "alt":"Conceptual Workflow of a request from German-Load-Forecast-MLOps System"
+        },
+        {
+          "src": "assets/MLOps_glf.png",
+          "alt":"MLOps architecture guide: German-Load-Forecast-MLOps System"
         }
       ]
     },
