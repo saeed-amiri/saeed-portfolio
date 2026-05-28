@@ -99,6 +99,80 @@ Use `tabs` when you want multiple views inside one popup, and keep each tab's co
 }
 ```
 
+## Deep links for More buttons
+
+You can open a page, jump to a section, and open a specific `More` modal directly from one URL.
+
+Rule:
+
+`<page-url>?open=<type>:<id>#<sectionId>`
+
+Alternative explicit form:
+
+`<page-url>?detailType=<type>&detailId=<id>#<sectionId>`
+
+How it works:
+
+- `open=<type>:<id>` tells the JavaScript which modal to open.
+- `#<sectionId>` scrolls to the section anchor.
+- Modal open happens after content render, so it works for dynamic content.
+
+Your example explained:
+
+- `https://saeed-amiri.github.io/saeed-portfolio/?open=experience:exp-mlops-engineer#experienceSection`
+- `experience` = modal group
+- `exp-mlops-engineer` = specific item id
+- `experienceSection` = scroll target in the CV page
+
+### CV page deep links (`index.html`)
+
+Base URL:
+
+`https://saeed-amiri.github.io/saeed-portfolio/`
+
+Experience `More` links:
+
+- `https://saeed-amiri.github.io/saeed-portfolio/?open=experience:exp-mlops-engineer#experienceSection`
+- `https://saeed-amiri.github.io/saeed-portfolio/?open=experience:exp-data-scientist#experienceSection`
+- `https://saeed-amiri.github.io/saeed-portfolio/?open=experience:exp-postdoc-bremen#experienceSection`
+- `https://saeed-amiri.github.io/saeed-portfolio/?open=experience:exp-doctoral-goettingen#experienceSection`
+- `https://saeed-amiri.github.io/saeed-portfolio/?open=experience:exp-accounting-ops#experienceSection`
+
+Training `More` links:
+
+- `https://saeed-amiri.github.io/saeed-portfolio/?open=training:training-mlops-engineer#trainingsSection`
+- `https://saeed-amiri.github.io/saeed-portfolio/?open=training:training-data-scientist#trainingsSection`
+
+Education `More` links:
+
+- `https://saeed-amiri.github.io/saeed-portfolio/?open=education:edu-phd-theoretical-physics#educationSection`
+- `https://saeed-amiri.github.io/saeed-portfolio/?open=education:edu-master-physics-nano#educationSection`
+
+Skill evidence `More` links:
+
+- `https://saeed-amiri.github.io/saeed-portfolio/?open=skill:skill-mlops#skillsSection`
+- `https://saeed-amiri.github.io/saeed-portfolio/?open=skill:skill-python#skillsSection`
+- `https://saeed-amiri.github.io/saeed-portfolio/?open=skill:skill-docker#skillsSection`
+- `https://saeed-amiri.github.io/saeed-portfolio/?open=skill:skill-ml#skillsSection`
+
+### Projects page deep links (`pages/projects.html`)
+
+Base URL:
+
+`https://saeed-amiri.github.io/saeed-portfolio/pages/projects.html`
+
+German Load Forecast `More` link:
+
+- `https://saeed-amiri.github.io/saeed-portfolio/pages/projects.html?open=project:german-load-forecast#featured-projects`
+
+Alternative explicit form:
+
+- `https://saeed-amiri.github.io/saeed-portfolio/pages/projects.html?detailType=project&detailId=german-load-forecast#featured-projects`
+
+Note:
+
+- A project link only opens a modal if that project has a `detail.json` file.
+
 ## Local preview
 
 Use any static server from repository root.
