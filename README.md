@@ -101,6 +101,12 @@ Use `tabs` when you want multiple views inside one popup, and keep each tab's co
 
 ## Deep links for More buttons
 
+<!-- BEGIN AUTO-DEEP-LINKS -->
+
+Regenerate this section:
+
+`node scripts/generate-readme-deep-links.mjs`
+
 You can open a page, jump to a section, and open a specific `More` modal directly from one URL.
 
 Rule:
@@ -161,17 +167,19 @@ Base URL:
 
 `https://saeed-amiri.github.io/saeed-portfolio/pages/projects.html`
 
-German Load Forecast `More` link:
+Project `More` links:
 
 - `https://saeed-amiri.github.io/saeed-portfolio/pages/projects.html?open=project:german-load-forecast#featured-projects`
 
-Alternative explicit form:
+Alternative explicit form (German Load Forecast):
 
 - `https://saeed-amiri.github.io/saeed-portfolio/pages/projects.html?detailType=project&detailId=german-load-forecast#featured-projects`
 
 Note:
 
 - A project link only opens a modal if that project has a `detail.json` file.
+
+<!-- END AUTO-DEEP-LINKS -->
 
 ## Local preview
 
