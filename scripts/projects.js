@@ -20,6 +20,119 @@ const elements = {
 };
 
 const projectDetailsById = new Map();
+let jumpFrameA = null;
+let jumpFrameB = null;
+
+function clearPendingJump() {
+  if (jumpFrameA !== null) {
+    cancelAnimationFrame(jumpFrameA);
+    jumpFrameA = null;
+  }
+
+  if (jumpFrameB !== null) {
+    cancelAnimationFrame(jumpFrameB);
+    jumpFrameB = null;
+  }
+}
+
+function getHashTargetElement() {
+  const hash = window.location.hash;
+  if (!hash) {
+    return null;
+  }
+
+  let id = hash.slice(1);
+  if (!id) {
+    return null;
+  }
+
+  try {
+    id = decodeURIComponent(id);
+  } catch {
+    // Keep raw hash if decoding fails for malformed URLs.
+  }
+
+  if (!id) {
+    return null;
+  }
+
+  const byId = document.getElementById(id);
+  if (byId) {
+    return byId;
+  }
+
+  if (typeof CSS?.escape === "function") {
+    return document.querySelector(`[name="${CSS.escape(id)}"]`);
+  }
+
+  return document.getElementsByName(id)[0] || null;
+}
+
+function jumpToHashTarget() {
+  const target = getHashTargetElement();
+  if (!target) {
+    return;
+  }
+
+  target.scrollIntoView({ block: "start", behavior: "auto" });
+}
+
+function parseProjectDeepLink() {
+  const params = new URLSearchParams(window.location.search);
+
+  const explicitType = String(params.get("detailType") || params.get("openType") || "")
+    .trim()
+    .toLowerCase();
+  const explicitId = String(params.get("detailId") || params.get("openId") || "").trim();
+  if ((explicitType === "project" || explicitType === "proj") && explicitId) {
+    return explicitId;
+  }
+
+  const encoded = String(params.get("open") || params.get("detail") || params.get("modal") || "").trim();
+  if (!encoded) {
+    return "";
+  }
+
+  const separatorIndex = encoded.indexOf(":");
+  if (separatorIndex <= 0 || separatorIndex >= encoded.length - 1) {
+    return "";
+  }
+
+  const type = encoded.slice(0, separatorIndex).trim().toLowerCase();
+  const id = encoded.slice(separatorIndex + 1).trim();
+  if ((type === "project" || type === "proj") && id) {
+    return id;
+  }
+
+  return "";
+}
+
+function openDeepLinkedProjectDetail() {
+  const projectId = parseProjectDeepLink();
+  if (!projectId) {
+    return;
+  }
+
+  const detail = projectDetailsById.get(projectId);
+  if (!detail) {
+    return;
+  }
+
+  openModal(detail);
+}
+
+function schedulePostRenderJumpAndDetail() {
+  clearPendingJump();
+
+  jumpFrameA = requestAnimationFrame(() => {
+    jumpFrameA = null;
+    jumpFrameB = requestAnimationFrame(() => {
+      jumpFrameB = null;
+      jumpToHashTarget();
+      openDeepLinkedProjectDetail();
+    });
+  });
+}
 
 async function fetchJson(path) {
   const response = await fetch(path, { cache: "no-store" });
@@ -374,6 +487,9 @@ async function renderProjectsPage() {
   });
 
   setupModalDismissHandlers();
+
+  window.addEventListener("hashchange", jumpToHashTarget);
+  schedulePostRenderJumpAndDetail();
 
   if (manifest.footer) {
     elements.footer.textContent = manifest.footer;
