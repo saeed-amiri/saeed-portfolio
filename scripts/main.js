@@ -26,6 +26,35 @@ import { setMultilineText } from "./text.js";
 let hashJumpFrameA = null;
 let hashJumpFrameB = null;
 
+const detailOpeners = {
+  section: openSectionDetail,
+  experience: openExperienceDetail,
+  training: openTrainingDetail,
+  education: openEducationDetail,
+  skill: openSkillEvidence,
+};
+
+const detailTypeAliases = {
+  section: "section",
+  sec: "section",
+  experience: "experience",
+  exp: "experience",
+  training: "training",
+  trainings: "training",
+  education: "education",
+  edu: "education",
+  skill: "skill",
+  skills: "skill",
+};
+
+const detailTypeDefaultSectionId = {
+  section: null,
+  experience: "experienceSection",
+  training: "trainingsSection",
+  education: "educationSection",
+  skill: "skillsSection",
+};
+
 function clearPendingHashJump() {
   if (hashJumpFrameA !== null) {
     cancelAnimationFrame(hashJumpFrameA);
@@ -81,6 +110,78 @@ function jumpToHashTarget() {
   target.scrollIntoView({ block: "start", behavior: "auto" });
 }
 
+function normalizeDetailType(type) {
+  if (!type) {
+    return "";
+  }
+
+  return detailTypeAliases[String(type).trim().toLowerCase()] || "";
+}
+
+function parseDeepLinkDetail() {
+  const params = new URLSearchParams(window.location.search);
+
+  const explicitType = normalizeDetailType(params.get("detailType") || params.get("openType"));
+  const explicitId = (params.get("detailId") || params.get("openId") || "").trim();
+  if (explicitType && explicitId) {
+    return { type: explicitType, id: explicitId };
+  }
+
+  const encoded = (params.get("open") || params.get("detail") || params.get("modal") || "").trim();
+  if (!encoded) {
+    return null;
+  }
+
+  const separatorIndex = encoded.indexOf(":");
+  if (separatorIndex <= 0 || separatorIndex >= encoded.length - 1) {
+    return null;
+  }
+
+  const rawType = encoded.slice(0, separatorIndex);
+  const rawId = encoded.slice(separatorIndex + 1).trim();
+  const type = normalizeDetailType(rawType);
+
+  if (!type || !rawId) {
+    return null;
+  }
+
+  return { type, id: rawId };
+}
+
+function scrollToDefaultSectionForDetail(detail) {
+  if (!detail || window.location.hash) {
+    return;
+  }
+
+  const sectionId = detailTypeDefaultSectionId[detail.type];
+  if (!sectionId) {
+    return;
+  }
+
+  const section = document.getElementById(sectionId);
+  if (!section) {
+    return;
+  }
+
+  section.scrollIntoView({ block: "start", behavior: "auto" });
+}
+
+function openDeepLinkedDetail() {
+  const detail = parseDeepLinkDetail();
+  if (!detail) {
+    return;
+  }
+
+  scrollToDefaultSectionForDetail(detail);
+
+  const openDetail = detailOpeners[detail.type];
+  if (typeof openDetail !== "function") {
+    return;
+  }
+
+  openDetail(detail.id);
+}
+
 function schedulePostRenderHashJump() {
   clearPendingHashJump();
 
@@ -89,6 +190,7 @@ function schedulePostRenderHashJump() {
     hashJumpFrameB = requestAnimationFrame(() => {
       hashJumpFrameB = null;
       jumpToHashTarget();
+      openDeepLinkedDetail();
     });
   });
 }
