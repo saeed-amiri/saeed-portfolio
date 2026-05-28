@@ -23,6 +23,76 @@ import {
 import { state } from "./state.js";
 import { setMultilineText } from "./text.js";
 
+let hashJumpFrameA = null;
+let hashJumpFrameB = null;
+
+function clearPendingHashJump() {
+  if (hashJumpFrameA !== null) {
+    cancelAnimationFrame(hashJumpFrameA);
+    hashJumpFrameA = null;
+  }
+
+  if (hashJumpFrameB !== null) {
+    cancelAnimationFrame(hashJumpFrameB);
+    hashJumpFrameB = null;
+  }
+}
+
+function getHashTargetElement() {
+  const hash = window.location.hash;
+  if (!hash) {
+    return null;
+  }
+
+  let id = hash.slice(1);
+  if (!id) {
+    return null;
+  }
+
+  try {
+    id = decodeURIComponent(id);
+  } catch {
+    // Keep raw hash if decoding fails for malformed URLs.
+  }
+
+  if (!id) {
+    return null;
+  }
+
+  const byId = document.getElementById(id);
+  if (byId) {
+    return byId;
+  }
+
+  // Fallback for anchor targets that use name instead of id.
+  if (typeof CSS?.escape === "function") {
+    return document.querySelector(`[name="${CSS.escape(id)}"]`);
+  }
+
+  return document.getElementsByName(id)[0] || null;
+}
+
+function jumpToHashTarget() {
+  const target = getHashTargetElement();
+  if (!target) {
+    return;
+  }
+
+  target.scrollIntoView({ block: "start", behavior: "auto" });
+}
+
+function schedulePostRenderHashJump() {
+  clearPendingHashJump();
+
+  hashJumpFrameA = requestAnimationFrame(() => {
+    hashJumpFrameA = null;
+    hashJumpFrameB = requestAnimationFrame(() => {
+      hashJumpFrameB = null;
+      jumpToHashTarget();
+    });
+  });
+}
+
 function setLanguageButtonState() {
   elements.langEn.classList.toggle("active", state.lang === "en");
   elements.langDe.classList.toggle("active", state.lang === "de");
@@ -100,6 +170,8 @@ function applyContent(raw) {
 
   elements.footerText.textContent = data.footer;
   elements.downloadPdf.textContent = data.labels.downloadPdf;
+
+  schedulePostRenderHashJump();
 }
 
 async function render(lang) {
@@ -158,6 +230,8 @@ function setupEvents() {
       openSkillEvidence(skillTrigger.dataset.skillId);
     }
   });
+
+  window.addEventListener("hashchange", jumpToHashTarget);
 
   setupModalDismissHandlers();
 }
