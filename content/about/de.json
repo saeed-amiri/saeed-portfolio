@@ -73,7 +73,7 @@
           },
           {
             "label": "Uncle Bob!",
-            "url": "https://martinfowler.com/books/continuousDelivery.html"
+            "url": "https://en.wikipedia.org/wiki/Robert_C._Martin"
           },
           {
             "label": "Mathematik!",
@@ -82,6 +82,10 @@
           {
             "label": "3blue1brown!",
             "url": "https://www.youtube.com/@3blue1brown"
+          },
+          {
+            "label": "Sébastien SIME, my mentor at Liora",
+            "url": "https://github.com/ssime-git"
           }
         ]
       }
