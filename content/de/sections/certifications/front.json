@@ -19,13 +19,19 @@
       "link": "assets/cert-ml.png"
     },
     {
-      "id": "cert-3",
+      "id": "cert-keb",
+      "title": "Kebernetes",
+      "image": "assets/cert-kubernetes.png",
+      "link": "assets/cert-kubernetes.png"
+    },
+    {
+      "id": "cert-quantum-gwdg",
       "title": "Quantum Computing",
       "image": "assets/quantum.png",
       "link": "assets/quantum.png"
     },
     {
-      "id": "cert-4",
+      "id": "cert-dft",
       "title": "DFT",
       "image": "assets/dft.png",
       "link": "assets/dft.png"
