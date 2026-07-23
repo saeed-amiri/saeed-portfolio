@@ -14,6 +14,7 @@ const elements = {
   contactEmail: document.getElementById("projectContactEmail"),
   linkedin: document.getElementById("projectLinkedin"),
   github: document.getElementById("projectGithub"),
+  openToWorkLink: document.getElementById("projectOpenToWorkLink"),
   content: document.getElementById("projectsContent"),
   railList: document.getElementById("projectRailList"),
   footer: document.getElementById("projectFooterText"),
@@ -316,6 +317,30 @@ function renderProfile(profile = {}) {
 
   if (profile.github) {
     elements.github.href = profile.github;
+  }
+
+  if (elements.openToWorkLink) {
+    elements.openToWorkLink.addEventListener("click", (event) => {
+      event.preventDefault();
+      openModal({
+        title: "Collaboration and Projects",
+        content: [
+          {
+            type: "summary",
+            text: "Open to ML/MLOps roles and project-based collaboration.",
+          },
+          {
+            type: "bullets",
+            items: [
+              "I enjoy joining teams that ship reliable data and ML systems in production.",
+              "As a physicist, I bring strong modeling and simulation thinking to complex technical systems.",
+              "I am motivated by projects that need strong engineering around reproducibility, observability, and deployment.",
+              "I also enjoy volunteer and community-driven data projects.",
+            ],
+          },
+        ],
+      });
+    });
   }
 }
 

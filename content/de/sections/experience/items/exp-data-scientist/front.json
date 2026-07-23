@@ -1,7 +1,7 @@
 {
   "id": "exp-data-scientist",
   "role": "Data Scientist",
-  "org": "Liora",
+  "org": "Universite Paris 1 Pantheon-Sorbonne (Liora)",
   "period": "Sep 2025 - Dez 2025",
-  "summary": "Anomaly-Detection-Projekt auf Automotive-CAN-Bus-Daten mit 100M+ Records und extremer Klassenimbalanz."
+  "summary": "Anomalieerkennungs-Workflows fur Automotive-CAN-Bus-Sicherheitsdaten (100M+ Records) entwickelt und evaluiert, inklusive Umgang mit starker Klassenimbalanz in uberwachten und Deep-Learning-Ansatzen."
 }

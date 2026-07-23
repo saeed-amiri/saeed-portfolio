@@ -1,7 +1,7 @@
 {
   "id": "exp-mlops-engineer",
   "role": "MLOps / Machine Learning Engineer",
-  "org": "Liora",
+  "org": "Universite Paris 1 Pantheon-Sorbonne (Liora)",
   "period": "Jan 2026 - Mar 2026",
-  "summary": "Weather prediction pipeline from model development and reproducibility to deployment and monitoring."
+  "summary": "Delivered an end-to-end weather forecasting pipeline with reproducible training, automated deployment, and production monitoring using an MLOps-first architecture."
 }

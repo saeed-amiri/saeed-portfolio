@@ -1,6 +1,7 @@
 // Duty: render personal About page with bilingual JSON content.
 // Keeps personal narrative separate from CV/PDF output.
 import { setMultilineText } from "./text.js";
+import { openModal, setupModalDismissHandlers } from "./modal.js";
 
 const contentMap = {
   en: "../content/about/en.json",
@@ -39,6 +40,7 @@ const elements = {
   resourcesContent: document.getElementById("aboutResourcesContent"),
   footer: document.getElementById("aboutFooter"),
   railList: document.getElementById("aboutRailList"),
+  openToWorkLink: document.getElementById("aboutOpenToWorkLink"),
 };
 
 function setContactLink(anchor, href, label) {
@@ -417,6 +419,43 @@ function setupEvents() {
     }
     scrollToSection(button.dataset.sectionKey);
   });
+
+  if (elements.openToWorkLink) {
+    elements.openToWorkLink.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      const isGerman = state.lang === "de";
+      openModal({
+        title: isGerman ? "Zusammenarbeit und Projekte" : "Collaboration and Projects",
+        content: [
+          {
+            type: "summary",
+            text: isGerman
+              ? "Offen fur ML/MLOps-Rollen sowie projektbasierte Zusammenarbeit."
+              : "Open to ML/MLOps roles and project-based collaboration.",
+          },
+          {
+            type: "bullets",
+            items: isGerman
+              ? [
+                  "Ich arbeite gerne in Teams, die robuste, wartbare und reproduzierbare Daten- und ML-Systeme bauen.",
+                  "Als Physiker motivieren mich besonders Projekte mit Modellierung, Simulation und quantitativer Analyse.",
+                  "Ich steige gerne in Projekte ein, in denen Forschungstiefe und produktionsnahe Umsetzung zusammenkommen.",
+                  "Zusatzlich engagiere ich mich gerne in Volunteer- und Community-Projekten mit Datenbezug.",
+                ]
+              : [
+                  "I enjoy working with teams that build robust, maintainable, and reproducible data/ML systems.",
+                  "As a physicist, I am especially motivated by projects involving modeling, simulation, and quantitative analysis.",
+                  "I like joining projects where research depth and production quality come together.",
+                  "I also enjoy volunteer and community-driven data projects.",
+                ],
+          },
+        ],
+      });
+    });
+  }
+
+  setupModalDismissHandlers();
 }
 
 setupEvents();

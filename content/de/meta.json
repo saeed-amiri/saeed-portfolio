@@ -20,18 +20,19 @@
     "noSkillsYet": "Fuge wichtige Kompetenzen hinzu, um Nachweise zu offnen.",
     "evidenceTitle": "Nachweise",
     "downloadPdf": "PDF herunterladen",
+    "openToRoles": "Offen fur ML/MLOps-Rollen",
     "linkedin": "LinkedIn",
     "github": "GitHub",
     "profilePhotoAlt": "Profilfoto"
   },
   "links": {
     "thesis": {
-      "label": "Meine Thesis lesen",
-      "url": "https://example.com/your-thesis"
+      "label": "Details zur Dissertation ansehen",
+      "url": "?open=education:edu-phd-theoretical-physics#educationSection"
     },
     "mlops": {
       "label": "Mein MLOps-Projekt ansehen",
-      "url": "https://github.com/saeed-amiri/your-mlops-project"
+      "url": "https://github.com/saeed-amiri/german-load-forecasting-mlops"
     }
   },
   "footer": "Offenes Portfolio-Repository für Recruiter und Kollaborationen."

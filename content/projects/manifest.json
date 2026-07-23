@@ -3,7 +3,7 @@
   "profile": {
     "name": "Saeed Amiri",
     "headline": "Project Portfolio",
-    "meta": "ML & MLOps Engineer | Data Scientist | Physiker (Dr. rer. nat.)",
+    "meta": "ML & MLOps Engineer | Data Scientist | Physicist (Dr. rer. nat.)",
     "photo": "../assets/profile-placeholder.svg?v=20260404-1",
     "photoAlt": "Profile photo",
     "email": "sdamiri7@gmail.com",
@@ -28,7 +28,9 @@
       "title": "Research and Simulation Projects",
       "railLabel": "Research",
       "description": "Computational physics, simulation workflows, and data-intensive analysis pipelines.",
-      "projectIds": []
+      "projectIds": [
+        "stream-monitoring-stack"
+      ]
     }
   ],
   "footer": "Ongoing projects and technical work in progress."

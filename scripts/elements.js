@@ -25,6 +25,7 @@ export const elements = {
   contactEmail: document.getElementById("contactEmail"),
   linkedin: document.getElementById("linkedin"),
   github: document.getElementById("github"),
+  openToWorkLink: document.getElementById("openToWorkLink"),
   profilePhoto: document.getElementById("profilePhoto"),
   bioTitle: document.getElementById("bioTitle"),
   bioText: document.getElementById("bioText"),

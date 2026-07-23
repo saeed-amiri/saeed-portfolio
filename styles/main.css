@@ -221,7 +221,7 @@ h2 {
 }
 
 #bioText {
-  text-align: justify;
+  text-align: left;
 }
 
 /* What: Horizontal group for featured links. Why: keep key links compact and responsive. */
@@ -240,6 +240,11 @@ h2 {
   background: #fff;
   border-radius: 12px;
   padding: 0.55rem 0.8rem;
+}
+
+.profile-cta {
+  display: inline-flex;
+  margin-top: 0.65rem;
 }
 
 /* What: Timeline container spacing. Why: structure experience/education entries with consistent rhythm. */

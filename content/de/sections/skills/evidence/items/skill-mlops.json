@@ -2,14 +2,14 @@
   "title": "MLOps-Nachweise",
   "summary": "Wo ich MLOps-Praktiken konkret eingesetzt habe.",
   "bullets": [
-    "CI/CD-Integration für ML-Service-Releases.",
+    "CI/CD-Integration fur ML-Service-Releases.",
     "Modell-Lifecycle-Monitoring und kontrollierte Rollouts."
   ],
   "images": [],
   "links": [
     {
       "label": "MLOps-Projekt-Repository",
-      "url": "https://github.com/saeed-amiri/your-mlops-project"
+      "url": "https://github.com/saeed-amiri/german-load-forecasting-mlops"
     }
   ]
 }
