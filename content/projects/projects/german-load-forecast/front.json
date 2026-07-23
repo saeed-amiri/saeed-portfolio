@@ -1,11 +1,15 @@
 {
   "title": "German Load Forecast",
   "period": "Mar 2026 - Present",
-  "summary": "Built a short-horizon electricity load forecasting workflow for Germany with reproducible training and scheduled inference for operational planning.",
+  "summary": "Built a short-horizon electricity load forecasting workflow for Germany with reproducible training and scheduled inference for operational planning.\nProof of work: containerized services, DVC-based data/model lineage, Airflow orchestration, FastAPI serving, and Prometheus/Grafana observability.",
   "links": [
     {
       "label": "Project Repository",
       "url": "https://github.com/saeed-amiri/german-load-forecasting-mlops"
+    },
+    {
+      "label": "Project Detail",
+      "url": "../pages/projects.html?open=project:german-load-forecast#featured-projects"
     }
   ]
 }

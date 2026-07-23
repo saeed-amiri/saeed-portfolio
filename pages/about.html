@@ -50,6 +50,7 @@
         <a id="aboutContactEmail" class="contact-link" href="#">email@example.com</a>
         <a id="aboutLinkedin" class="contact-link" href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a id="aboutGithub" class="contact-link" href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a id="aboutOpenToWorkLink" class="action-link profile-cta" href="mailto:sdamiri7@gmail.com?subject=ML%2FMLOps%20Role%20Opportunity">Open to ML/MLOps roles</a>
       </aside>
 
       <section class="content reveal" id="aboutContentRoot">
@@ -75,6 +76,22 @@
     <footer class="footer">
       <small id="aboutFooter"></small>
     </footer>
+
+    <div class="modal-backdrop hidden" id="detailModalBackdrop" aria-hidden="true">
+      <div class="detail-modal" id="detailModal" role="dialog" aria-modal="true" aria-labelledby="detailModalTitle">
+        <button class="modal-close" id="detailModalClose" type="button" aria-label="Close detail view">x</button>
+        <h3 id="detailModalTitle"></h3>
+        <div id="detailModalContent"></div>
+      </div>
+    </div>
+
+    <div class="image-lightbox-backdrop hidden" id="imageLightboxBackdrop" aria-hidden="true">
+      <div class="image-lightbox" id="imageLightbox" role="dialog" aria-modal="true" aria-label="Expanded image view">
+        <p class="image-lightbox-caption hidden" id="imageLightboxCaption"></p>
+        <button class="image-lightbox-close" id="imageLightboxClose" type="button" aria-label="Close image view">x</button>
+        <img id="imageLightboxImg" src="" alt="Expanded detail image" />
+      </div>
+    </div>
 
     <script type="module" src="../scripts/about.js"></script>
   </body>

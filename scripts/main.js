@@ -13,6 +13,7 @@ import {
 } from "./sections.js";
 import { buildSectionRail, scrollToSection, setupSectionObserver, updateRailActiveState } from "./rail.js";
 import {
+  openModal,
   openSectionDetail,
   openSkillEvidence,
   openTrainingDetail,
@@ -221,6 +222,13 @@ function applyContent(raw) {
   elements.github.href = data.profile.github;
   elements.github.textContent = data.labels.github;
 
+  if (elements.openToWorkLink) {
+    const defaultLabel = state.lang === "de" ? "Offen fur ML/MLOps-Rollen" : "Open to ML/MLOps roles";
+    const subject = state.lang === "de" ? "ML/MLOps Rollenangebot" : "ML/MLOps Role Opportunity";
+    elements.openToWorkLink.textContent = data.labels.openToRoles || defaultLabel;
+    elements.openToWorkLink.href = `mailto:${data.profile.email}?subject=${encodeURIComponent(subject)}`;
+  }
+
   elements.profilePhoto.src = data.profile.photo;
   elements.profilePhoto.alt = data.labels.profilePhotoAlt;
 
@@ -293,6 +301,41 @@ function setupEvents() {
   elements.langEn.addEventListener("click", () => render("en"));
   elements.langDe.addEventListener("click", () => render("de"));
   elements.downloadPdf.addEventListener("click", () => window.print());
+
+  if (elements.openToWorkLink) {
+    elements.openToWorkLink.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      const isGerman = state.lang === "de";
+      openModal({
+        title: isGerman ? "Zusammenarbeit und Projekte" : "Collaboration and Projects",
+        content: [
+          {
+            type: "summary",
+            text: isGerman
+              ? "Offen fur ML/MLOps-Rollen sowie projektbasierte Zusammenarbeit."
+              : "Open to ML/MLOps roles and project-based collaboration.",
+          },
+          {
+            type: "bullets",
+            items: isGerman
+              ? [
+                  "Ich arbeite gerne in Teams, die robuste, wartbare und reproduzierbare Daten- und ML-Systeme bauen.",
+                  "Als Physiker arbeite ich besonders gerne an Projekten mit Modellierung, Simulation und datengetriebener Entscheidungsunterstutzung.",
+                  "Besonders motivieren mich Projekte mit klarem Product-Impact: von Datenpipelines bis zu produktionsnaher Inferenz.",
+                  "Ich engagiere mich gerne auch in Volunteer- und Community-Projekten mit Datenbezug.",
+                ]
+              : [
+                  "I enjoy working with teams that build robust, maintainable, and reproducible data/ML systems.",
+                  "As a physicist, I am especially motivated by projects involving modeling, simulation, and data-driven decision support.",
+                  "I am especially motivated by projects with clear product impact, from data pipelines to production inference.",
+                  "I also enjoy volunteer and community-driven data projects.",
+                ],
+          },
+        ],
+      });
+    });
+  }
 
   elements.sectionRailList.addEventListener("click", (event) => {
     const button = event.target.closest(".rail-link");

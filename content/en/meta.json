@@ -20,18 +20,19 @@
     "noSkillsYet": "Add your key skills to unlock evidence popups.",
     "evidenceTitle": "Evidence",
     "downloadPdf": "Download PDF",
+    "openToRoles": "Open to ML/MLOps roles",
     "linkedin": "LinkedIn",
     "github": "GitHub",
     "profilePhotoAlt": "Profile photo"
   },
   "links": {
     "thesis": {
-      "label": "Read my thesis",
-      "url": "https://example.com/your-thesis"
+      "label": "View PhD thesis details",
+      "url": "?open=education:edu-phd-theoretical-physics#educationSection"
     },
     "mlops": {
       "label": "See my MLOps project",
-      "url": "https://github.com/saeed-amiri/your-mlops-project"
+      "url": "https://github.com/saeed-amiri/german-load-forecasting-mlops"
     }
   },
   "footer": "Open portfolio repository for recruiters and collaborators."

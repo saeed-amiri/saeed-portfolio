@@ -4,7 +4,8 @@
   "bullets": [
     "Kernstack: Docker, Kubernetes, API-Sicherheit, Airflow, Prefect, MLflow, DVC, Dagshub.",
     "Abgeschlossene AWS-Module: Cloud Practitioner, Solutions Architect und AWS-MLOps-Inhalte.",
-    "Praxis: Experiment-Tracking, Orchestrierung, CI/CD, Serving mit BentoML sowie Monitoring mit Prometheus und Grafana."
+    "Praxis: Experiment-Tracking, Orchestrierung, CI/CD, Serving mit BentoML sowie Monitoring mit Prometheus und Grafana.",
+    "Zertifikat ausgestellt von Université Paris 1 Panthéon-Sorbonne (Vollzeit, Online)."
   ],
   "images": [
     {
@@ -15,7 +16,7 @@
   "links": [
     {
       "label": "MLOps-Projekt-Repository",
-      "url": "https://github.com/saeed-amiri/your-mlops-project"
+      "url": "https://github.com/saeed-amiri/german-load-forecasting-mlops"
     }
   ]
 }
