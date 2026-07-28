@@ -32,7 +32,7 @@
     },
     {
       "id": "cert-keb",
-      "title": "Kebernetes",
+      "title": "Kubernetes",
       "image": "assets/cert-kubernetes.png",
       "link": "assets/cert-kubernetes.png"
     },

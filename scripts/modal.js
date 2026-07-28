@@ -4,15 +4,137 @@ import { elements } from "./elements.js";
 import { state } from "./state.js";
 import { setMultilineText } from "./text.js";
 
+const LIGHTBOX_ZOOM_MIN = 1;
+const LIGHTBOX_ZOOM_MAX = 4;
+const LIGHTBOX_ZOOM_STEP = 0.25;
+
+let lightboxZoom = LIGHTBOX_ZOOM_MIN;
+let lightboxZoomLabel = null;
+let lightboxZoomInButton = null;
+let lightboxZoomOutButton = null;
+let lightboxZoomResetButton = null;
+
+function clampLightboxZoom(value) {
+  return Math.min(LIGHTBOX_ZOOM_MAX, Math.max(LIGHTBOX_ZOOM_MIN, value));
+}
+
+function updateLightboxZoomUi() {
+  if (!lightboxZoomLabel || !lightboxZoomInButton || !lightboxZoomOutButton || !lightboxZoomResetButton) {
+    return;
+  }
+
+  lightboxZoomLabel.textContent = `${Math.round(lightboxZoom * 100)}%`;
+  lightboxZoomOutButton.disabled = lightboxZoom <= LIGHTBOX_ZOOM_MIN;
+  lightboxZoomInButton.disabled = lightboxZoom >= LIGHTBOX_ZOOM_MAX;
+  lightboxZoomResetButton.disabled = lightboxZoom === LIGHTBOX_ZOOM_MIN;
+}
+
+function applyLightboxZoom() {
+  const image = elements.imageLightboxImg;
+  if (!image) {
+    return;
+  }
+
+  if (lightboxZoom <= LIGHTBOX_ZOOM_MIN) {
+    image.style.maxWidth = "100%";
+    image.style.maxHeight = "90vh";
+    image.style.width = "auto";
+  } else {
+    const naturalWidth = image.naturalWidth || image.width;
+    image.style.maxWidth = "none";
+    image.style.maxHeight = "none";
+    image.style.width = `${Math.round(naturalWidth * lightboxZoom)}px`;
+  }
+
+  updateLightboxZoomUi();
+}
+
+function setLightboxZoom(nextZoom) {
+  const clamped = clampLightboxZoom(nextZoom);
+  if (clamped === lightboxZoom) {
+    return;
+  }
+
+  lightboxZoom = clamped;
+  applyLightboxZoom();
+}
+
+function resetLightboxZoom() {
+  lightboxZoom = LIGHTBOX_ZOOM_MIN;
+  applyLightboxZoom();
+}
+
+function ensureLightboxControls() {
+  if (!elements.imageLightbox) {
+    return;
+  }
+
+  const existingToolbar = elements.imageLightbox.querySelector(".image-lightbox-toolbar");
+  if (existingToolbar) {
+    lightboxZoomOutButton = existingToolbar.querySelector('[data-action="lightbox-zoom-out"]');
+    lightboxZoomInButton = existingToolbar.querySelector('[data-action="lightbox-zoom-in"]');
+    lightboxZoomResetButton = existingToolbar.querySelector('[data-action="lightbox-zoom-reset"]');
+    lightboxZoomLabel = existingToolbar.querySelector(".image-lightbox-zoom-label");
+    return;
+  }
+
+  const toolbar = document.createElement("div");
+  toolbar.className = "image-lightbox-toolbar";
+
+  lightboxZoomOutButton = document.createElement("button");
+  lightboxZoomOutButton.type = "button";
+  lightboxZoomOutButton.className = "image-lightbox-zoom-button";
+  lightboxZoomOutButton.dataset.action = "lightbox-zoom-out";
+  lightboxZoomOutButton.setAttribute("aria-label", "Zoom out");
+  lightboxZoomOutButton.textContent = "-";
+
+  lightboxZoomInButton = document.createElement("button");
+  lightboxZoomInButton.type = "button";
+  lightboxZoomInButton.className = "image-lightbox-zoom-button";
+  lightboxZoomInButton.dataset.action = "lightbox-zoom-in";
+  lightboxZoomInButton.setAttribute("aria-label", "Zoom in");
+  lightboxZoomInButton.textContent = "+";
+
+  lightboxZoomResetButton = document.createElement("button");
+  lightboxZoomResetButton.type = "button";
+  lightboxZoomResetButton.className = "image-lightbox-zoom-button";
+  lightboxZoomResetButton.dataset.action = "lightbox-zoom-reset";
+  lightboxZoomResetButton.setAttribute("aria-label", "Reset zoom");
+  lightboxZoomResetButton.textContent = "Reset";
+
+  lightboxZoomLabel = document.createElement("span");
+  lightboxZoomLabel.className = "image-lightbox-zoom-label";
+  lightboxZoomLabel.setAttribute("aria-live", "polite");
+
+  lightboxZoomOutButton.addEventListener("click", () => {
+    setLightboxZoom(lightboxZoom - LIGHTBOX_ZOOM_STEP);
+  });
+
+  lightboxZoomInButton.addEventListener("click", () => {
+    setLightboxZoom(lightboxZoom + LIGHTBOX_ZOOM_STEP);
+  });
+
+  lightboxZoomResetButton.addEventListener("click", resetLightboxZoom);
+
+  toolbar.append(lightboxZoomOutButton, lightboxZoomInButton, lightboxZoomResetButton, lightboxZoomLabel);
+  elements.imageLightbox.appendChild(toolbar);
+}
+
 export function openImageLightbox(src, alt) {
   if (!src) {
     return;
   }
 
+  ensureLightboxControls();
+
   const caption = typeof alt === "string" ? alt.trim() : "";
 
+  elements.imageLightboxImg.onload = () => {
+    resetLightboxZoom();
+  };
   elements.imageLightboxImg.src = src;
   elements.imageLightboxImg.alt = alt || "Expanded detail image";
+  resetLightboxZoom();
   elements.imageLightboxCaption.textContent = caption;
   elements.imageLightboxCaption.classList.toggle("hidden", !caption);
   elements.imageLightboxBackdrop.classList.remove("hidden");
@@ -23,8 +145,12 @@ function closeImageLightbox() {
   elements.imageLightboxBackdrop.classList.add("hidden");
   elements.imageLightboxBackdrop.setAttribute("aria-hidden", "true");
   elements.imageLightboxImg.src = "";
+  elements.imageLightboxImg.style.maxWidth = "100%";
+  elements.imageLightboxImg.style.maxHeight = "90vh";
+  elements.imageLightboxImg.style.width = "auto";
   elements.imageLightboxCaption.textContent = "";
   elements.imageLightboxCaption.classList.add("hidden");
+  resetLightboxZoom();
 }
 
 function createModalTargetId(seed = "") {
@@ -340,6 +466,8 @@ export function openSkillEvidence(skillId) {
 }
 
 export function setupModalDismissHandlers() {
+  ensureLightboxControls();
+
   elements.detailModalClose.addEventListener("click", closeModal);
 
   elements.detailModalContent.addEventListener("click", (event) => {
@@ -365,7 +493,41 @@ export function setupModalDismissHandlers() {
     }
   });
 
+  elements.imageLightbox.addEventListener("wheel", (event) => {
+    if (elements.imageLightboxBackdrop.classList.contains("hidden")) {
+      return;
+    }
+
+    event.preventDefault();
+    if (event.deltaY < 0) {
+      setLightboxZoom(lightboxZoom + LIGHTBOX_ZOOM_STEP);
+      return;
+    }
+
+    setLightboxZoom(lightboxZoom - LIGHTBOX_ZOOM_STEP);
+  });
+
   document.addEventListener("keydown", (event) => {
+    if (!elements.imageLightboxBackdrop.classList.contains("hidden")) {
+      if (event.key === "+" || event.key === "=") {
+        event.preventDefault();
+        setLightboxZoom(lightboxZoom + LIGHTBOX_ZOOM_STEP);
+        return;
+      }
+
+      if (event.key === "-" || event.key === "_") {
+        event.preventDefault();
+        setLightboxZoom(lightboxZoom - LIGHTBOX_ZOOM_STEP);
+        return;
+      }
+
+      if (event.key === "0") {
+        event.preventDefault();
+        resetLightboxZoom();
+        return;
+      }
+    }
+
     if (event.key !== "Escape") {
       return;
     }

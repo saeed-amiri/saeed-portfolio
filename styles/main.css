@@ -593,6 +593,8 @@ h2 {
   max-height: 92vh;
   display: grid;
   place-items: center;
+  overflow: auto;
+  padding: 2.75rem 0.75rem 0.75rem;
 }
 
 .image-lightbox-caption {
@@ -638,6 +640,51 @@ h2 {
 
 .image-lightbox-close:hover {
   border-color: #fff;
+}
+
+.image-lightbox-toolbar {
+  position: absolute;
+  top: 0.55rem;
+  left: 0.55rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  background: rgba(12, 10, 8, 0.8);
+}
+
+.image-lightbox-zoom-button {
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border-radius: 999px;
+  min-width: 2rem;
+  height: 2rem;
+  padding: 0 0.55rem;
+  font: inherit;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.image-lightbox-zoom-button:hover:not(:disabled) {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.image-lightbox-zoom-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.image-lightbox-zoom-label {
+  min-width: 3.3rem;
+  text-align: center;
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 600;
 }
 
 .modal-links {
