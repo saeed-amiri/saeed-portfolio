@@ -108,6 +108,47 @@ function parseProjectDeepLink() {
   return "";
 }
 
+function extractProjectIdFromParams(params) {
+  const explicitType = String(params.get("detailType") || params.get("openType") || "")
+    .trim()
+    .toLowerCase();
+  const explicitId = String(params.get("detailId") || params.get("openId") || "").trim();
+  if ((explicitType === "project" || explicitType === "proj") && explicitId) {
+    return explicitId;
+  }
+
+  const encoded = String(params.get("open") || params.get("detail") || params.get("modal") || "").trim();
+  if (!encoded) {
+    return "";
+  }
+
+  const separatorIndex = encoded.indexOf(":");
+  if (separatorIndex <= 0 || separatorIndex >= encoded.length - 1) {
+    return "";
+  }
+
+  const type = encoded.slice(0, separatorIndex).trim().toLowerCase();
+  const id = encoded.slice(separatorIndex + 1).trim();
+  if ((type === "project" || type === "proj") && id) {
+    return id;
+  }
+
+  return "";
+}
+
+function getProjectIdFromDetailLink(url) {
+  if (typeof url !== "string" || !url.trim()) {
+    return "";
+  }
+
+  try {
+    const resolvedUrl = new URL(url, window.location.href);
+    return extractProjectIdFromParams(resolvedUrl.searchParams);
+  } catch {
+    return "";
+  }
+}
+
 function openDeepLinkedProjectDetail() {
   const projectId = parseProjectDeepLink();
   if (!projectId) {
@@ -383,6 +424,18 @@ function createProjectCard(projectId, project, moreLabel) {
     linksWrap.className = "quick-links";
 
     project.links.forEach((link) => {
+      const linkedProjectId = getProjectIdFromDetailLink(link.url);
+      if (linkedProjectId && projectDetailsById.has(linkedProjectId)) {
+        const action = document.createElement("button");
+        action.type = "button";
+        action.className = "action-link";
+        action.dataset.action = "open-project-detail";
+        action.dataset.projectId = linkedProjectId;
+        action.textContent = link.label;
+        linksWrap.appendChild(action);
+        return;
+      }
+
       const anchor = document.createElement("a");
       anchor.className = "action-link";
       anchor.href = link.url;

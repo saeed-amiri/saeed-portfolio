@@ -240,6 +240,9 @@ h2 {
   background: #fff;
   border-radius: 12px;
   padding: 0.55rem 0.8rem;
+  font: inherit;
+  line-height: 1;
+  cursor: pointer;
 }
 
 .profile-cta {
