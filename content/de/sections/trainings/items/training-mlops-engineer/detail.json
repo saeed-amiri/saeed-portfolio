@@ -11,6 +11,18 @@
     {
       "src": "assets/cert-mlops.png",
       "alt": "Zertifikat MLOps Weiterbildung"
+    },
+    {
+      "src": "assets/cert-ml.png",
+      "alt": "Zertifikat Machine Learning Weiterbildung"
+    },
+    {
+      "src": "assets/cert-mlops-Sorbonne.png",
+      "alt": "Zertifikat MLOps Weiterbildung (Sorbonne)"
+    },
+    {
+      "src": "assets/cert-ml-Sorbonne.png",
+      "alt": "Zertifikat Machine Learning Weiterbildung (Sorbonne)"
     }
   ],
   "links": [

@@ -712,6 +712,14 @@ h2 {
   margin: 0;
 }
 
+.detail-modal a {
+  color: var(--accent);
+}
+
+.detail-modal a:hover {
+  text-decoration: underline;
+}
+
 .modal-tabs {
   margin-top: 0.9rem;
 }

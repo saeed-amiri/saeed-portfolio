@@ -4,6 +4,47 @@ import { elements } from "./elements.js";
 import { state } from "./state.js";
 import { setMultilineText } from "./text.js";
 
+const publicationAbstractById = {
+  "paper-abstract-temp-surfactants": {
+    title: "Abstract",
+    content: [
+      {
+        type: "body",
+        html: "<h3>Hypothesis</h3><p>Surfactants stabilize liquid-liquid interfaces, and their temperature-dependent behavior is highly relevant for applications involving emulsions. While temperature-induced phase transitions of interfacial films are well known, their detection depends strongly on the applied experimental technique. We hypothesize that combining interfacial shear rheology with a temperature-dependent thermodynamic description based on the Gibbs adsorption framework enables a more sensitive and quantitative identification of such transitions. Furthermore, we expect that molecular architecture, specifically head-group chemistry and alkyl chain length, governs the mechanical stability and temperature-induced phase behavior of surfactant films.</p>"
+      },
+      {
+        type: "body",
+        html: "<h3>Experiments</h3><p>Temperature-dependent interfacial shear rheology and pendant-drop tensiometry were performed for a series of alkyl-chain surfactants with systematic variation of head group (amine, alcohol, acid) and chain length (C14, C16, C18) over a range of 15-80 C. Interfacial tension data obtained from pendant-drop measurements were analyzed using a newly derived temperature-dependent adsorption equation to extract adsorption free energies and identify phase-transition temperatures.</p>"
+      },
+      {
+        type: "body",
+        html: "<h3>Findings</h3><p>Interfacial shear rheology reveals pronounced temperature-induced transitions in surfactant films, reflected by a loss of elasticity and changes in interfacial structure. The transition temperature depends strongly on molecular architecture, with systematic variations in head group and chain length. In contrast, pendant-drop tensiometry captures these changes only partially, indicating that interfacial tension alone does not fully reflect structural rearrangements. The combined thermodynamic and rheological analysis highlights the importance of interfacial mechanics for understanding temperature-dependent phase behavior at liquid-liquid interfaces.</p>"
+      },
+      {
+        type: "images",
+        items: [
+          {
+            src: "assets/Temperature_Dependent.jpg",
+            alt: "Temperature-dependent interfacial behavior figure"
+          }
+        ]
+      }
+    ]
+  },
+  "paper-abstract-friction-pre": {
+    title: "Abstract",
+    content: [
+      {
+        type: "body",
+        html: "<p>We present molecular dynamics simulations of one- and two-dimensional bead-spring models sliding on incommensurate substrates after an initial kick, in the case where the coupling to the underlying substrate is weak, i.e., energy can dissipate only into the internal degrees of freedom of the sliding object, but not into the substrate below. We investigate how sliding friction is affected by structural defects and interaction anharmonicity. In their absence, we confirm earlier findings, namely, that at special resonance sliding velocities, friction is maximal. When sliding off-resonance, partially thermalized states are possible, whereby only a small number of vibrational modes becomes excited, but whose kinetic energies are already Maxwell-Boltzmann distributed. Anharmonicity and defects typically destroy partial thermalization and instead lead to full thermalization, implying much higher friction. For sliders with periodic boundaries, thermalization begins with vibrational modes whose spatial modulation is compatible with the incommensurate lattice. For a disk-shaped slider, modes corresponding to modulations compatible with the slider radius are initially the most dominant. By tuning the mechanical properties of the slider's edge, this effect can be controlled, resulting in significant changes in the sliding distance covered.</p>"
+      }
+    ]
+  }
+};
+
+let currentModalPayload = null;
+const modalPayloadHistory = [];
+
 const LIGHTBOX_ZOOM_MIN = 1;
 const LIGHTBOX_ZOOM_MAX = 4;
 const LIGHTBOX_ZOOM_STEP = 0.25;
@@ -401,7 +442,7 @@ function appendOrderedContentBlocks(blocks, fallbackTitle, container = elements.
   });
 }
 
-export function openModal(payload) {
+function renderModalPayload(payload) {
   elements.detailModalTitle.textContent = payload.title || "Details";
   elements.detailModalContent.innerHTML = "";
 
@@ -419,8 +460,39 @@ export function openModal(payload) {
   elements.detailModalBackdrop.setAttribute("aria-hidden", "false");
 }
 
+export function openModal(payload, options = {}) {
+  const { pushCurrent = false } = options;
+
+  if (pushCurrent && currentModalPayload) {
+    modalPayloadHistory.push(currentModalPayload);
+  } else {
+    modalPayloadHistory.length = 0;
+  }
+
+  currentModalPayload = payload;
+  renderModalPayload(payload);
+}
+
+function openPublicationAbstractById(abstractId) {
+  const payload = publicationAbstractById[abstractId];
+  if (!payload) {
+    return;
+  }
+
+  openModal(payload, { pushCurrent: true });
+}
+
 export function closeModal() {
   closeImageLightbox();
+
+  if (modalPayloadHistory.length) {
+    currentModalPayload = modalPayloadHistory.pop();
+    renderModalPayload(currentModalPayload);
+    return;
+  }
+
+  currentModalPayload = null;
+  modalPayloadHistory.length = 0;
   elements.detailModalBackdrop.classList.add("hidden");
   elements.detailModalBackdrop.setAttribute("aria-hidden", "true");
 }
@@ -471,6 +543,14 @@ export function setupModalDismissHandlers() {
   elements.detailModalClose.addEventListener("click", closeModal);
 
   elements.detailModalContent.addEventListener("click", (event) => {
+    const abstractLink = event.target.closest('a[href^="#paper-abstract-"]');
+    if (abstractLink) {
+      event.preventDefault();
+      const abstractId = abstractLink.getAttribute("href").slice(1);
+      openPublicationAbstractById(abstractId);
+      return;
+    }
+
     const image = event.target.closest(".modal-images img");
     if (!image) {
       return;

@@ -26,6 +26,16 @@
       "html": "<p>Building on these results, the thesis provides a coherent physical picture of how microscopic structural features shape macroscopic friction. By comparing defect-free, defect-rich, and edge-modified systems, the work connects tribology with nonlinear dynamics and phonon transport. The findings form a foundation for extending such models to more realistic three-dimensional interfaces and for understanding friction in complex, disordered materials.</p>"
     },
     {
+      "type": "body",
+      "html": "<h3>Publication</h3>"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "<b>Friction on incommensurate substrates: Role of anharmonicity and defects <a href=\"#paper-abstract-friction-pre\">(Abstract)</a></b><br>S. Amiri, C. A. Volkert, and R. L. C. Vink<br>Phys. Rev. E <b>104</b>, 014802 - Published 30 July, 2021 (DOI: <a href=\"https://doi.org/10.1103/PhysRevE.104.014802\">10.1103/PhysRevE.104.014802</a>)."
+      ]
+    },
+    {
       "type": "images",
       "items": [
         {
