@@ -13,10 +13,22 @@
       "link": "assets/cert-mlops.png"
     },
     {
+      "id": "cert-mlops-sorbonne",
+      "title": "MLOps Engineer (Sorbonne)",
+      "image": "assets/cert-mlops-Sorbonne.png",
+      "link": "assets/cert-mlops-Sorbonne.png"
+    },
+    {
       "id": "cert-ml",
       "title": "ML Engineer",
       "image": "assets/cert-ml.png",
       "link": "assets/cert-ml.png"
+    },
+    {
+      "id": "cert-ml-sorbonne",
+      "title": "ML Engineer (Sorbonne)",
+      "image": "assets/cert-ml-Sorbonne.png",
+      "link": "assets/cert-ml-Sorbonne.png"
     },
     {
       "id": "cert-keb",

@@ -4,7 +4,7 @@ import { elements } from "./elements.js";
 import { state } from "./state.js";
 import { setMultilineText } from "./text.js";
 
-function openImageLightbox(src, alt) {
+export function openImageLightbox(src, alt) {
   if (!src) {
     return;
   }

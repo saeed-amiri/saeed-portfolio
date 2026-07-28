@@ -368,7 +368,7 @@ function renderProfile(profile = {}) {
         content: [
           {
             type: "summary",
-            text: "Open to ML/MLOps roles and project-based collaboration.",
+            text: "Open to collaboration, project-based work, and suitable roles across data, ML, and software.",
           },
           {
             type: "bullets",

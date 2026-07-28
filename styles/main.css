@@ -307,6 +307,15 @@ h2 {
   background: #fff;
 }
 
+.cert-image-trigger {
+  display: block;
+  width: 100%;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
 /* What: Certificate image constraints. Why: keep grid uniform and avoid layout shift. */
 .cert-card img {
   width: 100%;
@@ -315,11 +324,10 @@ h2 {
   display: block;
 }
 
-/* What: Certificate link text area. Why: make title/click target easy to use. */
-.cert-card a {
-  display: block;
+/* What: Certificate title area. Why: keep labels readable without adding navigation confusion. */
+.cert-title {
+  margin: 0;
   padding: 0.65rem;
-  text-decoration: none;
   color: var(--text);
 }
 
