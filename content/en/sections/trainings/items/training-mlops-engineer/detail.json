@@ -11,6 +11,18 @@
     {
       "src": "assets/cert-mlops.png",
       "alt": "MLOps training certificate"
+    },
+    {
+      "src": "assets/cert-ml.png",
+      "alt": "Machine Learning training certificate"
+    },
+    {
+      "src": "assets/cert-mlops-Sorbonne.png",
+      "alt": "MLOps training certificate (Sorbonne)"
+    },
+    {
+      "src": "assets/cert-ml-Sorbonne.png",
+      "alt": "Machine Learning training certificate (Sorbonne)"
     }
   ],
   "links": [

@@ -4,15 +4,178 @@ import { elements } from "./elements.js";
 import { state } from "./state.js";
 import { setMultilineText } from "./text.js";
 
-function openImageLightbox(src, alt) {
+const publicationAbstractById = {
+  "paper-abstract-temp-surfactants": {
+    title: "Abstract",
+    content: [
+      {
+        type: "body",
+        html: "<h3>Hypothesis</h3><p>Surfactants stabilize liquid-liquid interfaces, and their temperature-dependent behavior is highly relevant for applications involving emulsions. While temperature-induced phase transitions of interfacial films are well known, their detection depends strongly on the applied experimental technique. We hypothesize that combining interfacial shear rheology with a temperature-dependent thermodynamic description based on the Gibbs adsorption framework enables a more sensitive and quantitative identification of such transitions. Furthermore, we expect that molecular architecture, specifically head-group chemistry and alkyl chain length, governs the mechanical stability and temperature-induced phase behavior of surfactant films.</p>"
+      },
+      {
+        type: "body",
+        html: "<h3>Experiments</h3><p>Temperature-dependent interfacial shear rheology and pendant-drop tensiometry were performed for a series of alkyl-chain surfactants with systematic variation of head group (amine, alcohol, acid) and chain length (C14, C16, C18) over a range of 15-80 C. Interfacial tension data obtained from pendant-drop measurements were analyzed using a newly derived temperature-dependent adsorption equation to extract adsorption free energies and identify phase-transition temperatures.</p>"
+      },
+      {
+        type: "body",
+        html: "<h3>Findings</h3><p>Interfacial shear rheology reveals pronounced temperature-induced transitions in surfactant films, reflected by a loss of elasticity and changes in interfacial structure. The transition temperature depends strongly on molecular architecture, with systematic variations in head group and chain length. In contrast, pendant-drop tensiometry captures these changes only partially, indicating that interfacial tension alone does not fully reflect structural rearrangements. The combined thermodynamic and rheological analysis highlights the importance of interfacial mechanics for understanding temperature-dependent phase behavior at liquid-liquid interfaces.</p>"
+      },
+      {
+        type: "images",
+        items: [
+          {
+            src: "assets/Temperature_Dependent.jpg",
+            alt: "Temperature-dependent interfacial behavior figure"
+          }
+        ]
+      }
+    ]
+  },
+  "paper-abstract-friction-pre": {
+    title: "Abstract",
+    content: [
+      {
+        type: "body",
+        html: "<p>We present molecular dynamics simulations of one- and two-dimensional bead-spring models sliding on incommensurate substrates after an initial kick, in the case where the coupling to the underlying substrate is weak, i.e., energy can dissipate only into the internal degrees of freedom of the sliding object, but not into the substrate below. We investigate how sliding friction is affected by structural defects and interaction anharmonicity. In their absence, we confirm earlier findings, namely, that at special resonance sliding velocities, friction is maximal. When sliding off-resonance, partially thermalized states are possible, whereby only a small number of vibrational modes becomes excited, but whose kinetic energies are already Maxwell-Boltzmann distributed. Anharmonicity and defects typically destroy partial thermalization and instead lead to full thermalization, implying much higher friction. For sliders with periodic boundaries, thermalization begins with vibrational modes whose spatial modulation is compatible with the incommensurate lattice. For a disk-shaped slider, modes corresponding to modulations compatible with the slider radius are initially the most dominant. By tuning the mechanical properties of the slider's edge, this effect can be controlled, resulting in significant changes in the sliding distance covered.</p>"
+      }
+    ]
+  }
+};
+
+let currentModalPayload = null;
+const modalPayloadHistory = [];
+
+const LIGHTBOX_ZOOM_MIN = 1;
+const LIGHTBOX_ZOOM_MAX = 4;
+const LIGHTBOX_ZOOM_STEP = 0.25;
+
+let lightboxZoom = LIGHTBOX_ZOOM_MIN;
+let lightboxZoomLabel = null;
+let lightboxZoomInButton = null;
+let lightboxZoomOutButton = null;
+let lightboxZoomResetButton = null;
+
+function clampLightboxZoom(value) {
+  return Math.min(LIGHTBOX_ZOOM_MAX, Math.max(LIGHTBOX_ZOOM_MIN, value));
+}
+
+function updateLightboxZoomUi() {
+  if (!lightboxZoomLabel || !lightboxZoomInButton || !lightboxZoomOutButton || !lightboxZoomResetButton) {
+    return;
+  }
+
+  lightboxZoomLabel.textContent = `${Math.round(lightboxZoom * 100)}%`;
+  lightboxZoomOutButton.disabled = lightboxZoom <= LIGHTBOX_ZOOM_MIN;
+  lightboxZoomInButton.disabled = lightboxZoom >= LIGHTBOX_ZOOM_MAX;
+  lightboxZoomResetButton.disabled = lightboxZoom === LIGHTBOX_ZOOM_MIN;
+}
+
+function applyLightboxZoom() {
+  const image = elements.imageLightboxImg;
+  if (!image) {
+    return;
+  }
+
+  if (lightboxZoom <= LIGHTBOX_ZOOM_MIN) {
+    image.style.maxWidth = "100%";
+    image.style.maxHeight = "90vh";
+    image.style.width = "auto";
+  } else {
+    const naturalWidth = image.naturalWidth || image.width;
+    image.style.maxWidth = "none";
+    image.style.maxHeight = "none";
+    image.style.width = `${Math.round(naturalWidth * lightboxZoom)}px`;
+  }
+
+  updateLightboxZoomUi();
+}
+
+function setLightboxZoom(nextZoom) {
+  const clamped = clampLightboxZoom(nextZoom);
+  if (clamped === lightboxZoom) {
+    return;
+  }
+
+  lightboxZoom = clamped;
+  applyLightboxZoom();
+}
+
+function resetLightboxZoom() {
+  lightboxZoom = LIGHTBOX_ZOOM_MIN;
+  applyLightboxZoom();
+}
+
+function ensureLightboxControls() {
+  if (!elements.imageLightbox) {
+    return;
+  }
+
+  const existingToolbar = elements.imageLightbox.querySelector(".image-lightbox-toolbar");
+  if (existingToolbar) {
+    lightboxZoomOutButton = existingToolbar.querySelector('[data-action="lightbox-zoom-out"]');
+    lightboxZoomInButton = existingToolbar.querySelector('[data-action="lightbox-zoom-in"]');
+    lightboxZoomResetButton = existingToolbar.querySelector('[data-action="lightbox-zoom-reset"]');
+    lightboxZoomLabel = existingToolbar.querySelector(".image-lightbox-zoom-label");
+    return;
+  }
+
+  const toolbar = document.createElement("div");
+  toolbar.className = "image-lightbox-toolbar";
+
+  lightboxZoomOutButton = document.createElement("button");
+  lightboxZoomOutButton.type = "button";
+  lightboxZoomOutButton.className = "image-lightbox-zoom-button";
+  lightboxZoomOutButton.dataset.action = "lightbox-zoom-out";
+  lightboxZoomOutButton.setAttribute("aria-label", "Zoom out");
+  lightboxZoomOutButton.textContent = "-";
+
+  lightboxZoomInButton = document.createElement("button");
+  lightboxZoomInButton.type = "button";
+  lightboxZoomInButton.className = "image-lightbox-zoom-button";
+  lightboxZoomInButton.dataset.action = "lightbox-zoom-in";
+  lightboxZoomInButton.setAttribute("aria-label", "Zoom in");
+  lightboxZoomInButton.textContent = "+";
+
+  lightboxZoomResetButton = document.createElement("button");
+  lightboxZoomResetButton.type = "button";
+  lightboxZoomResetButton.className = "image-lightbox-zoom-button";
+  lightboxZoomResetButton.dataset.action = "lightbox-zoom-reset";
+  lightboxZoomResetButton.setAttribute("aria-label", "Reset zoom");
+  lightboxZoomResetButton.textContent = "Reset";
+
+  lightboxZoomLabel = document.createElement("span");
+  lightboxZoomLabel.className = "image-lightbox-zoom-label";
+  lightboxZoomLabel.setAttribute("aria-live", "polite");
+
+  lightboxZoomOutButton.addEventListener("click", () => {
+    setLightboxZoom(lightboxZoom - LIGHTBOX_ZOOM_STEP);
+  });
+
+  lightboxZoomInButton.addEventListener("click", () => {
+    setLightboxZoom(lightboxZoom + LIGHTBOX_ZOOM_STEP);
+  });
+
+  lightboxZoomResetButton.addEventListener("click", resetLightboxZoom);
+
+  toolbar.append(lightboxZoomOutButton, lightboxZoomInButton, lightboxZoomResetButton, lightboxZoomLabel);
+  elements.imageLightbox.appendChild(toolbar);
+}
+
+export function openImageLightbox(src, alt) {
   if (!src) {
     return;
   }
 
+  ensureLightboxControls();
+
   const caption = typeof alt === "string" ? alt.trim() : "";
 
+  elements.imageLightboxImg.onload = () => {
+    resetLightboxZoom();
+  };
   elements.imageLightboxImg.src = src;
   elements.imageLightboxImg.alt = alt || "Expanded detail image";
+  resetLightboxZoom();
   elements.imageLightboxCaption.textContent = caption;
   elements.imageLightboxCaption.classList.toggle("hidden", !caption);
   elements.imageLightboxBackdrop.classList.remove("hidden");
@@ -23,8 +186,12 @@ function closeImageLightbox() {
   elements.imageLightboxBackdrop.classList.add("hidden");
   elements.imageLightboxBackdrop.setAttribute("aria-hidden", "true");
   elements.imageLightboxImg.src = "";
+  elements.imageLightboxImg.style.maxWidth = "100%";
+  elements.imageLightboxImg.style.maxHeight = "90vh";
+  elements.imageLightboxImg.style.width = "auto";
   elements.imageLightboxCaption.textContent = "";
   elements.imageLightboxCaption.classList.add("hidden");
+  resetLightboxZoom();
 }
 
 function createModalTargetId(seed = "") {
@@ -275,7 +442,7 @@ function appendOrderedContentBlocks(blocks, fallbackTitle, container = elements.
   });
 }
 
-export function openModal(payload) {
+function renderModalPayload(payload) {
   elements.detailModalTitle.textContent = payload.title || "Details";
   elements.detailModalContent.innerHTML = "";
 
@@ -293,8 +460,39 @@ export function openModal(payload) {
   elements.detailModalBackdrop.setAttribute("aria-hidden", "false");
 }
 
+export function openModal(payload, options = {}) {
+  const { pushCurrent = false } = options;
+
+  if (pushCurrent && currentModalPayload) {
+    modalPayloadHistory.push(currentModalPayload);
+  } else {
+    modalPayloadHistory.length = 0;
+  }
+
+  currentModalPayload = payload;
+  renderModalPayload(payload);
+}
+
+function openPublicationAbstractById(abstractId) {
+  const payload = publicationAbstractById[abstractId];
+  if (!payload) {
+    return;
+  }
+
+  openModal(payload, { pushCurrent: true });
+}
+
 export function closeModal() {
   closeImageLightbox();
+
+  if (modalPayloadHistory.length) {
+    currentModalPayload = modalPayloadHistory.pop();
+    renderModalPayload(currentModalPayload);
+    return;
+  }
+
+  currentModalPayload = null;
+  modalPayloadHistory.length = 0;
   elements.detailModalBackdrop.classList.add("hidden");
   elements.detailModalBackdrop.setAttribute("aria-hidden", "true");
 }
@@ -340,9 +538,19 @@ export function openSkillEvidence(skillId) {
 }
 
 export function setupModalDismissHandlers() {
+  ensureLightboxControls();
+
   elements.detailModalClose.addEventListener("click", closeModal);
 
   elements.detailModalContent.addEventListener("click", (event) => {
+    const abstractLink = event.target.closest('a[href^="#paper-abstract-"]');
+    if (abstractLink) {
+      event.preventDefault();
+      const abstractId = abstractLink.getAttribute("href").slice(1);
+      openPublicationAbstractById(abstractId);
+      return;
+    }
+
     const image = event.target.closest(".modal-images img");
     if (!image) {
       return;
@@ -365,7 +573,41 @@ export function setupModalDismissHandlers() {
     }
   });
 
+  elements.imageLightbox.addEventListener("wheel", (event) => {
+    if (elements.imageLightboxBackdrop.classList.contains("hidden")) {
+      return;
+    }
+
+    event.preventDefault();
+    if (event.deltaY < 0) {
+      setLightboxZoom(lightboxZoom + LIGHTBOX_ZOOM_STEP);
+      return;
+    }
+
+    setLightboxZoom(lightboxZoom - LIGHTBOX_ZOOM_STEP);
+  });
+
   document.addEventListener("keydown", (event) => {
+    if (!elements.imageLightboxBackdrop.classList.contains("hidden")) {
+      if (event.key === "+" || event.key === "=") {
+        event.preventDefault();
+        setLightboxZoom(lightboxZoom + LIGHTBOX_ZOOM_STEP);
+        return;
+      }
+
+      if (event.key === "-" || event.key === "_") {
+        event.preventDefault();
+        setLightboxZoom(lightboxZoom - LIGHTBOX_ZOOM_STEP);
+        return;
+      }
+
+      if (event.key === "0") {
+        event.preventDefault();
+        resetLightboxZoom();
+        return;
+      }
+    }
+
     if (event.key !== "Escape") {
       return;
     }

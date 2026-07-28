@@ -26,6 +26,16 @@
       "html": "<p>Aufbauend auf diesen Ergebnissen liefert die Dissertation ein konsistentes physikalisches Bild davon, wie mikroskopische Strukturmerkmale makroskopische Reibung prägen. Durch den Vergleich defektfreier, defektreicher und randmodifizierter Systeme verbindet die Arbeit Tribologie mit nichtlinearer Dynamik und Phonontransport. Die Ergebnisse bilden eine Grundlage, um solche Modelle auf realistischere dreidimensionale Grenzflächen zu erweitern und Reibung in komplexen, ungeordneten Materialien besser zu verstehen.</p>"
     },
     {
+      "type": "body",
+      "html": "<h3>Veroffentlichung</h3>"
+    },
+    {
+      "type": "bullets",
+      "items": [
+        "<b>Friction on incommensurate substrates: Role of anharmonicity and defects <a href=\"#paper-abstract-friction-pre\">(Abstract)</a></b><br>S. Amiri, C. A. Volkert, and R. L. C. Vink<br>Phys. Rev. E <b>104</b>, 014802 - Published 30 July, 2021 (DOI: <a href=\"https://doi.org/10.1103/PhysRevE.104.014802\">10.1103/PhysRevE.104.014802</a>)."
+      ]
+    },
+    {
       "type": "images",
       "items": [
         {

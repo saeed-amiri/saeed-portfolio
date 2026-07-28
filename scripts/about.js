@@ -350,6 +350,15 @@ function applyContent(data) {
     (data.labels && data.labels.github) || "GitHub"
   );
 
+  if (elements.openToWorkLink) {
+    const defaultLabel = state.lang === "de" ? "Offen fur Zusammenarbeit" : "Open to Collaboration";
+    const subject = state.lang === "de" ? "Anfrage zur Zusammenarbeit" : "Collaboration Opportunity";
+    elements.openToWorkLink.textContent = (data.labels && data.labels.openToRoles) || defaultLabel;
+    elements.openToWorkLink.href = data.profile?.email
+      ? `mailto:${data.profile.email}?subject=${encodeURIComponent(subject)}`
+      : "#";
+  }
+
   elements.aboutTab.textContent = data.tabLabel || "About Me";
   elements.title.textContent = data.title || "About Me";
   setMultilineText(elements.intro, data.intro || "");
@@ -431,8 +440,8 @@ function setupEvents() {
           {
             type: "summary",
             text: isGerman
-              ? "Offen fur ML/MLOps-Rollen sowie projektbasierte Zusammenarbeit."
-              : "Open to ML/MLOps roles and project-based collaboration.",
+              ? "Offen fur Zusammenarbeit, projektbasierte Arbeit und passende Rollen in Daten, ML und Software."
+              : "Open to collaboration, project-based work, and suitable roles across data, ML, and software.",
           },
           {
             type: "bullets",

@@ -1,6 +1,7 @@
 // Duty: section-level rendering and metadata.
 // Responsible for content blocks, list rendering, and detail-trigger buttons.
 import { elements } from "./elements.js";
+import { openImageLightbox } from "./modal.js";
 import { setMultilineText } from "./text.js";
 
 export function initializeSectionMetadata() {
@@ -24,7 +25,8 @@ export function ensureSectionDetailTriggers(data) {
       panel.dataset.sectionKey === "trainings" ||
       panel.dataset.sectionKey === "education" ||
       panel.dataset.sectionKey === "experience" ||
-      panel.dataset.sectionKey === "skills"
+      panel.dataset.sectionKey === "skills" ||
+      panel.dataset.sectionKey === "certifications"
     ) {
       const existingTrigger = panel.querySelector(".section-heading-row .detail-trigger");
       if (existingTrigger) {
@@ -131,17 +133,24 @@ export function fillCertifications(entries) {
     card.dataset.entryType = "certification";
     card.dataset.entryId = entry.id || `cert-${index}`;
 
+    const previewButton = document.createElement("button");
+    previewButton.type = "button";
+    previewButton.className = "cert-image-trigger";
+    previewButton.setAttribute("aria-label", entry.title || "Open certificate image");
+    previewButton.addEventListener("click", () => {
+      openImageLightbox(entry.image, entry.title || "Certificate image");
+    });
+
     const image = document.createElement("img");
     image.src = entry.image;
     image.alt = entry.title;
+    previewButton.appendChild(image);
 
-    const anchor = document.createElement("a");
-    anchor.href = entry.link;
-    anchor.target = "_blank";
-    anchor.rel = "noopener noreferrer";
-    anchor.textContent = entry.title;
+    const title = document.createElement("p");
+    title.className = "cert-title";
+    title.textContent = entry.title;
 
-    card.append(image, anchor);
+    card.append(previewButton, title);
     elements.certGrid.appendChild(card);
   });
 }

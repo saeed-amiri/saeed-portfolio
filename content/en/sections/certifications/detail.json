@@ -12,8 +12,16 @@
       "alt": "MLOps Engineer"
     },
     {
+      "src": "assets/cert-mlops-Sorbonne.png",
+      "alt": "MLOps Engineer (Sorbonne)"
+    },
+    {
       "src": "assets/cert-ml.png",
       "alt": "ML Engineer"
+    },
+    {
+      "src": "assets/cert-ml-Sorbonne.png",
+      "alt": "ML Engineer (Sorbonne)"
     },
     {
       "src": "assets/cert-kubernetes.png",
