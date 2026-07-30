@@ -19,6 +19,28 @@ function dirname(path) {
   return index === -1 ? "" : path.slice(0, index);
 }
 
+function normalizeRelativePath(path) {
+  const normalized = path.replace(/\\/g, "/");
+  const segments = [];
+
+  for (const segment of normalized.split("/")) {
+    if (!segment || segment === ".") {
+      continue;
+    }
+
+    if (segment === "..") {
+      if (segments.length > 0) {
+        segments.pop();
+      }
+      continue;
+    }
+
+    segments.push(segment);
+  }
+
+  return segments.join("/");
+}
+
 function isAbsoluteOrExternalPath(path) {
   return (
     path.startsWith("/") ||
@@ -40,7 +62,7 @@ function resolveJsonPath(path, filePath) {
 
   // Treat bare filenames and explicit relative paths as JSON-file-relative.
   if (!path.includes("/") || path.startsWith("./") || path.startsWith("../")) {
-    return joinPath(dirname(filePath), path);
+    return normalizeRelativePath(joinPath(dirname(filePath), path));
   }
 
   return path;
@@ -174,6 +196,24 @@ async function fetchJsonWithResolvedMedia(path) {
   return resolveMediaPaths(payload, path);
 }
 
+async function loadTimelineDetail(basePath, sectionConfig, id) {
+  const detailPath = joinPath(basePath, `${sectionConfig.itemsDir}/${id}/detail.json`);
+
+  try {
+    const payload = await fetchJsonWithResolvedMedia(detailPath);
+
+    if (payload && typeof payload === "object" && typeof payload.sharedFrom === "string" && payload.sharedFrom) {
+      const sharedPath = resolveJsonPath(payload.sharedFrom, detailPath);
+      return fetchJsonWithResolvedMedia(sharedPath);
+    }
+
+    return payload;
+  } catch {
+    // Allow missing detail files for entries that do not need a modal.
+    return null;
+  }
+}
+
 async function loadTimelineSection(basePath, sectionConfig) {
   const ids = await fetchJson(joinPath(basePath, sectionConfig.index));
   const entries = await Promise.all(ids.map((id) => {
@@ -184,12 +224,7 @@ async function loadTimelineSection(basePath, sectionConfig) {
   const details = {};
   await Promise.all(
     ids.map(async (id) => {
-      try {
-        const detailPath = joinPath(basePath, `${sectionConfig.itemsDir}/${id}/detail.json`);
-        details[id] = await fetchJsonWithResolvedMedia(detailPath);
-      } catch {
-        // Allow missing detail files for entries that do not need a modal.
-      }
+      details[id] = await loadTimelineDetail(basePath, sectionConfig, id);
     })
   );
 
