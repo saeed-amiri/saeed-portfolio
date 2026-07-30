@@ -1,11 +1,3 @@
 {
-  "title": "Doctoral Researcher",
-  "summary": "Georg-August-Universität Göttingen, Institut für Materialphysik (May 2018 - Oct 2021)",
-  "bullets": [
-    "Modeled atomic-scale friction systems using Python and C on HLRN HPC clusters.",
-    "Improved computational efficiency by 10% via constraint monitoring and automated cleanup.",
-    "Reduced memory usage by 60% through optimized data structures and on-the-fly processing."
-  ],
-  "images": [],
-  "links": []
+  "sharedFrom": "../../../education/items/edu-phd-theoretical-physics/detail.json"
 }
