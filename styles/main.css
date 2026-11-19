@@ -63,16 +63,19 @@ img {
 }
 
 .site-header {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   z-index: 10;
-  border-bottom: 1px solid rgba(32, 35, 34, 0.1);
-  background: rgba(250, 249, 246, 0.94);
+  border: 0;
+  background: transparent;
 }
 
 .topbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   width: min(1440px, 100%);
   min-height: 88px;
   margin: 0 auto;
@@ -81,13 +84,7 @@ img {
 }
 
 .brand {
-  flex: 0 0 auto;
-  color: var(--text);
-  font-family: var(--serif);
-  font-size: 1.45rem;
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  text-decoration: none;
+  display: none;
 }
 
 .controls {
@@ -1067,22 +1064,32 @@ h1 {
   .topbar {
     min-height: 74px;
     align-items: flex-start;
+    justify-content: flex-end;
     padding: 1rem 1.25rem;
   }
 
   .brand {
-    margin-top: 0.15rem;
-    font-size: 1.25rem;
+    display: none;
   }
 
   .controls {
-    max-width: 68%;
-    gap: 0.6rem 0.9rem;
+    position: relative;
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 112px;
+    gap: 0;
+    padding: 0.2rem 0.65rem;
+    background: transparent;
   }
 
   .controls a,
   .controls button {
-    font-size: 0.7rem;
+    display: block;
+    padding: 0.55rem 0.2rem;
+    border-bottom: 1px solid rgba(32, 35, 34, 0.1);
+    font-size: 0.68rem;
+    line-height: 1;
+    text-align: right;
   }
 
   .controls .nav-divider {
@@ -1090,7 +1097,10 @@ h1 {
   }
 
   .controls .nav-cta {
-    padding: 0.35rem 0.5rem;
+    margin-top: 0.35rem;
+    padding: 0.5rem 0.35rem;
+    border-bottom-color: var(--text);
+    text-align: center;
   }
 
   .hero {
@@ -1170,17 +1180,19 @@ h1 {
 
 @media (max-width: 460px) {
   .site-header {
-    position: static;
+    position: absolute;
   }
 
   .topbar {
-    display: block;
+    display: flex;
+    min-height: 0;
+    padding: 0.75rem;
   }
 
   .controls {
     justify-content: flex-start;
-    max-width: none;
-    margin-top: 0.75rem;
+    max-width: 104px;
+    margin-top: 0;
   }
 
   h1 {
@@ -1258,6 +1270,7 @@ h1 {
   }
 
   .site-header {
+    position: static;
     border-bottom: 1px solid var(--line);
   }
 
