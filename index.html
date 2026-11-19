@@ -20,86 +20,126 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Space+Grotesk:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles/main.css?v=20260404-2" />
-    <style>
-      #brandName {
-        font-family: "Pinyon Script", "Brush Script MT", cursive !important;
-        font-size: 2rem !important;
-        font-weight: 400 !important;
-        letter-spacing: 0.01em !important;
-      }
-    </style>
   </head>
-  <body>
-    <div class="bg-shape bg-shape-1" aria-hidden="true"></div>
-    <div class="bg-shape bg-shape-2" aria-hidden="true"></div>
-
-    <header class="topbar">
-      <div class="brand" id="brandName">Saeed Amiri</div>
-      <nav class="controls" aria-label="Language and actions">
-        <a class="chip" href="pages/projects.html">Ongoing Projects</a>
-        <a class="chip" href="pages/about.html" id="aboutNavLink">About Me</a>
-        <button class="chip" id="langEn" type="button">English</button>
-        <button class="chip" id="langDe" type="button">Deutsch</button>
-        <button class="chip accent" id="downloadPdf" type="button">Download PDF</button>
-      </nav>
+  <body class="page-cv">
+    <header class="site-header">
+      <div class="topbar">
+        <a class="brand" id="brandName" href="#cvRoot">Saeed Amiri</a>
+        <nav class="controls" aria-label="Primary navigation">
+          <a href="pages/projects.html">Projects</a>
+          <a href="#experienceSection">CV</a>
+          <a href="pages/about.html" id="aboutNavLink">About Me</a>
+          <span class="nav-divider" aria-hidden="true"></span>
+          <button id="langEn" type="button" aria-label="Switch to English">EN</button>
+          <button id="langDe" type="button" aria-label="Switch to German">DE</button>
+          <button class="nav-cta" id="downloadPdf" type="button">Download CV</button>
+        </nav>
+      </div>
     </header>
 
-    <main class="layout" id="cvRoot">
-      <aside class="profile-card reveal">
-        <img
-          id="profilePhoto"
-          src="assets/profile-placeholder.svg"
-          alt="Profile photo"
-          class="profile-photo"
-        />
-        <h1 id="fullName">Saeed Amiri</h1>
-        <p id="headline" class="headline"></p>
-        <p id="location" class="meta"></p>
-        <a id="contactEmail" class="contact-link" href="#">email@example.com</a>
-        <a id="linkedin" class="contact-link" href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a id="github" class="contact-link" href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a id="openToWorkLink" class="action-link profile-cta" href="mailto:sdamiri7@gmail.com?subject=Collaboration%20Opportunity">Open to Collaboration</a>
-      </aside>
-
-      <section class="content reveal" id="contentRoot">
-        <section class="panel" id="bioSection" data-section-key="bio" data-detail-key="bio">
-          <h2 id="bioTitle"></h2>
-          <p id="bioText"></p>
-        </section>
-
-        <section class="panel" id="educationSection" data-section-key="education" data-detail-key="education">
-          <h2 id="educationTitle"></h2>
-          <div id="educationList" class="timeline"></div>
-        </section>
-
-        <section class="panel" id="experienceSection" data-section-key="experience" data-detail-key="experience">
-          <h2 id="experienceTitle"></h2>
-          <div id="experienceList" class="timeline"></div>
-        </section>
-
-        <section class="panel" id="skillsSection" data-section-key="skills" data-detail-key="skills">
-          <h2 id="skillsTitle"></h2>
-          <div id="skillsList" class="skills-list"></div>
-        </section>
-
-        <section class="panel" id="trainingsSection" data-section-key="trainings" data-detail-key="trainings">
-          <h2 id="trainingsTitle"></h2>
-          <div id="trainingsList" class="timeline"></div>
-        </section>
-
-        <section class="panel" id="certSection" data-section-key="certifications" data-detail-key="certifications">
-          <h2 id="certTitle"></h2>
-          <div id="certGrid" class="cert-grid"></div>
-        </section>
+    <main id="cvRoot">
+      <section class="hero reveal" aria-labelledby="fullName">
+        <div class="hero-portrait">
+          <img
+            id="profilePhoto"
+            src="assets/profile-placeholder.svg"
+            alt="Profile photo"
+            class="profile-photo"
+          />
+        </div>
+        <div class="hero-copy">
+          <p class="eyebrow" id="heroEyebrow">Machine Learning · MLOps · Scientific Computing</p>
+          <h1 id="fullName">Saeed Amiri</h1>
+          <p id="headline" class="hero-headline"></p>
+          <p class="hero-statement" id="heroStatement">
+            I turn complex scientific data and machine-learning models into reliable production systems.
+          </p>
+          <p id="location" class="meta"></p>
+          <div class="hero-links">
+            <a id="contactEmail" class="contact-link" href="#">email@example.com</a>
+            <a id="linkedin" class="contact-link" href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a id="github" class="contact-link" href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+          <div class="hero-actions">
+            <a class="action-primary" id="viewProjectsLink" href="pages/projects.html">View selected projects</a>
+            <a id="openToWorkLink" class="action-secondary" href="mailto:sdamiri7@gmail.com?subject=Collaboration%20Opportunity">Open to Collaboration</a>
+          </div>
+        </div>
+        <a class="hero-scroll" href="#contentRoot" aria-label="Continue to portfolio content">
+          <span>Explore</span>
+          <span aria-hidden="true">↓</span>
+        </a>
       </section>
 
-      <aside class="section-rail" id="sectionRail" aria-label="Section navigation">
-        <ul id="sectionRailList"></ul>
-      </aside>
+      <div class="editorial-layout">
+        <section class="content reveal" id="contentRoot">
+          <section class="editorial-section intro-section" id="bioSection" data-section-key="bio" data-detail-key="bio">
+            <p class="section-kicker" id="bioKicker">Profile</p>
+            <h2 id="bioTitle"></h2>
+            <p id="bioText"></p>
+          </section>
+
+          <section class="project-showcase" aria-labelledby="selectedProjectsTitle">
+            <p class="section-kicker">Selected work</p>
+            <div class="project-showcase-heading">
+              <h2 id="selectedProjectsTitle">Production-focused projects</h2>
+              <a href="pages/projects.html">All projects <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="project-preview-grid">
+              <a class="project-preview-card" href="pages/projects.html?open=project:german-load-forecast#featured-projects">
+                <span class="project-preview-index">01</span>
+                <strong>German Load Forecast</strong>
+                <p>Reproducible forecasting, scheduled inference, and operational observability.</p>
+                <span class="project-preview-link">Explore project →</span>
+              </a>
+              <a class="project-preview-card" href="pages/projects.html">
+                <span class="project-preview-index">02</span>
+                <strong>Monitoring &amp; Scientific Systems</strong>
+                <p>Data-intensive engineering shaped by research rigor and production reliability.</p>
+                <span class="project-preview-link">View portfolio →</span>
+              </a>
+            </div>
+          </section>
+
+          <section class="editorial-section" id="experienceSection" data-section-key="experience" data-detail-key="experience">
+            <p class="section-kicker" id="experienceKicker">Professional path</p>
+            <h2 id="experienceTitle"></h2>
+            <div id="experienceList" class="timeline"></div>
+          </section>
+
+          <section class="editorial-section" id="skillsSection" data-section-key="skills" data-detail-key="skills">
+            <p class="section-kicker" id="skillsKicker">Capabilities</p>
+            <h2 id="skillsTitle"></h2>
+            <div id="skillsList" class="skills-list"></div>
+          </section>
+
+          <section class="editorial-section" id="trainingsSection" data-section-key="trainings" data-detail-key="trainings">
+            <p class="section-kicker" id="trainingsKicker">Continuous learning</p>
+            <h2 id="trainingsTitle"></h2>
+            <div id="trainingsList" class="timeline"></div>
+          </section>
+
+          <section class="editorial-section" id="educationSection" data-section-key="education" data-detail-key="education">
+            <p class="section-kicker" id="educationKicker">Academic foundation</p>
+            <h2 id="educationTitle"></h2>
+            <div id="educationList" class="timeline"></div>
+          </section>
+
+          <section class="editorial-section" id="certSection" data-section-key="certifications" data-detail-key="certifications">
+            <p class="section-kicker" id="certificationsKicker">Credentials</p>
+            <h2 id="certTitle"></h2>
+            <div id="certGrid" class="cert-grid"></div>
+          </section>
+        </section>
+
+        <aside class="section-rail" id="sectionRail" aria-label="Section navigation">
+          <ul id="sectionRailList"></ul>
+        </aside>
+      </div>
     </main>
 
     <footer class="footer">
@@ -108,7 +148,7 @@
 
     <div class="modal-backdrop hidden" id="detailModalBackdrop" aria-hidden="true">
       <div class="detail-modal" id="detailModal" role="dialog" aria-modal="true" aria-labelledby="detailModalTitle">
-        <button class="modal-close" id="detailModalClose" type="button" aria-label="Close detail view">x</button>
+        <button class="modal-close" id="detailModalClose" type="button" aria-label="Close detail view">×</button>
         <h3 id="detailModalTitle"></h3>
         <div id="detailModalContent"></div>
       </div>
@@ -117,8 +157,12 @@
     <div class="image-lightbox-backdrop hidden" id="imageLightboxBackdrop" aria-hidden="true">
       <div class="image-lightbox" id="imageLightbox" role="dialog" aria-modal="true" aria-label="Expanded image view">
         <p class="image-lightbox-caption hidden" id="imageLightboxCaption"></p>
-        <button class="image-lightbox-close" id="imageLightboxClose" type="button" aria-label="Close image view">x</button>
-        <img id="imageLightboxImg" src="" alt="Expanded detail image" />
+        <button class="image-lightbox-close" id="imageLightboxClose" type="button" aria-label="Close image view">×</button>
+        <img
+          id="imageLightboxImg"
+          src=""
+          alt="Expanded detail image"
+        />
       </div>
     </div>
 
