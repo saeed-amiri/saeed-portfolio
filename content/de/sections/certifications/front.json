@@ -43,6 +43,18 @@
       "link": "assets/quantum.png"
     },
     {
+      "id": "cert-quantum-algorithms",
+      "title": "Fundamentals of Quantum Algorithms",
+      "image": "assets/qc_fundementals.png",
+      "link": "assets/qc_fundementals.png"
+    },
+    {
+      "id": "cert-quantum-information",
+      "title": "Basics of Quantum Information",
+      "image": "assets/qc_basics.png",
+      "link": "assets/qc_basics.png"
+    },
+    {
       "id": "cert-dft",
       "title": "DFT",
       "image": "assets/dft.png",

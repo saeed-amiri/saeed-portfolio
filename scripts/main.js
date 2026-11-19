@@ -216,9 +216,7 @@ function applyContent(raw) {
   elements.heroStatement.textContent = isGerman
     ? "Ich verwandle komplexe wissenschaftliche Daten und Machine-Learning-Modelle in zuverlässige produktive Systeme."
     : "I turn complex scientific data and machine-learning models into reliable production systems.";
-  elements.heroEyebrow.textContent = isGerman
-    ? "Machine Learning · MLOps · Wissenschaftliches Rechnen"
-    : "Machine Learning · MLOps · Scientific Computing";
+  elements.heroEyebrow.textContent = "MLOps · Scientific Computing · Quantum Computing";
   elements.viewProjectsLink.textContent = isGerman
     ? "Ausgewählte Projekte ansehen"
     : "View selected projects";
