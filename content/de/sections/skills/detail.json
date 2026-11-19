@@ -244,6 +244,16 @@
           ]
         },
         {
+          "id": "soft-skills",
+          "label": "Soft Skills",
+          "content": [
+            {
+              "type": "body",
+              "html": "<h2>Soft Skills</h2><p>Analytische Problemlösung · Selbstständige Forschung und Entwicklung · Kritisches Denken · Detailorientiertes Projektmanagement · Interdisziplinäre Zusammenarbeit · Abstimmung mit Stakeholdern und Teams · Kontinuierliches Lernen · Dokumentation und Reproduzierbarkeit</p>"
+            }
+          ]
+        },
+        {
           "id": "sprachen",
           "label": "Sprachen",
           "content": [
