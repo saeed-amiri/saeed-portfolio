@@ -204,6 +204,7 @@ function setLanguageButtonState() {
 function applyContent(raw) {
   const data = normalizeContent(raw);
   state.content = data;
+  const isGerman = state.lang === "de";
 
   document.documentElement.lang = state.lang;
   document.title = data.pageTitle;
@@ -212,6 +213,86 @@ function applyContent(raw) {
   elements.brandName.textContent = data.profile.name;
   elements.headline.textContent = data.profile.headline;
   elements.location.textContent = data.profile.location;
+  elements.heroStatement.textContent = isGerman
+    ? "Ich verwandle komplexe wissenschaftliche Daten und Machine-Learning-Modelle in zuverlässige produktive Systeme."
+    : "I turn complex scientific data and machine-learning models into reliable production systems.";
+  elements.heroEyebrow.textContent = "MLOps · Scientific Computing · Quantum Computing";
+  elements.viewProjectsLink.textContent = isGerman
+    ? "Ausgewählte Projekte ansehen"
+    : "View selected projects";
+
+  const sectionKickerCopy = isGerman
+    ? {
+        bio: "Profil",
+        experience: "Beruflicher Werdegang",
+        skills: "Kompetenzen",
+        trainings: "Weiterlernen",
+        education: "Akademische Grundlage",
+        certifications: "Qualifikationen",
+      }
+    : {
+        bio: "Profile",
+        experience: "Professional path",
+        skills: "Capabilities",
+        trainings: "Continuous learning",
+        education: "Academic foundation",
+        certifications: "Credentials",
+      };
+
+  Object.entries(elements.sectionKickers).forEach(([key, element]) => {
+    if (element) {
+      element.textContent = sectionKickerCopy[key];
+    }
+  });
+
+  if (elements.projectShowcaseKicker) {
+    elements.projectShowcaseKicker.textContent = isGerman ? "Ausgewählte Projekte" : "Selected work";
+  }
+  if (elements.selectedProjectsTitle) {
+    elements.selectedProjectsTitle.textContent = isGerman
+      ? "Produktionsorientierte Projekte"
+      : "Production-focused projects";
+  }
+  if (elements.projectShowcaseLink) {
+    elements.projectShowcaseLink.textContent = isGerman ? "Alle Projekte ↗" : "All projects ↗";
+  }
+  if (elements.projectPreviewCards.length) {
+    const cardCopy = isGerman
+      ? [
+          [
+            "German Load Forecast",
+            "Reproduzierbare Prognosen, geplante Inferenz und operative Observability.",
+            "Projekt ansehen →",
+          ],
+          [
+            "Monitoring & wissenschaftliche Systeme",
+            "Datenintensives Engineering mit wissenschaftlicher Präzision und Produktionsfokus.",
+            "Portfolio ansehen →",
+          ],
+        ]
+      : [
+          [
+            "German Load Forecast",
+            "Reproducible forecasting, scheduled inference, and operational observability.",
+            "Explore project →",
+          ],
+          [
+            "Monitoring & Scientific Systems",
+            "Data-intensive engineering shaped by research rigor and production reliability.",
+            "View portfolio →",
+          ],
+        ];
+
+    elements.projectPreviewCards.forEach((card, index) => {
+      const [title, summary, linkLabel] = cardCopy[index] || [];
+      const titleNode = card.querySelector("strong");
+      const summaryNode = card.querySelector("p");
+      const linkNode = card.querySelector(".project-preview-link");
+      if (titleNode && title) titleNode.textContent = title;
+      if (summaryNode && summary) summaryNode.textContent = summary;
+      if (linkNode && linkLabel) linkNode.textContent = linkLabel;
+    });
+  }
 
   elements.contactEmail.href = `mailto:${data.profile.email}`;
   elements.contactEmail.textContent = data.profile.email;
@@ -223,7 +304,7 @@ function applyContent(raw) {
   elements.github.textContent = data.labels.github;
 
   if (elements.openToWorkLink) {
-    const defaultLabel = state.lang === "de" ? "Offen fur Zusammenarbeit" : "Open to Collaboration";
+    const defaultLabel = state.lang === "de" ? "Offen für Zusammenarbeit" : "Open to Collaboration";
     const subject = state.lang === "de" ? "Anfrage zur Zusammenarbeit" : "Collaboration Opportunity";
     elements.openToWorkLink.textContent = data.labels.openToRoles || defaultLabel;
     elements.openToWorkLink.href = `mailto:${data.profile.email}?subject=${encodeURIComponent(subject)}`;
@@ -233,7 +314,7 @@ function applyContent(raw) {
   elements.profilePhoto.alt = data.labels.profilePhotoAlt;
 
   if (elements.aboutNavLink) {
-    elements.aboutNavLink.textContent = state.lang === "de" ? "Uber mich" : "About Me";
+    elements.aboutNavLink.textContent = state.lang === "de" ? "Über mich" : "About Me";
   }
 
   elements.bioTitle.textContent = data.labels.bio;
@@ -313,7 +394,7 @@ function setupEvents() {
           {
             type: "summary",
             text: isGerman
-              ? "Offen fur Zusammenarbeit, projektbasierte Arbeit und passende Rollen in Daten, ML und Software."
+              ? "Offen für Zusammenarbeit, projektbasierte Arbeit und passende Rollen in Daten, ML und Software."
               : "Open to collaboration, project-based work, and suitable roles across data, ML, and software.",
           },
           {
@@ -321,7 +402,7 @@ function setupEvents() {
             items: isGerman
               ? [
                   "Ich arbeite gerne in Teams, die robuste, wartbare und reproduzierbare Daten- und ML-Systeme bauen.",
-                  "Als Physiker arbeite ich besonders gerne an Projekten mit Modellierung, Simulation und datengetriebener Entscheidungsunterstutzung.",
+                  "Als Physiker arbeite ich besonders gerne an Projekten mit Modellierung, Simulation und datengetriebener Entscheidungsunterstützung.",
                   "Besonders motivieren mich Projekte mit klarem Product-Impact: von Datenpipelines bis zu produktionsnaher Inferenz.",
                   "Ich engagiere mich gerne auch in Volunteer- und Community-Projekten mit Datenbezug.",
                 ]

@@ -1,372 +1,619 @@
-/* What: Global design tokens. Why: centralize theme values for consistent styling and quick future edits. */
+/* Shared editorial design tokens */
 :root {
-  --bg: #f6f3ee;
-  --paper: #fffdf8;
-  --text: #1f1b16;
-  --muted: #6f655b;
-  --accent: #c44c28;
-  --accent-soft: #f2d3c8;
-  --line: #dfd4c5;
-  --shadow: 0 16px 32px rgba(45, 32, 20, 0.08);
+  --bg: #f5f4f1;
+  --paper: #faf9f6;
+  --paper-strong: #fff;
+  --text: #202322;
+  --muted: #68716d;
+  --accent: #ad4f32;
+  --accent-dark: #81371f;
+  --accent-soft: #ead8d0;
+  --line: #d8d8d2;
+  --shadow: 0 20px 54px rgba(37, 38, 35, 0.09);
+  --serif: "Source Serif 4", Georgia, serif;
+  --sans: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
 }
 
-/* What: Universal sizing model. Why: keep width/height calculations predictable across all elements. */
 * {
   box-sizing: border-box;
 }
 
-/* What: Base page look and typography. Why: establish overall visual identity and layered background atmosphere. */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6.5rem;
+}
+
 body {
-  margin: 0;
   min-height: 100vh;
+  margin: 0;
   color: var(--text);
-  font-family: "Space Grotesk", sans-serif;
-  background:
-    radial-gradient(circle at 12% 10%, #f6d9b9 0%, transparent 40%),
-    radial-gradient(circle at 90% 90%, #e9d7ef 0%, transparent 42%),
-    var(--bg);
+  background: var(--bg);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
 }
 
-/* What: Shared decorative blob behavior. Why: keep background accents fixed and behind content. */
-.bg-shape {
-  position: fixed;
-  border-radius: 999px;
-  z-index: -1;
-  filter: blur(2px);
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* What: Top-right accent blob. Why: add warm visual depth without distracting from content. */
-.bg-shape-1 {
-  width: 22rem;
-  height: 22rem;
-  top: -7rem;
-  right: -4rem;
-  background: rgba(196, 76, 40, 0.13);
+a {
+  color: inherit;
 }
 
-/* What: Bottom-left accent blob. Why: balance composition and avoid a flat page background. */
-.bg-shape-2 {
-  width: 20rem;
-  height: 20rem;
-  bottom: -8rem;
-  left: -5rem;
-  background: rgba(24, 119, 95, 0.13);
-}
-
-/* What: Header container layout. Why: align brand and action controls with consistent max width. */
-.topbar {
-  max-width: 1100px;
-  margin: 1.4rem auto;
-  padding: 0 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/* What: Brand text emphasis. Why: strengthen personal identity at first glance. */
-.brand {
-  font-family: "Pinyon Script", "Brush Script MT", cursive;
-  font-size: 2rem;
-  font-weight: 400;
-  letter-spacing: 0.01em;
-}
-
-#brandName {
-  font-family: "Pinyon Script", "Brush Script MT", cursive !important;
-  font-size: 2rem;
-  font-weight: 400;
-  letter-spacing: 0.01em !important;
-}
-
-/* What: Action controls row. Why: keep language and PDF buttons organized and wrap safely on small widths. */
-.controls {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-
-/* What: Base style for pill buttons. Why: provide a clean reusable control component. */
-.chip {
-  border: 1px solid var(--line);
-  background: var(--paper);
-  color: var(--text);
-  border-radius: 999px;
-  padding: 0.5rem 0.9rem;
-  cursor: pointer;
+button,
+input,
+textarea,
+select {
   font: inherit;
 }
 
-/* What: Active language state. Why: clearly show which locale is currently selected. */
-.chip.active {
-  border-color: var(--accent);
+img {
+  max-width: 100%;
+}
+
+::selection {
+  color: #fff;
+  background: var(--accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.site-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  border: 0;
+  background: transparent;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: min(1440px, 100%);
+  min-height: 88px;
+  margin: 0 auto;
+  padding: 1rem clamp(1.25rem, 4vw, 4.5rem);
+  gap: 2rem;
+}
+
+.brand {
+  display: none;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: clamp(0.9rem, 1.8vw, 1.75rem);
+}
+
+.controls a,
+.controls button {
+  padding: 0.25rem 0;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.controls a:hover,
+.controls a.active,
+.controls button:hover,
+.controls button.active {
+  color: var(--text);
+}
+
+.controls a.active {
+  box-shadow: inset 0 -1px currentColor;
+}
+
+.controls .nav-divider {
+  width: 1px;
+  height: 1.2rem;
+  background: var(--line);
+}
+
+.controls .nav-cta {
+  padding: 0.65rem 0.9rem;
+  border: 1px solid var(--text);
+  color: var(--text);
+}
+
+.controls .nav-cta:hover {
+  background: var(--text);
+  color: #fff;
+}
+
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(360px, 0.92fr) minmax(430px, 1.08fr);
+  min-height: min(780px, calc(100vh - 88px));
+  overflow: hidden;
+  background: #eeede9;
+}
+
+.hero-portrait {
+  position: relative;
+  min-height: 650px;
+  overflow: hidden;
+  background: #d9d8d3;
+}
+
+.hero-portrait::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 68%, rgba(238, 237, 233, 0.94) 100%);
+  content: "";
+  pointer-events: none;
+}
+
+.profile-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 650px;
+  object-fit: cover;
+  object-position: center 30%;
+  filter: saturate(0.82) contrast(0.97);
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 690px;
+  padding: 5rem clamp(2rem, 6vw, 7rem) 6rem;
+}
+
+.eyebrow,
+.section-kicker {
+  margin: 0 0 1.15rem;
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  overflow-wrap: anywhere;
+}
+
+h1 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(3.4rem, 6vw, 6.6rem);
+  font-weight: 400;
+  letter-spacing: -0.055em;
+  line-height: 0.95;
+}
+
+.hero-headline {
+  max-width: 580px;
+  margin: 1.8rem 0 0;
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: clamp(1.35rem, 2vw, 1.9rem);
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.hero-statement {
+  max-width: 580px;
+  margin: 1.2rem 0 0;
+  color: var(--muted);
+  font-family: var(--serif);
+  font-size: clamp(1.05rem, 1.35vw, 1.28rem);
+  line-height: 1.65;
+}
+
+.headline,
+.meta {
+  color: var(--muted);
+}
+
+.hero-copy > .meta {
+  margin: 1.5rem 0 0;
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.hero-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-top: 0.9rem;
+}
+
+.contact-link {
+  color: var(--text);
+  font-size: 0.9rem;
+  text-underline-offset: 0.25rem;
+  text-decoration-color: transparent;
+  transition: text-decoration-color 160ms ease;
+}
+
+.contact-link:hover {
+  text-decoration-color: currentColor;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+
+.action-primary,
+.action-secondary,
+.action-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--text);
+  border-radius: 0;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  text-decoration: none;
+}
+
+.action-primary {
+  background: var(--text);
+  color: #fff;
+}
+
+.action-primary:hover {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+}
+
+.action-secondary,
+.action-link {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--line);
+}
+
+.action-secondary:hover,
+.action-link:hover {
+  border-color: var(--text);
   color: var(--accent);
 }
 
-/* What: Primary call-to-action variant. Why: make PDF button visually stronger than secondary controls. */
-.chip.accent {
-  background: var(--accent);
-  color: #fff;
-  border-color: var(--accent);
+.hero-copy > .action-primary {
+  margin-top: 2rem;
 }
 
-/* What: Main two-column page grid. Why: separate profile sidebar and content for fast scanning. */
-.layout {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 1rem 2rem;
+.hero-scroll {
+  position: absolute;
+  right: clamp(2rem, 4vw, 4.5rem);
+  bottom: 2rem;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.editorial-layout {
   display: grid;
-  grid-template-columns: 300px minmax(0, 1fr) 60px;
-  gap: 1rem;
+  grid-template-columns: minmax(0, 940px) 88px;
+  width: min(1120px, calc(100% - 2.5rem));
+  margin: 0 auto;
+  padding: clamp(5rem, 9vw, 9rem) 0;
+  gap: clamp(2rem, 5vw, 5rem);
   align-items: start;
 }
 
-/* What: Shared card shell for sidebar and sections. Why: enforce one visual system for all panels. */
-.profile-card,
+.content {
+  min-width: 0;
+}
+
+.editorial-section,
+.project-showcase,
 .panel {
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  box-shadow: var(--shadow);
+  position: relative;
+  padding: clamp(3rem, 6vw, 5rem) 0;
+  border-top: 1px solid var(--line);
+  background: transparent;
+  box-shadow: none;
 }
 
-/* What: Sidebar profile card behavior. Why: keep key identity/contact info visible while scrolling. */
-.profile-card {
-  padding: 1.1rem;
-  position: sticky;
-  top: 1rem;
-  height: fit-content;
+.editorial-section:first-child,
+.panel:first-child {
+  padding-top: 0;
+  border-top: 0;
 }
 
-/* What: Profile image sizing and framing. Why: keep portrait clean and aligned with card style. */
-.profile-photo {
-  width: 100%;
-  border-radius: 14px;
-  border: 1px solid var(--line);
-}
-
-/* What: Main name heading scale. Why: give clear visual priority to the person name. */
-h1 {
-  margin: 0.8rem 0 0.2rem;
-  font-size: 1.5rem;
-}
-
-/* What: Section heading scale. Why: keep hierarchy clear between page title and section titles. */
-h2 {
+.editorial-section > h2,
+.project-showcase h2,
+.panel > h2 {
   margin: 0;
-  font-size: 1.2rem;
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 4vw, 3.7rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
 }
 
-/* What: Supporting text style for subtitle/location. Why: reduce visual weight of secondary metadata. */
-.headline,
-.meta {
-  margin: 0.35rem 0;
+.editorial-section > p:not(.section-kicker),
+.panel > p {
+  max-width: 760px;
+  margin: 1.5rem 0 0;
   color: var(--muted);
+  font-family: var(--serif);
+  font-size: 1.08rem;
+  line-height: 1.75;
 }
 
-/* What: Contact link styling. Why: keep links readable while preserving a clean card appearance. */
-.contact-link {
-  display: block;
-  margin: 0.45rem 0;
+.intro-section > p:not(.section-kicker) {
+  color: var(--text);
+  font-size: clamp(1.12rem, 1.7vw, 1.34rem);
+  line-height: 1.75;
+}
+
+.section-heading-row,
+.timeline-heading-row,
+.project-showcase-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.project-showcase-heading > a {
+  flex: 0 0 auto;
+  margin-top: 0.7rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.project-showcase-heading > a:hover {
+  color: var(--accent);
+}
+
+.project-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 2.5rem;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+
+.project-preview-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 285px;
+  padding: clamp(1.5rem, 3vw, 2.4rem);
+  background: var(--paper);
   color: var(--text);
   text-decoration: none;
+  transition: background-color 180ms ease, color 180ms ease;
 }
 
-/* What: Hover affordance for links. Why: provide clear interactivity feedback. */
-.contact-link:hover {
-  text-decoration: underline;
+.project-preview-card:hover {
+  background: var(--text);
+  color: #fff;
 }
 
-/* What: Section stack container. Why: maintain consistent vertical spacing between CV blocks. */
-.content {
-  display: grid;
-  gap: 1rem;
+.project-preview-index {
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
 }
 
-/* What: Inner spacing for every panel. Why: keep text readable and balanced within cards. */
-.panel {
-  padding: 1.1rem;
+.project-preview-card strong {
+  max-width: 340px;
+  margin-top: auto;
+  font-family: var(--serif);
+  font-size: clamp(1.45rem, 2.5vw, 2rem);
+  font-weight: 400;
+  line-height: 1.15;
 }
 
-/* What: Section heading layout helper. Why: align title with detail trigger button for popup actions. */
-.section-heading-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.6rem;
-}
-
-/* What: Small detail-action button. Why: open richer section context without crowding the main section body. */
-.detail-trigger {
-  border: 1px solid var(--line);
-  background: #fff;
-  border-radius: 999px;
-  padding: 0.25rem 0.6rem;
+.project-preview-card p {
+  margin: 0.85rem 0 1.8rem;
   color: var(--muted);
-  font: inherit;
-  font-size: 0.82rem;
-  cursor: pointer;
+  font-family: var(--serif);
+  line-height: 1.55;
 }
 
-.detail-trigger:hover {
-  border-color: var(--accent);
+.project-preview-card:hover p {
+  color: #cfd0cd;
+}
+
+.project-preview-link {
   color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
-/* What: Body text typography rules. Why: improve long-text readability with serif and line height. */
-.panel p,
-.timeline p {
-  font-family: "Source Serif 4", serif;
-  font-size: 1.02rem;
-  line-height: 1.6;
+.project-preview-card:hover .project-preview-link {
+  color: #e8a890;
 }
 
-#bioText {
-  text-align: left;
-}
-
-/* What: Horizontal group for featured links. Why: keep key links compact and responsive. */
-.quick-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.7rem;
-  margin-top: 0.8rem;
-}
-
-/* What: Visual style for thesis/MLOps links. Why: make important links distinct from plain text. */
-.action-link {
-  text-decoration: none;
-  color: var(--accent);
-  border: 1px solid var(--accent-soft);
-  background: #fff;
-  border-radius: 12px;
-  padding: 0.55rem 0.8rem;
-  font: inherit;
-  line-height: 1;
-  cursor: pointer;
-}
-
-.profile-cta {
-  display: inline-flex;
-  margin-top: 0.65rem;
-}
-
-/* What: Timeline container spacing. Why: structure experience/education entries with consistent rhythm. */
 .timeline {
-  display: grid;
-  gap: 0.8rem;
-  margin-top: 0.8rem;
+  margin-top: 2.25rem;
 }
 
-/* What: Individual timeline item marker. Why: create a simple visual timeline cue. */
 .timeline-item {
-  border-left: 3px solid var(--accent-soft);
-  padding-left: 0.8rem;
+  display: block;
+  padding: 1.9rem 0;
+  border-top: 1px solid var(--line);
+  border-left: 0;
 }
 
-/* What: Timeline item heading reset. Why: prevent default margins from breaking card spacing. */
+.timeline-item:first-child {
+  border-top-color: var(--text);
+}
+
 .timeline-item h3 {
+  max-width: 690px;
   margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  font-weight: 500;
+  line-height: 1.25;
 }
 
 .timeline-role,
 .timeline-org {
   display: block;
-  font-size: calc(1em - 4px);
+  font-size: inherit;
 }
 
-.timeline-org {
-  font-weight: 500;
-}
-
-.timeline-heading-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.6rem;
-}
-
-/* What: Timeline period text style. Why: keep dates readable but visually secondary. */
-.timeline-item .period {
-  font-size: 0.9rem;
-  color: var(--muted);
-}
-
-/* What: Responsive certifications grid. Why: adapt card count to available width automatically. */
-.cert-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 0.8rem;
-  margin-top: 0.8rem;
-}
-
-/* What: Certification card shell. Why: frame each certificate preview consistently. */
-.cert-card {
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  overflow: hidden;
-  background: #fff;
-}
-
-.cert-image-trigger {
-  display: block;
-  width: 100%;
-  border: 0;
-  padding: 0;
-  background: transparent;
-  cursor: pointer;
-}
-
-/* What: Certificate image constraints. Why: keep grid uniform and avoid layout shift. */
-.cert-card img {
-  width: 100%;
-  height: 130px;
-  object-fit: cover;
-  display: block;
-}
-
-/* What: Certificate title area. Why: keep labels readable without adding navigation confusion. */
-.cert-title {
-  margin: 0;
-  padding: 0.65rem;
+.timeline-role {
   color: var(--text);
 }
 
-/* What: Skills chip layout. Why: make skills compact and clickable for evidence drill-down. */
-.skills-list {
+.timeline-org {
+  margin-top: 0.25rem;
+  color: var(--muted);
+  font-size: 0.82em;
+  font-weight: 400;
+}
+
+.timeline-item .period {
+  margin: 0.6rem 0 0;
+  color: var(--accent);
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.timeline-item > p:not(.period),
+.timeline-item > div > p:not(.period) {
+  max-width: 730px;
+  margin: 0.95rem 0 0;
+  color: var(--muted);
+  font-family: var(--serif);
+  font-size: 1.02rem;
+  line-height: 1.65;
+}
+
+.detail-trigger {
+  flex: 0 0 auto;
+  padding: 0.3rem 0;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  border-radius: 0;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.detail-trigger:hover {
+  color: var(--accent);
+}
+
+.quick-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.55rem;
-  margin-top: 0.8rem;
+  gap: 0.6rem;
+  margin-top: 1.1rem;
+}
+
+.quick-links .action-link {
+  min-height: 0;
+  padding: 0.5rem 0.65rem;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+}
+
+.skills-list {
+  margin-top: 2.25rem;
 }
 
 .skills-cv-list {
   display: grid;
-  gap: 0.75rem;
-  width: 100%;
+  gap: 0;
 }
 
 .skills-cv-row {
-  border-left: 3px solid var(--accent-soft);
-  padding-left: 0.75rem;
+  display: grid;
+  grid-template-columns: minmax(150px, 0.38fr) minmax(0, 1fr);
+  gap: 2rem;
+  padding: 1.4rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.skills-cv-row:first-child {
+  border-top-color: var(--text);
 }
 
 .skills-cv-title {
   margin: 0;
-  font-size: 0.98rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  text-transform: uppercase;
 }
 
 .skills-cv-text {
-  margin: 0.25rem 0 0;
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--serif);
+  line-height: 1.6;
 }
 
 .skill-chip {
+  padding: 0.52rem 0.8rem;
   border: 1px solid var(--line);
-  background: #fff;
+  border-radius: 0;
+  background: transparent;
   color: var(--text);
-  border-radius: 999px;
-  padding: 0.45rem 0.75rem;
-  font: inherit;
   cursor: pointer;
+}
+
+.skill-chip + .skill-chip {
+  margin-left: 0.45rem;
 }
 
 .skill-chip:hover {
@@ -374,407 +621,418 @@ h2 {
   color: var(--accent);
 }
 
-/* What: Right-side section rail container. Why: provide always-available section shortcuts with soft visual presence. */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 2.25rem;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.cert-card {
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background: var(--paper-strong);
+}
+
+.cert-image-trigger {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: #efefeb;
+  cursor: zoom-in;
+}
+
+.cert-card img {
+  display: block;
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  filter: saturate(0.88);
+  transition: transform 300ms ease, filter 300ms ease;
+}
+
+.cert-image-trigger:hover img {
+  transform: scale(1.025);
+  filter: saturate(1);
+}
+
+.cert-title {
+  min-height: 68px;
+  margin: 0;
+  padding: 0.9rem 1rem;
+  color: var(--text);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
 .section-rail {
-  grid-column: 3;
-  grid-row: 1;
   position: sticky;
-  top: 1rem;
-  align-self: start;
+  top: 2rem;
   justify-self: end;
 }
 
 .section-rail ul {
-  list-style: none;
-  margin: 0;
-  padding: 0.4rem;
   display: grid;
-  gap: 0.5rem;
-  border: 1px solid rgba(223, 212, 197, 0.7);
-  border-radius: 999px;
-  background: rgba(255, 253, 248, 0.55);
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
+  gap: 0.85rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .rail-link {
-  border: 0;
-  background: transparent;
-  color: var(--text);
-  cursor: pointer;
   position: relative;
   display: grid;
   place-items: center;
-  width: 2rem;
-  height: 2rem;
-  overflow: visible;
-  border-radius: 999px;
-  transition: opacity 180ms ease, background-color 180ms ease, transform 180ms ease;
-}
-
-.rail-link:hover {
-  background: rgba(196, 76, 40, 0.14);
-  transform: translateX(-1px);
-}
-
-.rail-link.active {
-  background: rgba(196, 76, 40, 0.2);
+  width: 1.6rem;
+  height: 1.6rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .rail-dot {
-  width: 0.46rem;
-  height: 0.46rem;
-  border-radius: 999px;
+  width: 0.34rem;
+  height: 0.34rem;
+  border-radius: 50%;
   background: currentColor;
+  opacity: 0.4;
+  transition: opacity 160ms ease, transform 160ms ease;
 }
 
-.rail-glyph {
-  font-size: 0.85rem;
-  line-height: 1;
-  font-weight: 700;
+.rail-link:hover .rail-dot,
+.rail-link.active .rail-dot {
+  opacity: 1;
+  transform: scale(1.45);
+}
+
+.rail-link.active {
+  color: var(--accent);
 }
 
 .rail-link-edge {
-  border: 1px solid rgba(196, 76, 40, 0.22);
-  background: rgba(196, 76, 40, 0.08);
+  border: 1px solid var(--line);
+  font-size: 0.75rem;
+}
+
+.rail-glyph {
+  line-height: 1;
 }
 
 .rail-label {
   position: absolute;
-  left: calc(100% + 0.55rem);
+  right: calc(100% + 0.6rem);
   top: 50%;
-  transform: translateY(-50%);
-  white-space: nowrap;
-  font-size: 0.78rem;
+  padding: 0.25rem 0.4rem;
   color: var(--text);
-  background: transparent;
-  border-radius: 999px;
-  padding: 0.1rem 0.25rem;
-  opacity: 0.5;
-  visibility: visible;
-  pointer-events: auto;
-  cursor: pointer;
+  background: var(--paper);
+  font-size: 0.72rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(4px, -50%);
   transition: opacity 150ms ease, transform 150ms ease;
-}
-
-.rail-link.active .rail-label {
-  opacity: 0.75;
 }
 
 .rail-link:hover .rail-label,
 .rail-link:focus-visible .rail-label {
   opacity: 1;
-  transform: translateY(-50%);
-}
-
-/* What: Shared hidden utility. Why: toggle modal visibility without DOM removal. */
-.hidden {
-  display: none;
-}
-
-/* What: Backdrop for detail modal. Why: focus user attention on deep-dive content. */
-.modal-backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 20;
-  background: rgba(20, 16, 12, 0.45);
-  display: grid;
-  place-items: center;
-  padding: 1rem;
-}
-
-.modal-backdrop.hidden {
-  display: none;
-}
-
-.detail-modal {
-  width: min(980px, 100%);
-  max-height: 92vh;
-  overflow: auto;
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  box-shadow: var(--shadow);
-  padding: 1rem;
-  position: relative;
-}
-
-.modal-close {
-  position: absolute;
-  top: 0.8rem;
-  right: 0.8rem;
-  border: 1px solid var(--line);
-  background: #fff;
-  color: var(--muted);
-  border-radius: 999px;
-  width: 2rem;
-  height: 2rem;
-  cursor: pointer;
-}
-
-.modal-close:hover {
-  color: var(--accent);
-  border-color: var(--accent);
-}
-
-#detailModalTitle {
-  margin: 0 2.2rem 0.7rem 0;
-}
-
-/* A modal image gives a user the ability to display a larger version of an image */
-.modal-images {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 0.65rem;
-  margin-top: 0.9rem;
-}
-
-.modal-images img {
-  width: 100%;
-  height: auto;
-  max-height: 30vh;
-  object-fit: contain;
-  border-radius: 10px;
-  border: 1px solid var(--line);
-  display: block;
-  cursor: zoom-in;
+  transform: translate(0, -50%);
 }
 
 .about-resource-block {
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .about-resource-block h4 {
   margin: 0;
-  font-size: 1rem;
+  font-family: var(--serif);
+  font-size: 1.45rem;
+  font-weight: 400;
 }
 
 .about-resource-block p {
-  margin: 0.45rem 0 0;
+  margin: 0.65rem 0 0;
+  color: var(--muted);
+  font-family: var(--serif);
+  line-height: 1.65;
 }
 
 .about-resource-list {
-  margin: 0.65rem 0 0;
-  padding-left: 1.1rem;
   display: grid;
-  gap: 0.35rem;
+  gap: 0;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.about-resource-list li {
+  padding: 0.9rem 0;
+  border-top: 1px solid var(--line);
 }
 
 .about-resource-list a {
-  color: var(--accent);
-  text-decoration: none;
+  color: var(--text);
+  text-underline-offset: 0.25rem;
 }
 
 .about-resource-list a:hover {
-  text-decoration: underline;
+  color: var(--accent);
 }
 
 .about-resource-note {
   color: var(--muted);
 }
 
+.modal-backdrop,
 .image-lightbox-backdrop {
   position: fixed;
   inset: 0;
   z-index: 30;
-  background: rgba(12, 10, 8, 0.78);
   display: grid;
   place-items: center;
-  padding: 1rem;
+  padding: 1.5rem;
+  background: rgba(26, 27, 25, 0.68);
 }
 
+.hidden,
+.modal-backdrop.hidden,
 .image-lightbox-backdrop.hidden {
   display: none;
 }
 
-.image-lightbox {
+.detail-modal {
   position: relative;
-  width: min(1200px, 96vw);
-  max-height: 92vh;
-  display: grid;
-  place-items: center;
+  width: min(920px, 100%);
+  max-height: min(88vh, 900px);
   overflow: auto;
-  padding: 2.75rem 0.75rem 0.75rem;
+  padding: clamp(1.5rem, 4vw, 3.5rem);
+  border: 0;
+  border-radius: 0;
+  background: var(--paper);
+  box-shadow: var(--shadow);
 }
 
-.image-lightbox-caption {
-  position: absolute;
-  left: 0;
-  right: 3.2rem;
-  bottom: calc(100% + 0.45rem);
-  margin: 0;
-  padding: 0.42rem 0.65rem;
-  text-align: center;
-  border-radius: 10px;
-  background: rgba(12, 10, 8, 0.66);
-  color: #fff;
-  font-size: 0.98rem;
-  line-height: 1.35;
-  z-index: 1;
-  pointer-events: none;
+.detail-modal h3 {
+  max-width: calc(100% - 3rem);
+  margin: 0 0 1.6rem;
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
 }
 
-.image-lightbox img {
-  max-width: 100%;
-  max-height: 90vh;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  background: rgba(0, 0, 0, 0.2);
-}
-
+.modal-close,
 .image-lightbox-close {
   position: absolute;
-  top: 0.55rem;
-  right: 0.55rem;
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  background: rgba(12, 10, 8, 0.8);
-  color: #fff;
-  border-radius: 999px;
-  width: 2rem;
-  height: 2rem;
-  cursor: pointer;
-}
-
-.image-lightbox-close:hover {
-  border-color: #fff;
-}
-
-.image-lightbox-toolbar {
-  position: absolute;
-  top: 0.55rem;
-  left: 0.55rem;
+  top: 1rem;
+  right: 1rem;
   z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.35rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.34);
-  background: rgba(12, 10, 8, 0.8);
-}
-
-.image-lightbox-zoom-button {
-  border: 1px solid rgba(255, 255, 255, 0.38);
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff;
-  border-radius: 999px;
-  min-width: 2rem;
-  height: 2rem;
-  padding: 0 0.55rem;
-  font: inherit;
-  line-height: 1;
-  cursor: pointer;
-}
-
-.image-lightbox-zoom-button:hover:not(:disabled) {
-  border-color: #fff;
-  background: rgba(255, 255, 255, 0.16);
-}
-
-.image-lightbox-zoom-button:disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
-}
-
-.image-lightbox-zoom-label {
-  min-width: 3.3rem;
-  text-align: center;
-  color: #fff;
-  font-size: 0.88rem;
-  font-weight: 600;
-}
-
-.modal-links {
   display: grid;
-  gap: 0.45rem;
-  margin-top: 0.9rem;
+  place-items: center;
+  width: 2.3rem;
+  height: 2.3rem;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--paper);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 1.2rem;
 }
 
-.modal-links a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-.modal-links a:hover {
-  text-decoration: underline;
+.modal-close:hover,
+.image-lightbox-close:hover {
+  border-color: var(--text);
 }
 
 .modal-body {
-  margin-top: 0.75rem;
   display: grid;
-  gap: 0.5rem;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.modal-body p,
+.detail-modal > p,
+.detail-modal li {
+  color: var(--muted);
+  font-family: var(--serif);
+  font-size: 1.02rem;
+  line-height: 1.7;
 }
 
 .modal-body p {
   margin: 0;
 }
 
-.detail-modal a {
-  color: var(--accent);
+.modal-body h1,
+.modal-body h2,
+.modal-body h3,
+.modal-body h4 {
+  margin: 1.4rem 0 0.25rem;
+  font-family: var(--serif);
+  font-weight: 500;
 }
 
-.detail-modal a:hover {
-  text-decoration: underline;
+.detail-modal ul {
+  padding-left: 1.25rem;
+}
+
+.detail-modal a {
+  color: var(--accent);
+  text-underline-offset: 0.2rem;
+}
+
+.modal-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.7rem;
+  margin-top: 1.4rem;
+}
+
+.modal-images img {
+  display: block;
+  width: 100%;
+  max-height: 38vh;
+  object-fit: contain;
+  border: 1px solid var(--line);
+  cursor: zoom-in;
+}
+
+.modal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1.2rem;
+  margin-top: 1.4rem;
 }
 
 .modal-tabs {
-  margin-top: 0.9rem;
+  margin-top: 1.6rem;
 }
 
 .modal-tab-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 0.7rem;
+  gap: 0.45rem;
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid var(--line);
 }
 
 .modal-tab-button {
-  border: 1px solid var(--line);
-  background: #fff;
+  padding: 0.65rem 0.2rem;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: transparent;
   color: var(--muted);
-  border-radius: 999px;
-  padding: 0.35rem 0.7rem;
-  font: inherit;
   cursor: pointer;
 }
 
-.modal-tab-button[aria-selected="true"] {
-  border-color: var(--accent);
-  color: var(--accent);
-  background: color-mix(in srgb, var(--accent) 8%, #fff);
+.modal-tab-button + .modal-tab-button {
+  margin-left: 1rem;
 }
 
-.modal-tab-button:focus-visible {
-  outline: 2px solid var(--accent-soft);
-  outline-offset: 2px;
+.modal-tab-button[aria-selected="true"] {
+  border-bottom-color: var(--accent);
+  color: var(--text);
 }
 
 .modal-tab-panel {
-  border-top: 1px solid var(--line);
-  padding-top: 0.25rem;
+  padding-top: 0.3rem;
 }
 
-/* What: Footer width and tone. Why: align with page grid while keeping low emphasis. */
+.image-lightbox-backdrop {
+  z-index: 40;
+  background: rgba(15, 15, 14, 0.9);
+}
+
+.image-lightbox {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: min(1200px, 96vw);
+  max-height: 92vh;
+  overflow: auto;
+  padding: 3.5rem 0.75rem 0.75rem;
+}
+
+.image-lightbox img {
+  width: auto;
+  max-width: 100%;
+  max-height: 86vh;
+  object-fit: contain;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.image-lightbox-caption {
+  position: absolute;
+  right: 4rem;
+  bottom: calc(100% + 0.45rem);
+  left: 0;
+  margin: 0;
+  color: #fff;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.image-lightbox-toolbar {
+  position: absolute;
+  top: 0.85rem;
+  left: 0.85rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.image-lightbox-zoom-button {
+  min-width: 2rem;
+  height: 2rem;
+  padding: 0 0.55rem;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: rgba(20, 20, 19, 0.72);
+  color: #fff;
+  cursor: pointer;
+}
+
+.image-lightbox-zoom-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.image-lightbox-zoom-label {
+  min-width: 3.3rem;
+  color: #fff;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
 .footer {
-  max-width: 1100px;
-  margin: 0 auto 2rem;
-  padding: 0 1rem;
+  width: min(1120px, calc(100% - 2.5rem));
+  margin: 0 auto;
+  padding: 2rem 0 3rem;
+  border-top: 1px solid var(--line);
   color: var(--muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
 }
 
-/* What: Entry animation hook. Why: add subtle perceived polish during page load. */
 .reveal {
-  animation: revealUp 540ms ease both;
+  animation: reveal-up 520ms ease both;
 }
 
-/* What: Upward fade keyframes. Why: provide gentle motion without being distracting. */
-@keyframes revealUp {
+@keyframes reveal-up {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
@@ -782,79 +1040,314 @@ h2 {
   }
 }
 
-/* What: Tablet/mobile layout adjustments. Why: collapse to one column for narrow screens. */
-@media (max-width: 900px) {
-  /* What: Single-column content flow. Why: improve readability and avoid cramped sidebars on mobile. */
-  .layout {
-    grid-template-columns: 1fr;
+@media (max-width: 1050px) {
+  .hero {
+    grid-template-columns: 0.9fr 1.1fr;
   }
 
-  /* What: Disable sticky sidebar on small screens. Why: prevent awkward scroll behavior on mobile. */
-  .profile-card {
-    position: static;
+  .hero-copy {
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+  }
+
+  .editorial-layout {
+    grid-template-columns: minmax(0, 1fr) 34px;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 760px) {
+  html {
+    scroll-padding-top: 1rem;
+  }
+
+  .topbar {
+    min-height: 74px;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 1rem 1.25rem;
+  }
+
+  .brand {
+    display: none;
+  }
+
+  .controls {
+    position: relative;
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 112px;
+    gap: 0;
+    padding: 0.2rem 0.65rem;
+    background: transparent;
+  }
+
+  .controls a,
+  .controls button {
+    display: block;
+    padding: 0.55rem 0.2rem;
+    border-bottom: 1px solid rgba(32, 35, 34, 0.1);
+    font-size: 0.68rem;
+    line-height: 1;
+    text-align: right;
+  }
+
+  .controls .nav-divider {
+    display: none;
+  }
+
+  .controls .nav-cta {
+    margin-top: 0.35rem;
+    padding: 0.5rem 0.35rem;
+    border-bottom-color: var(--text);
+    text-align: center;
+  }
+
+  .hero {
+    display: block;
+    min-height: auto;
+  }
+
+  .hero-portrait {
+    min-height: 52vh;
+    height: 52vh;
+  }
+
+  .hero-portrait::after {
+    background: linear-gradient(180deg, transparent 68%, rgba(238, 237, 233, 0.98) 100%);
+  }
+
+  .profile-photo {
+    min-height: 0;
+  }
+
+  .hero-copy {
+    max-width: none;
+    min-height: 430px;
+    padding: 3rem 1.25rem 4.5rem;
+  }
+
+  .hero-headline {
+    margin-top: 1.2rem;
+  }
+
+  .hero-scroll {
+    display: none;
+  }
+
+  .editorial-layout {
+    display: block;
+    width: min(100% - 2.5rem, 680px);
+    padding: 5rem 0;
   }
 
   .section-rail {
     display: none;
   }
+
+  .project-preview-grid,
+  .cert-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-preview-card {
+    min-height: 245px;
+  }
+
+  .cert-card img {
+    height: 230px;
+  }
+
+  .skills-cv-row {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+
+  .timeline-heading-row,
+  .project-showcase-heading {
+    align-items: flex-start;
+  }
+
+  .project-showcase-heading {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .footer {
+    width: calc(100% - 2.5rem);
+  }
 }
 
-/* What: Print-specific styles for PDF export. Why: produce a clean CV document without UI chrome. */
+@media (max-width: 460px) {
+  .site-header {
+    position: absolute;
+  }
+
+  .topbar {
+    display: flex;
+    min-height: 0;
+    padding: 0.75rem;
+  }
+
+  .controls {
+    justify-content: flex-start;
+    max-width: 104px;
+    margin-top: 0;
+  }
+
+  h1 {
+    font-size: clamp(3rem, 16vw, 4.1rem);
+  }
+
+  .hero-actions {
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .action-primary,
+  .action-secondary {
+    width: 100%;
+  }
+
+  .hero-links {
+    gap: 0.7rem 1rem;
+  }
+
+  .contact-link {
+    font-size: 0.82rem;
+  }
+
+  .timeline-heading-row {
+    display: block;
+  }
+
+  .timeline-heading-row .detail-trigger {
+    margin-top: 0.8rem;
+  }
+
+  .modal-backdrop,
+  .image-lightbox-backdrop {
+    padding: 0.75rem;
+  }
+
+  .detail-modal {
+    padding: 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 @media print {
-  /* Keep print output visually close to the on-screen design. */
   body {
-    background: var(--bg);
+    background: #fff;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
 
-  /* Hide UI/navigation and interactive overlays in print. */
-  .bg-shape,
-  .topbar,
-  .controls,
-  .footer,
+  .site-header .controls,
+  .hero-scroll,
+  .hero-actions,
   .section-rail,
+  .footer,
   .detail-trigger,
   .modal-backdrop,
-  .image-lightbox-backdrop {
+  .image-lightbox-backdrop,
+  .project-showcase {
     display: none;
   }
 
-  /* Use a compact two-column print layout to keep profile and first sections on page one. */
-  .layout {
-    grid-template-columns: 220px minmax(0, 1fr);
-    max-width: none;
-    padding: 0;
-    gap: 0.6rem;
-    align-items: start;
-  }
-
-  .profile-card {
+  .site-header {
     position: static;
-    top: auto;
-    padding: 0.75rem;
-    break-inside: avoid;
+    border-bottom: 1px solid var(--line);
   }
 
+  .topbar {
+    min-height: 0;
+    padding: 0.5rem 0;
+  }
+
+  .hero {
+    grid-template-columns: 170px minmax(0, 1fr);
+    min-height: 0;
+    margin-top: 1rem;
+    background: transparent;
+  }
+
+  .hero-portrait,
   .profile-photo {
-    max-height: 180px;
+    min-height: 0;
+    height: 210px;
+  }
+
+  .hero-copy {
+    min-height: 0;
+    padding: 0.5rem 0 0.5rem 1.5rem;
+  }
+
+  .hero-copy h1 {
+    font-size: 2.6rem;
+  }
+
+  .hero-headline {
+    margin-top: 0.65rem;
+    font-size: 1.1rem;
+  }
+
+  .hero-statement {
+    margin-top: 0.6rem;
+    font-size: 0.92rem;
+  }
+
+  .hero-links {
+    margin-top: 0.6rem;
+  }
+
+  .editorial-layout {
+    display: block;
     width: 100%;
-    object-fit: cover;
+    padding: 1.5rem 0 0;
   }
 
-  .content {
-    gap: 0.6rem;
-  }
-
+  .editorial-section,
   .panel {
-    break-inside: auto;
+    padding: 1.5rem 0;
+  }
+
+  .editorial-section > h2,
+  .panel > h2 {
+    font-size: 1.65rem;
+  }
+
+  .section-kicker {
+    margin-bottom: 0.6rem;
+  }
+
+  .timeline {
+    margin-top: 1rem;
   }
 
   .timeline-item {
     break-inside: avoid;
+    padding: 0.85rem 0;
   }
 
-  /* Remove certifications from print output. */
+  .timeline-item h3 {
+    font-size: 1rem;
+  }
+
   #certSection {
     display: none;
   }

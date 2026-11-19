@@ -41,6 +41,10 @@ const elements = {
   footer: document.getElementById("aboutFooter"),
   railList: document.getElementById("aboutRailList"),
   openToWorkLink: document.getElementById("aboutOpenToWorkLink"),
+  heroStatement: document.getElementById("aboutHeroStatement"),
+  heroEyebrow: document.getElementById("aboutHeroEyebrow"),
+  introKicker: document.getElementById("aboutIntroKicker"),
+  resourcesKicker: document.getElementById("aboutResourcesKicker"),
 };
 
 function setContactLink(anchor, href, label) {
@@ -334,6 +338,16 @@ function applyContent(data) {
   elements.location.textContent = data.profile?.location || "";
   elements.profilePhoto.src = resolveSectionMediaPath(data.profile?.photo || "../assets/profile-placeholder.svg");
   elements.profilePhoto.alt = data.profile?.photoAlt || "Profile photo";
+  elements.heroStatement.textContent =
+    state.lang === "de"
+      ? "Neugierig darauf, wie fundierte Ideen zu nützlichen und verlässlichen Systemen werden."
+      : "Curious about how rigorous ideas become useful, dependable systems.";
+  elements.heroEyebrow.textContent =
+    state.lang === "de" ? "Jenseits des Lebenslaufs" : "Beyond the CV";
+  elements.introKicker.textContent =
+    state.lang === "de" ? "Persönliche Perspektive" : "Personal perspective";
+  elements.resourcesKicker.textContent =
+    state.lang === "de" ? "Weiterführende Quellen" : "Further reading";
   setContactLink(
     elements.contactEmail,
     data.profile?.email ? `mailto:${data.profile.email}` : "",
@@ -351,7 +365,7 @@ function applyContent(data) {
   );
 
   if (elements.openToWorkLink) {
-    const defaultLabel = state.lang === "de" ? "Offen fur Zusammenarbeit" : "Open to Collaboration";
+    const defaultLabel = state.lang === "de" ? "Offen für Zusammenarbeit" : "Open to Collaboration";
     const subject = state.lang === "de" ? "Anfrage zur Zusammenarbeit" : "Collaboration Opportunity";
     elements.openToWorkLink.textContent = (data.labels && data.labels.openToRoles) || defaultLabel;
     elements.openToWorkLink.href = data.profile?.email
@@ -440,7 +454,7 @@ function setupEvents() {
           {
             type: "summary",
             text: isGerman
-              ? "Offen fur Zusammenarbeit, projektbasierte Arbeit und passende Rollen in Daten, ML und Software."
+              ? "Offen für Zusammenarbeit, projektbasierte Arbeit und passende Rollen in Daten, ML und Software."
               : "Open to collaboration, project-based work, and suitable roles across data, ML, and software.",
           },
           {
@@ -450,7 +464,7 @@ function setupEvents() {
                   "Ich arbeite gerne in Teams, die robuste, wartbare und reproduzierbare Daten- und ML-Systeme bauen.",
                   "Als Physiker motivieren mich besonders Projekte mit Modellierung, Simulation und quantitativer Analyse.",
                   "Ich steige gerne in Projekte ein, in denen Forschungstiefe und produktionsnahe Umsetzung zusammenkommen.",
-                  "Zusatzlich engagiere ich mich gerne in Volunteer- und Community-Projekten mit Datenbezug.",
+                  "Zusätzlich engagiere ich mich gerne in Volunteer- und Community-Projekten mit Datenbezug.",
                 ]
               : [
                   "I enjoy working with teams that build robust, maintainable, and reproducible data/ML systems.",

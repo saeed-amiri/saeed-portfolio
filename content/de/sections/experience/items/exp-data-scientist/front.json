@@ -1,7 +1,7 @@
 {
   "id": "exp-data-scientist",
   "role": "Data Scientist",
-  "org": "Universite Paris 1 Pantheon-Sorbonne (Liora)",
+  "org": "Université Paris 1 Panthéon-Sorbonne (Liora)",
   "period": "Sep 2025 - Dez 2025",
-  "summary": "Anomalieerkennungs-Workflows fur Automotive-CAN-Bus-Sicherheitsdaten (100M+ Records) entwickelt und evaluiert, inklusive Umgang mit starker Klassenimbalanz in uberwachten und Deep-Learning-Ansatzen."
+  "summary": "Workflows zur Anomalieerkennung für Automotive-CAN-Bus-Sicherheitsdaten (über 100 Millionen Datensätze) entwickelt und evaluiert, inklusive des Umgangs mit starker Klassenimbalanz bei überwachten und Deep-Learning-Ansätzen."
 }

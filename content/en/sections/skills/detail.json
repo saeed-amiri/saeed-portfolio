@@ -244,6 +244,16 @@
           ]
         },
         {
+          "id": "soft-skills",
+          "label": "Soft Skills",
+          "content": [
+            {
+              "type": "body",
+              "html": "<h2>Soft Skills</h2><p>Analytical problem-solving · Independent research and development · Critical thinking · Detail-oriented project management · Interdisciplinary collaboration · Stakeholder &amp; Team Alignment · Continuous learning · Documentation and reproducibility</p>"
+            }
+          ]
+        },
+        {
           "id": "languages",
           "label": "Languages",
           "content": [

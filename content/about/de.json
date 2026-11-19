@@ -1,6 +1,6 @@
 {
-  "pageTitle": "Saeed Amiri | Uber mich",
-  "tabLabel": "Uber mich",
+  "pageTitle": "Saeed Amiri | Über mich",
+  "tabLabel": "Über mich",
   "profile": {
     "name": "Saeed Amiri",
     "headline": "ML & MLOps Engineer | Data Scientist | Physiker (Dr. rer. nat.)",
@@ -11,8 +11,8 @@
     "github": "https://github.com/saeed-amiri",
     "photoAlt": "Profilfoto"
   },
-  "title": "Uber mich",
-  "intro": "Dies ist der persoenliche Teil meines Portfolios. Hier teile ich Motivation, Werte und den Hintergrund meiner Arbeit jenseits des klassischen Lebenslaufs.",
+  "title": "Über mich",
+  "intro": "Dies ist der persönliche Teil meines Portfolios. Hier teile ich Motivation, Werte und den Hintergrund meiner Arbeit jenseits des klassischen Lebenslaufs.",
   "sections": [
     {
       "id": "personlicher-weg",
@@ -35,7 +35,7 @@
       "id": "neben-der-arbeit",
       "title": "Abseits der Arbeit",
       "body": [
-        "Ich beschaeftige mich gern mit vertiefendem Lernen, technischen Notizen und Themen an der Schnittstelle von Wissenschaft, Engineering und Wirkung in der Praxis."
+        "Ich beschäftige mich gern mit vertiefendem Lernen, technischen Notizen und Themen an der Schnittstelle von Wissenschaft, Engineering und Wirkung in der Praxis."
       ],
 			"content": [
 		    {
@@ -56,11 +56,11 @@
   ],
   "resources": {
     "title": "Fachliche Quellen, denen ich folge",
-    "intro": "Diese Referenzen unterstuetzen mein kontinuierliches Lernen in Machine Learning, MLOps und zuverlaessiger Softwarebereitstellung.",
+    "intro": "Diese Referenzen unterstützen mein kontinuierliches Lernen in Machine Learning, MLOps und zuverlässiger Softwarebereitstellung.",
     "content": [
       {
         "type": "links",
-        "title": "Ausgewaehlte Quellen fuer kontinuierliches Lernen",
+        "title": "Ausgewählte Quellen für kontinuierliches Lernen",
         "description": "Eine kuratierte Auswahl an Open‑Source‑Ressourcen und Büchern, die meinen Ansatz für verlässliches Machine Learning und Software Engineering nachhaltig prägen.",
         "items": [
           {
@@ -95,5 +95,5 @@
     "railTop": "Top",
     "railBottom": "Unten"
   },
-  "footer": "Persoenliche Notizen und Werte. Getrennt vom druckbaren Lebenslauf."
+  "footer": "Persönliche Notizen und Werte. Getrennt vom druckbaren Lebenslauf."
 }
